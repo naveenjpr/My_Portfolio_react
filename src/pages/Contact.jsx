@@ -50,8 +50,8 @@ export default function Contact() {
             <FaMapMarkerAlt className="mr-1 text-blue-500 w-[50px]" />{" "}
             {/* Address icon */}
             <p>
-              H.No. 3583, Govind Rai Ji Ka Rasta, 4 Crossing, Chandpole Bazar,
-              Jaipur - 302001
+              H.No. 3583 Govind Rao Ji Ka Rasta,4 crossing ,infornt of narsingh bhawan,
+              Chandpole, Pink City, Jaipur, Rajasthan 302001
             </p>
           </div>
 

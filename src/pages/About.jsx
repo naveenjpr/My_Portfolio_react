@@ -1,5 +1,8 @@
 import React from "react"
 import image from "../assets/naveen-saini-resume-1_page-0001.webp"
+import certificateimage from "../assets/WhatsApp-Image-2024-09-07-at-19.00.24_e7f68667.jpg"
+import certificateimage2 from "../assets/WhatsApp-Image-2024-11-22-at-16.37.36_d9be250b.jpg"
+import certificateimage3 from "../assets/WhatsApp-Image-2025-01-30-at-10.48.44_5a1c7e89-1068x1536.jpg"
 
 export default function About() {
   return (
@@ -20,6 +23,26 @@ export default function About() {
           alt="About Me"
           className="w-full max-w-md lg:max-w-full rounded-lg shadow-lg"
         />
+        <div className="h-screen overflow-auto">
+          <h2 className="text-center text-[black] font-medium py-[10px]">
+            Our Certificate
+          </h2>
+          <img
+            src={certificateimage} // Replace `image` with your actual image source
+            alt="About Me"
+            className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+          />
+          <img
+            src={certificateimage2} // Replace `image` with your actual image source
+            alt="About Me"
+            className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+          />
+          <img
+            src={certificateimage3} // Replace `image` with your actual image source
+            alt="About Me"
+            className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+          />
+        </div>
       </div>
 
       {/* Content Section */}
