@@ -50,8 +50,8 @@ export default function Contact() {
             <FaMapMarkerAlt className="mr-1 text-blue-500 w-[50px]" />{" "}
             {/* Address icon */}
             <p>
-              H.No. 3583 Govind Rao Ji Ka Rasta,4 crossing ,infornt of narsingh bhawan,
-              Chandpole, Pink City, Jaipur, Rajasthan 302001
+              H.No. 3583 Govind Rao Ji Ka Rasta,4 crossing ,infornt of narsingh
+              bhawan, Chandpole, Pink City, Jaipur, Rajasthan 302001
             </p>
           </div>
 
@@ -75,7 +75,7 @@ export default function Contact() {
           </div>
           <div className="flex space-x-4">
             <a
-              href="https://web.whatsapp.com/" // Replace with your WhatsApp number
+              href="https://wa.me/8619916687" // Replace with your full WhatsApp number including country code
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition duration-300"

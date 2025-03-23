@@ -6,7 +6,7 @@ export default function Footer() {
       <p>© 2023 My Portfolio. All rights reserved.</p>
       <div className="flex space-x-4">
         <a
-          href="https://web.whatsapp.com/" // Replace with your WhatsApp number
+          href="https://wa.me/8619916687" // Replace with your full WhatsApp number including country code
           target="_blank"
           rel="noopener noreferrer"
         >
