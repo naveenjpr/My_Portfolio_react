@@ -7,7 +7,7 @@ export default function Contact() {
       <h2 className="text-4xl font-bold text-center mb-12">Contact Me</h2>
       <div className="grid grid-cols-1 lg:grid-cols-[60%_auto] gap-8">
         {/* Contact Form */}
-        <form className="bg-white p-8 rounded-lg shadow-lg">
+        <form className="bg-white p-8 rounded-lg shadow-lg text-[black]">
           <div className="mb-4">
             <label className="block text-lg mb-2 text-gray-800">Name</label>
             <input

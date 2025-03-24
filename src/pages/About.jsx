@@ -1,8 +1,8 @@
 import React from "react"
-import image from "../assets/naveen-saini-resume-1_page-0001.webp"
-import certificateimage from "../assets/WhatsApp-Image-2024-09-07-at-19.00.24_e7f68667.jpg"
-import certificateimage2 from "../assets/WhatsApp-Image-2024-11-22-at-16.37.36_d9be250b.jpg"
-import certificateimage3 from "../assets/WhatsApp-Image-2025-01-30-at-10.48.44_5a1c7e89-1068x1536.jpg"
+import image from "../assets/converted_1 (1).webp"
+import certificateimage from "../assets/converted_4.webp"
+import certificateimage2 from "../assets/converted_2.webp"
+import certificateimage3 from "../assets/converted_3 (1).webp"
 import resume from "../assets/naveen saini resume.pdf"
 
 export default function About() {
@@ -13,7 +13,7 @@ export default function About() {
         {/* Download CV Button */}
         <a
           href={resume} // Replace with the actual path to your CV file
-          download="John_Doe_CV.pdf" // Replace with your desired file name
+          download="naveen_cv.pdf" // Replace with your desired file name
           className="mt-6 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300"
         >
           Download My CV
