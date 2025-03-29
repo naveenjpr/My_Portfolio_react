@@ -4,14 +4,14 @@ export default function Portfolio() {
   const projects = [
     {
       id: 1,
-      title: "100 project series",
+      title: "100 project series (react.js)",
       description: "different type project create this series",
       technologies: ["", "React", "Tailwind CSS", "node js"],
       link: "https://100-react-next-project-list.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
       id: 2,
-      title: "ashapurna website clone",
+      title: "ashapurna website  (react.js)",
       description:
         "Ashapurna Buildcon – Real Estate Developer in Rajasthan” this is website clone",
       technologies: ["fronted:react", , "tailwind"],
@@ -19,14 +19,14 @@ export default function Portfolio() {
     },
     {
       id: 3,
-      title: "frank-and-ok website clone",
+      title: "frank-and-ok website  (next.js)",
       description: "This is clothing ecommerce website",
       technologies: ["Next.js", "Tailwind CSS", "node js"],
       link: "https://frank-and-ok.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
       id: 4,
-      title: "sphere constration",
+      title: "sphere constration (index.html)",
       description:
         "sphere_constration is One page website,LEADERS IN QUALITY CONSTRUCTION AND INFRASTRUCTURE”",
       technologies: [
@@ -42,7 +42,7 @@ export default function Portfolio() {
     },
     {
       id: 5,
-      title: "blog app",
+      title: "blog app (react.js) (Google firebase)",
       description:
         "this is a blog application that utilizes Firebase for authentication and possibly Firestore for data storage. Below is a breakdown of its key functionalities based on the provided files",
       technologies: [
@@ -52,7 +52,7 @@ export default function Portfolio() {
     },
     {
       id: 6,
-      title: "skydash-admin",
+      title: "skydash-admin (react.js)",
       description:
         " Course Management:Add or view courses available in the system.Media Management:Upload videos/slides for tutorials or presentations.Team Management:Add team members or view the list of current team members.User Management:View registered users for monitoring or administrative purposes.Search Bar API Integration",
       technologies: [
@@ -82,7 +82,7 @@ export default function Portfolio() {
     },
     {
       id: 9,
-      title: "E-Commerce Add to cart",
+      title: "E-Commerce Add to cart (react.js)",
       description:
         " The code provided is part of a React application that manages a shopping cart with product listing, cart management, and checkout functionalities. Here’s a detailed description of the main components and their behavior:",
       technologies: [
@@ -122,7 +122,7 @@ export default function Portfolio() {
     },
     {
       id: 13,
-      title: "Smart city mohali clone",
+      title: "Smart city mohali (index.html)",
       description:
         " The webpage is a comprehensive real estate project page that uses a combination of HTML, CSS, and likely JavaScript to create an interactive and visually appealing user experience. It includes various multimedia elements, forms, and external integrations to provide users with all the necessary information about the project",
       technologies: [
@@ -132,7 +132,7 @@ export default function Portfolio() {
     },
     {
       id: 14,
-      title: "contentholic website clone",
+      title: "contentholic website (index.html)",
       description:
         "This webpage is well-structured and provides comprehensive information about the company’s services, achievements, and contact details. It is designed to be user-friendly and visually appealing, with clear calls to action to engage potential clients",
       technologies: [

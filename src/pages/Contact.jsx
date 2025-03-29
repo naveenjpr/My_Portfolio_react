@@ -51,7 +51,7 @@ export default function Contact() {
             {/* Address icon */}
             <p>
               H.No. 3583 Govind Rao Ji Ka Rasta,4 crossing ,infornt of narsingh
-              bhawan, Chandpole, Pink City, Jaipur, Rajasthan 302001
+              bhawan, Chandpole bazaar, Pink City, Jaipur, Rajasthan 302001
             </p>
           </div>
 
