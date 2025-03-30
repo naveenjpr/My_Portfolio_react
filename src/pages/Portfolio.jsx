@@ -4,7 +4,7 @@ export default function Portfolio() {
   const projects = [
     {
       id: 1,
-      title: "100 project series (react.js)",
+      title: "100 project series (backend:node.js)+(frontend:react.js)",
       description: "different type project create this series",
       technologies: ["", "React", "Tailwind CSS", "node js"],
       link: "https://100-react-next-project-list.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
@@ -19,24 +19,23 @@ export default function Portfolio() {
     },
     {
       id: 3,
-      title: "frank-and-ok website  (next.js)",
+      title: "frank-and-ok website  (backend:node.js)+(frontend:next.js)",
       description: "This is clothing ecommerce website",
       technologies: ["Next.js", "Tailwind CSS", "node js"],
       link: "https://frank-and-ok.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
       id: 4,
-      title: "CURD OPERATION (node.js next .js)",
+      title: "CURD OPERATION (backend:node.js)+(frontend:next.js)",
       description: "using backend node.js api and frontend next framwork ",
       technologies: [
         "MVC",
         "Node.js api",
         "next.js",
         "api online using render platform plus vercel",
-        "https://curd-operation-next-js-online-api.vercel.app/",
       ],
 
-      link: "https://sphere-constration.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
+      link: "https://curd-operation-next-js-online-api.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
       id: 4,
