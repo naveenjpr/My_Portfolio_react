@@ -27,7 +27,7 @@ export default function Portfolio() {
     {
       id: 4,
       title: "CURD OPERATION (backend:node.js)+(frontend:next.js)",
-      description: "using backend node.js api and frontend next framwork ",
+      description: "using backend node.js api and frontend next.js Framework ",
       technologies: [
         "MVC",
         "Node.js api",
@@ -36,6 +36,32 @@ export default function Portfolio() {
       ],
 
       link: "https://curd-operation-next-js-online-api.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
+    },
+    {
+      id: 4,
+      title: "Login,Register,Profile (backend:node.js)+(frontend:next.js)",
+      description: "using backend node.js api and frontend next.js Framework show login,logout,register,profile ",
+      technologies: [
+        "MVC",
+        "Node.js api",
+        "next.js",
+        "api online using render platform plus vercel",
+      ],
+
+      link: "https://next-js-login-register-profile.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
+    },
+    {
+      id: 4,
+      title: "single or multiple image upload admin panel (backend:node.js)+(frontend:next.js)",
+      description: "using backend node.js api and frontend next.js Framework show single,multiple image upload admin panel logic",
+      technologies: [
+        "MVC",
+        "Node.js api",
+        "next.js",
+        "api online using render platform plus vercel",
+      ],
+
+      link: "https://next-js-image-upload.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
       id: 4,
