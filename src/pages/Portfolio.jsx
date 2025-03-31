@@ -27,7 +27,7 @@ export default function Portfolio() {
     {
       id: 4,
       title: "CURD OPERATION (backend:node.js)+(frontend:next.js)",
-      description: "using backend node.js api and frontend next.js Framework ",
+      description: "using backend node.js api and frontend next.js Framework curd operation means C-> Create,R-> Read, U-> Update, D->Delete",
       technologies: [
         "MVC",
         "Node.js api",
