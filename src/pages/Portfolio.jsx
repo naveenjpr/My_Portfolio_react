@@ -114,6 +114,44 @@ export default function Portfolio() {
     },
     {
       id: 7,
+      title:
+        "pagination using node.js api (backend:node.js)+(frontend:next.js)",
+      description:
+        "using backend node.js api and frontend next.js Framework show pagination logic using node.js api",
+      technologies: [
+        "MVC",
+        "Node.js api",
+        "next.js",
+        "api online using render platform plus vercel",
+      ],
+      github: {
+        frontend: "https://github.com/Gionee123/next.js-pagination",
+        backend: "https://github.com/Gionee123/node.js-pagination",
+      },
+
+      link: "https://next-js-pagination-gamma.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
+    },
+    {
+      id: 8,
+      title:
+        "search api node.js (backend:node.js)+(frontend:next.js)",
+      description:
+        "using backend node.js api and frontend next.js Framework search api found name,duration and other field",
+      technologies: [
+        "MVC",
+        "Node.js api",
+        "next.js",
+        "api online using render platform plus vercel",
+      ],
+      github: {
+        frontend: "https://github.com/Gionee123/next.js-search-api",
+        backend: "https://github.com/Gionee123/node.js-search-api",
+      },
+
+      link: "https://next-js-search-api.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
+    },
+    {
+      id: 7,
       title: "sphere constration (index.html)",
       description:
         "sphere_constration is One page website,LEADERS IN QUALITY CONSTRUCTION AND INFRASTRUCTURE”",
