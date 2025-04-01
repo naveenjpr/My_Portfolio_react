@@ -32,7 +32,8 @@ export default function Portfolio() {
       description: "This is clothing ecommerce website",
       technologies: ["Next.js", "Tailwind CSS", "node js"],
       github: {
-        frontend: "https://github.com/naveenjpr/FrankAndOak-nextjs-nodejs/tree/main/frankandoak",
+        frontend:
+          "https://github.com/naveenjpr/FrankAndOak-nextjs-nodejs/tree/main/frankandoak",
         backend: "https://github.com/naveenjpr/API-frank-And-Oak",
       },
       link: "https://frank-and-ok.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
@@ -49,7 +50,8 @@ export default function Portfolio() {
         "api online using render platform plus vercel",
       ],
       github: {
-        frontend: "https://github.com/Gionee123/curd-operation-next.js-online-api",
+        frontend:
+          "https://github.com/Gionee123/curd-operation-next.js-online-api",
         backend: "https://github.com/Gionee123/node.js-curd-operation",
       },
 
@@ -72,6 +74,24 @@ export default function Portfolio() {
       },
 
       link: "https://next-js-login-register-profile.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
+    },
+    {
+      id: 6,
+      title: "Mail send using node.js api (backend:node.js)+(frontend:next.js)",
+      description:
+        "using backend node.js api and frontend next.js Framework mail send node.js api",
+      technologies: [
+        "MVC",
+        "Node.js api",
+        "next.js",
+        "api online using render platform plus vercel",
+      ],
+      github: {
+        frontend: "https://github.com/Gionee123/next.js-send-mail-",
+        backend: "https://github.com/Gionee123/node.js-mail_send-api",
+      },
+
+      link: "https://next-js-send-mail.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
       id: 6,
@@ -162,7 +182,8 @@ export default function Portfolio() {
         "React Context,React Router,Tailwind CSS,React Toastify,JavaScript ES6+ Features",
       ],
       github: {
-        frontend: "https://github.com/naveenjpr/context-api-dummyApi-update-delete",
+        frontend:
+          "https://github.com/naveenjpr/context-api-dummyApi-update-delete",
         backend: "",
       },
       link: "https://context-api-dummy-api-update-delete.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
@@ -293,7 +314,9 @@ export default function Portfolio() {
                       rel="noopener noreferrer"
                       className="flex items-center text-blue-600 hover:underline"
                     >
-                      <FaGithub />
+                      <span className="text-[black]">
+                        <FaGithub />
+                      </span>
                       Frontend Repo
                     </a>
                   )}
@@ -304,7 +327,9 @@ export default function Portfolio() {
                       rel="noopener noreferrer"
                       className="flex items-center text-blue-600 hover:underline"
                     >
-                      <FaGithub />
+                      <span className="text-[black]">
+                        <FaGithub />
+                      </span>
                       Backend Repo
                     </a>
                   )}
