@@ -1,27 +1,91 @@
+import axios from "axios"
 import React from "react"
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa"
+import { toast, ToastContainer } from "react-toastify"
 
 export default function Contact() {
+  let MailSend = (event) => {
+    event.preventDefault()
+    let dataSave = {
+      name: event.target.name.value,
+      email: event.target.email.value,
+      mobile: event.target.mobile.value,
+      message: event.target.message.value,
+    }
+
+    axios
+      .post(
+        "https://node-j-my-portfolio-mail-send.onrender.com/api/frontend/users/send-mail",
+        dataSave
+      )
+      .then((result) => {
+        toast.success(result.data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "colored",
+        })
+        console.log(result.data.message)
+      })
+      .catch((err) => {
+        console.error("Axios Error:", err)
+        toast.error("❌ Failed to send email. Please try again.", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "colored",
+        })
+      })
+    event.target.reset()
+  }
   return (
     <div className="w-[90%] lg:w-[80%] mx-auto px-4">
+      <ToastContainer /> {/* ✅ Toastify Component */}
       <h2 className="text-4xl font-bold text-center mb-12">Contact Me</h2>
       <div className="grid grid-cols-1 lg:grid-cols-[60%_auto] gap-8">
         {/* Contact Form */}
-        <form className="bg-white p-8 rounded-lg shadow-lg text-[black]">
+        <form
+          className="bg-white p-8 rounded-lg shadow-lg text-[black]"
+          onSubmit={MailSend}
+        >
           <div className="mb-4">
             <label className="block text-lg mb-2 text-gray-800">Name</label>
             <input
               type="text"
+              name="name"
               className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Your Name"
+              required
             />
           </div>
           <div className="mb-4">
             <label className="block text-lg mb-2 text-gray-800">Email</label>
             <input
               type="email"
+              name="email"
               className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Your Email"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-lg mb-2 text-gray-800">phone</label>
+            <input
+              type="text"
+              name="mobile"
+              className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Your phone"
+              maxLength="12"
+              required
+              onInput={(e) => {
+                e.target.value = e.target.value.replace(/\D/g, "").slice(0, 12)
+              }}
             />
           </div>
           <div className="mb-4">
@@ -29,7 +93,9 @@ export default function Contact() {
             <textarea
               className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               rows="5"
+              name="message"
               placeholder="Your Message"
+              required
             ></textarea>
           </div>
           <button
