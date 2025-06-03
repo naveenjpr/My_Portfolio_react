@@ -76,7 +76,7 @@ export default function About() {
           <h2 className="text-4xl font-bold text-center mb-8">About Me</h2>
           <div className="max-w-4xl mx-auto text-lg">
             <p className="mb-6 text-center">
-              Hi, I'm John Doe, a full-stack developer with a passion for
+              Hi, I'm Naveen saini, a full-stack developer with a passion for
               building modern web applications. I specialize in{" "}
               <strong>React.js, Node.js, and Tailwind CSS</strong>, and I have
               extensive experience in both <strong>MERN Stack</strong> and{" "}

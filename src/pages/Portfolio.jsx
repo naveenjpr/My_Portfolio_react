@@ -170,6 +170,24 @@ export default function Portfolio() {
     },
     {
       id: 11,
+      title: "Flowbite Next.js ",
+      description:
+        "Flowbite React show all component",
+      technologies: [
+        "Next.js",
+        "Tailwind",
+        "recat flowbite",
+      
+      ],
+      github: {
+        frontend: "https://github.com/naveenjpr/flowbite",
+        backend: "",
+      },
+
+      link: "https://flowbite-kappa.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
+    },
+    {
+      id: 12,
       title: "sphere constration (index.html)",
       description:
         "sphere_constration is One page website,LEADERS IN QUALITY CONSTRUCTION AND INFRASTRUCTURE”",
@@ -189,7 +207,7 @@ export default function Portfolio() {
       link: "https://sphere-constration.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
-      id: 12,
+      id: 13,
       title: "blog app (react.js) (Google firebase)",
       description:
         "this is a blog application that utilizes Firebase for authentication and possibly Firestore for data storage. Below is a breakdown of its key functionalities based on the provided files",
@@ -203,7 +221,7 @@ export default function Portfolio() {
       link: "https://blog-app-five-chi.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
-      id: 13,
+      id: 14,
       title: "skydash-admin (react.js)",
       description:
         " Course Management:Add or view courses available in the system.Media Management:Upload videos/slides for tutorials or presentations.Team Management:Add team members or view the list of current team members.User Management:View registered users for monitoring or administrative purposes.Search Bar API Integration",
@@ -218,7 +236,7 @@ export default function Portfolio() {
     },
 
     {
-      id: 14,
+      id: 15,
       title: "multiple app",
       description:
         " these are multiple categories show this field.type of movie app,to-do-list,dummy . json api,table to form data show,weather app,curd operation,category click product show,password generator etc…",
@@ -230,7 +248,7 @@ export default function Portfolio() {
       link: "https://search-movie-for-api.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
-      id: 15,
+      id: 16,
       title: "E-Commerce Add to cart (react.js)",
       description:
         " The code provided is part of a React application that manages a shopping cart with product listing, cart management, and checkout functionalities. Here’s a detailed description of the main components and their behavior:",
@@ -245,7 +263,7 @@ export default function Portfolio() {
       link: "https://context-api-dummy-api-update-delete.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
-      id: 16,
+      id: 17,
       title: "one page second website",
       description: "The code provided is part of a React",
       technologies: [
@@ -259,7 +277,7 @@ export default function Portfolio() {
       link: "https://one-page-second-website.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
-      id: 17,
+      id: 18,
       title: "Next.js,tailwind",
       description: "this is hair transplant website one page website clone",
       technologies: [
@@ -273,7 +291,7 @@ export default function Portfolio() {
       link: "https://derma-life.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
-      id: 18,
+      id: 19,
       title: "APi to data show",
       description:
         "Every section show data for “dummy .json api”,Todo,Product,Carts,Users,Posts,Comments,Quotes,Recipes",
@@ -285,7 +303,7 @@ export default function Portfolio() {
       link: "https://react-api-eta-two.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
-      id: 19,
+      id: 20,
       title: "Smart city mohali (index.html)",
       description:
         " The webpage is a comprehensive real estate project page that uses a combination of HTML, CSS, and likely JavaScript to create an interactive and visually appealing user experience. It includes various multimedia elements, forms, and external integrations to provide users with all the necessary information about the project",
@@ -299,7 +317,7 @@ export default function Portfolio() {
       link: "https://smart-city-red.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
-      id: 20,
+      id: 21,
       title: "contentholic website (index.html)",
       description:
         "This webpage is well-structured and provides comprehensive information about the company’s services, achievements, and contact details. It is designed to be user-friendly and visually appealing, with clear calls to action to engage potential clients",
@@ -314,7 +332,7 @@ export default function Portfolio() {
       link: "https://one-page-second-website.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
-      id: 21,
+      id: 22,
       title: "E-Commerce (wordpess)",
       description: "wordpress E-Commerce Website",
       technologies: ["Wordpress Ecommerce Website"],
@@ -322,14 +340,14 @@ export default function Portfolio() {
       link: "http://naveenwebsitecreate.great-site.net/?i=1", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
-      id: 22,
+      id: 23,
       title: "LMS-PROJECT (wordpress)",
       description: "wordpress LMS website",
       technologies: ["wordpess"],
       link: "https://naveensainlmsproject.infinityfreeapp.com/?i=1", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
-      id: 23,
+      id: 24,
       title: "My portfolio website (wordpress)",
       description: "",
       technologies: [""],
