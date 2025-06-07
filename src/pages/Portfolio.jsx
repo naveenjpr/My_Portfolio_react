@@ -172,7 +172,7 @@ export default function Portfolio() {
       id: 11,
       title: "Flowbite Next.js ",
       description:
-        "Flowbite React show all component",
+        "Flowbite React show all component Accordion,alert,Avatar,Button,ButtonGroup,Card,carousel,dropdown,form,modal",
       technologies: [
         "Next.js",
         "Tailwind",
