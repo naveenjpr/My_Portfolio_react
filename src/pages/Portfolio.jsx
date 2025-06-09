@@ -1,5 +1,5 @@
-import React from "react"
-import { FaGithub } from "react-icons/fa"
+import React from "react";
+import { FaGithub } from "react-icons/fa";
 
 export default function Portfolio() {
   const projects = [
@@ -172,13 +172,8 @@ export default function Portfolio() {
       id: 11,
       title: "Flowbite Next.js ",
       description:
-        "Flowbite React show all component Accordion,alert,Avatar,Button,ButtonGroup,Card,carousel,dropdown,form,modal",
-      technologies: [
-        "Next.js",
-        "Tailwind",
-        "recat flowbite",
-      
-      ],
+        "Flowbite React show all component Accordion, Alert, Avatar, Button, ButtonGroup, Card, Carousel, Dropdown, Forms, Modal, Tabs,sidebar,rating,progressBar,Spinner",
+      technologies: ["Next.js", "Tailwind", "recat flowbite"],
       github: {
         frontend: "https://github.com/naveenjpr/flowbite",
         backend: "",
@@ -355,7 +350,7 @@ export default function Portfolio() {
     },
 
     // Add more projects as needed
-  ]
+  ];
   return (
     <div className="container mx-auto px-4">
       <h2 className="text-4xl font-bold text-center">Portfolio</h2>
@@ -422,5 +417,5 @@ export default function Portfolio() {
         ))}
       </div>
     </div>
-  )
+  );
 }
