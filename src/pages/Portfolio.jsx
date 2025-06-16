@@ -40,8 +40,8 @@ export default function Portfolio() {
     },
     {
       id: 4,
-      title: "myntra-website-project",
-      description: "This is myntra online shoping website clone",
+      title: "myntra website filter logic",
+      description: "This is myntra online shoping website category,brand,price,rating,low to high,high to low, many other type filter logic using this website",
       technologies: ["react.js", "Tailwind CSS", "using api dynmic data show"],
       github: {
         frontend: "https://github.com/naveenjpr/myntra-project",
