@@ -3,7 +3,8 @@ import image from "../assets/converted_1 (1).webp";
 import certificateimage from "../assets/converted_4.webp";
 import certificateimage2 from "../assets/converted_2.webp";
 import certificateimage3 from "../assets/converted_3 (1).webp";
-import resume from "../assets/naveen saini resume.pdf";
+import resume from "../assets/new resume.pdf";
+import joinletter from "../assets/join letter_page-0001.jpg";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -53,6 +54,11 @@ export default function About() {
             <h2 className="text-center text-[black] font-medium py-[10px]">
               Our Certificate
             </h2>
+            <img
+              src={joinletter} // Replace `image` with your actual image source
+              alt="About Me"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+            />
             <img
               src={certificateimage} // Replace `image` with your actual image source
               alt="About Me"
@@ -217,7 +223,7 @@ function Skill() {
     },
     {
       name: "Express",
-      icon: <SiExpress act className="text-white" size={40} />,
+      icon: <SiExpress className="text-white" size={40} />,
     },
    
     {
