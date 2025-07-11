@@ -41,7 +41,7 @@ export default function Portfolio() {
         frontend: "",
         backend: "",
       },
-      link: "https://gudiya-adminpanel.vercel.app/login", // Add a link to the project (e.g., GitHub or live demo)
+      link: "https://practics-question-admin.vercel.app/login", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
       title: "ashapurna website  (react.js)",
