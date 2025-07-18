@@ -8,7 +8,7 @@ export default function Portfolio() {
       description: "different type project create this series",
       technologies: ["", "Next.js", "Tailwind CSS", "node.js api"],
       github: {
-        frontend: "https://github.com/naveenjpr/100_react_next_project_list",
+        frontend: "https://github.com/Gionee123/gudiya_website",
         backend: "",
       },
       link: "https://gudiya-website.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
@@ -19,7 +19,7 @@ export default function Portfolio() {
       technologies: ["", "React", "Tailwind CSS", "node js api"],
       github: {
         frontend: "",
-        backend: "https://github.com/naveenjpr/rss-feed-node.js",
+        backend: "https://github.com/Gionee123/Gudiya_admin_panel",
       },
       link: "https://gudiya-adminpanel.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
