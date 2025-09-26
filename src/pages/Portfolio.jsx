@@ -24,6 +24,16 @@ export default function Portfolio() {
       link: "https://gudiya-adminpanel.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
     },
     {
+      title: "AI Assist",
+      description: "AI-Assistant-with-Gemini",
+      technologies: ["", "React", "Tailwind CSS", "node js api","GEMINI_API_KEY"],
+      github: {
+        frontend: "https://github.com/Gionee123/ai-assistant-in-with-gemini-react",
+        backend: "https://github.com/Gionee123/AI-Assistant-in-node.js-with-Gemini-node.js",
+      },
+      link: "https://ai-assistant-in-with-gemini-react.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
+    },
+    {
       title: "100 project series (backend:node.js)+(frontend:react.js)",
       description: "different type project create this series",
       technologies: ["", "React", "Tailwind CSS", "node js"],
