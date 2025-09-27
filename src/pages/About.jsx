@@ -17,8 +17,10 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import {
+  SiCurseforge,
   SiExpress,
   SiFirebase,
+  SiGithubcopilot,
   SiMongoose,
   SiRender,
   SiTailwindcss,
@@ -28,10 +30,35 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { DiJqueryLogo, DiMongodb } from "react-icons/di";
 import { RiNextjsFill, RiVercelLine } from "react-icons/ri";
+import { BiBriefcase } from "react-icons/bi";
 export default function About() {
+
+  const experiences = [
+    {
+      role: "AWS Developer",
+      company: "IPage UM Services Pvt Ltd (IPAGE UMS)",
+      type: "Internship",
+      duration: "Aug 2025 – Present · 2 mos",
+      location: "Hyderabad, Telangana, India · Remote",
+    },
+    {
+      role: "Next.js or React.js Developer",
+      company: "Shape Multimedia",
+      type: "Full-time",
+      duration: "Sep 2024 – Aug 2025 · 1 yr",
+      location: "Jaipur, Rajasthan, India · Hybrid",
+    },
+    {
+      role: "MERN STACK Training",
+      company: "WsCube Tech",
+      type: "Self-employed",
+      duration: "Feb 2023 – Mar 2025 · 2 yrs 2 mos",
+      location: "Jaipur, Rajasthan, India · Remote",
+    },
+  ];
   return (
     <>
-          <Skill />
+      <Skill />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Image Section */}
@@ -82,102 +109,63 @@ export default function About() {
           <h2 className="text-4xl font-bold text-center mb-8">About Me</h2>
           <div className="max-w-4xl mx-auto text-lg">
             <p className="mb-6 text-center">
-              Hi, I'm Naveen saini, a full-stack developer with a passion for
+              Hi, I'm Naveen Saini, a full-stack developer with a passion for
               building modern web applications. I specialize in{" "}
-              <strong>React.js, Node.js, and Tailwind CSS</strong>, and I have
+              <strong>React.js, Node.js, Tailwind CSS, and AWS Lambda</strong>, and I have
               extensive experience in both <strong>MERN Stack</strong> and{" "}
-              <strong>WordPress Development</strong>.
+              <strong>WordPress Development</strong>. I also work with{" "}
+              <strong>REST APIs</strong> to create scalable and efficient solutions.
             </p>
+
 
             <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4">🚀 My Expertise</h3>
               <ul className="list-disc list-inside space-y-2">
                 <li>
-                  <strong>MERN Stack</strong> (MongoDB, Express.js, React.js,
-                  Node.js)
+                  <strong>MERN Stack</strong> (MongoDB, Express.js, React.js, Node.js)
                 </li>
                 <li>
-                  <strong>WordPress Development</strong> (Custom Themes,
-                  Plugins, and Websites)
+                  <strong>WordPress Development</strong> (Custom Themes, Plugins, and Websites)
+                </li>
+                <li>
+                  <strong>AWS Lambda</strong> (Serverless functions and cloud-based execution)
+                </li>
+                <li>
+                  <strong>REST API</strong> (Designing and integrating scalable APIs)
                 </li>
               </ul>
+
             </div>
 
             <div className="mt-8 bg-white bg-opacity-10 p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4">
                 📚 My Background & Experience
               </h3>
-              <p className="mb-4">
-                With over <strong>2 years of experience</strong> in the IT
-                industry as a <strong>React.js Developer</strong>, I have honed
-                my skills in building dynamic, responsive, and user-friendly web
-                applications. My journey began with an intensive{" "}
-                <strong>Web Development training program</strong> at{" "}
-                <strong>WsCube Tech</strong> (February 2023 - August 2024),
-                where I gained hands-on expertise in modern web technologies,
-                including:
-              </p>
-              <ul className="list-disc list-inside space-y-2 mb-4">
-                <li>
-                  <strong>React.js</strong> for building interactive user
-                  interfaces.
-                </li>
-                <li>
-                  <strong>JavaScript, HTML, and CSS</strong> for front-end
-                  development.
-                </li>
-                <li>
-                  <strong>Node.js and Express.js</strong> for back-end
-                  development.
-                </li>
-                <li>
-                  <strong>MongoDB</strong> for database management.
-                </li>
-              </ul>
-              <p className="mb-4">
-                In addition to my MERN stack expertise, I have also completed a{" "}
-                <strong>WordPress Development course</strong> at{" "}
-                <strong>WsCube Tech</strong> (September 2024 - December 2024).
-                This training has equipped me with the skills to design and
-                develop custom WordPress websites, themes, and plugins, ensuring
-                a seamless and visually appealing user experience.
-              </p>
+
+              <div className="space-y-6">
+                {experiences.map((exp, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-4 border-b pb-4 last:border-0"
+                  >
+                    <div className="p-2 rounded-lg bg-gray-100">
+                      <BiBriefcase className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">{exp.role}</h3>
+                      <p className="text-gray-700">
+                        {exp.company} · {exp.type}
+                      </p>
+                      <p className="text-sm text-gray-500">{exp.duration}</p>
+                      <p className="text-sm text-gray-500">{exp.location}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
             </div>
 
-            <div className="mt-8 bg-white bg-opacity-10 p-6 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold mb-4">💼 Current Role</h3>
-              <p className="mb-4">
-                Currently, I am working as a <strong>Web Developer</strong> at{" "}
-                <strong>Shape Multimedia</strong> (September 2024 - Present). In
-                this role, I am responsible for:
-              </p>
-              <ul className="list-disc list-inside space-y-2">
-                <li>
-                  Developing and maintaining responsive web applications using
-                  the <strong>MERN stack</strong>.
-                </li>
-                <li>
-                  Designing and customizing <strong>WordPress websites</strong>{" "}
-                  to meet client requirements.
-                </li>
-                <li>
-                  Collaborating with cross-functional teams to deliver
-                  high-quality projects on time.
-                </li>
-                <li>
-                  Ensuring optimal performance, scalability, and security of web
-                  applications.
-                </li>
-              </ul>
-            </div>
-
-            <p className="mt-8 text-center">
-              My experience spans designing, developing, and deploying web
-              solutions that align with client requirements and industry best
-              practices. I am passionate about creating seamless user
-              experiences and continuously expanding my knowledge in the
-              ever-evolving field of web development.
-            </p>
+           
           </div>
         </div>
       </div>
@@ -225,7 +213,7 @@ function Skill() {
       name: "Express",
       icon: <SiExpress className="text-white" size={40} />,
     },
-   
+
     {
       name: "MongoDB",
       icon: <DiMongodb className="text-[#00e661]" size={40} />,
@@ -239,9 +227,10 @@ function Skill() {
       icon: <SiFirebase className="text-[orange]" size={40} />,
     },
     {
-      name: "AWS",
+      name: "AWS Lambda & REST",
       icon: <FaAws className="text-white" size={40} />,
     },
+
     {
       name: "Vercel",
       icon: <RiVercelLine className="text-white" size={40} />,
@@ -253,6 +242,23 @@ function Skill() {
     {
       name: "render",
       icon: <SiRender className="text-[white]" size={40} />,
+    },
+    {
+      name: "Github Copilot",
+      icon: <SiGithubcopilot className="text-[#25c5df]" size={40} />,
+    },
+    {
+      name: "cursor ai",
+      icon: <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Cursor AI icon का SVG path यहां डालें */}
+        <path d="M4 2L20 12L4 22L6 14L14 12L6 10L4 2Z" />
+      </svg>
     },
   ];
 
