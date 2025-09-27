@@ -3,7 +3,7 @@ import image from "../assets/converted_1 (1).webp";
 import certificateimage from "../assets/converted_4.webp";
 import certificateimage2 from "../assets/converted_2.webp";
 import certificateimage3 from "../assets/converted_3 (1).webp";
-import resume from "../assets/new resume.pdf";
+import resume from "../assets/new resume pdf (1).pdf";
 import joinletter from "../assets/join letter_page-0001.jpg";
 import {
   FaHtml5,
