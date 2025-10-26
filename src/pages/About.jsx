@@ -68,7 +68,7 @@ export default function About() {
           <a
             href={resume}
             download="naveen_cv.pdf"
-            className="mt-6 bg-[#facf21] text-[#241d05] px-6 py-2 rounded-lg hover:bg-[#e6ba1e] transition duration-300"
+            className="mt-6 bg-[#ccfbf1] text-[#241d05] px-6 py-2 rounded-lg hover:bg-[#b8e8de] transition duration-300"
           >
             Download My CV
           </a>
@@ -118,7 +118,7 @@ export default function About() {
               <strong>REST APIs</strong> to create scalable and efficient solutions.
             </p>
 
-            <div className="bg-[#facf21] p-6 rounded-lg shadow-lg">
+            <div className="bg-[#ccfbf1] p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4">🚀 My Expertise</h3>
               <ul className="list-disc list-inside space-y-2">
                 <li>
@@ -136,7 +136,7 @@ export default function About() {
               </ul>
             </div>
 
-            <div className="mt-8 bg-[#facf21] p-6 rounded-lg shadow-lg">
+            <div className="mt-8 bg-[#ccfbf1] p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4">
                 📚 My Background & Experience
               </h3>
@@ -147,8 +147,8 @@ export default function About() {
                     key={index}
                     className="flex items-start gap-4 border-b pb-4 last:border-0"
                   >
-                    <div className="p-2 rounded-lg bg-[#241d05]">
-                      <BiBriefcase className="w-6 h-6 text-[#facf21]" />
+                    <div className="p-2 rounded-lg bg-[#ccfbf1]">
+                      <BiBriefcase className="w-6 h-6 text-[#241d05]" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold">{exp.role}</h3>
@@ -262,7 +262,7 @@ function Skill() {
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center bg-[#facf21] rounded-xl p-4 hover:scale-105 transition-transform duration-300"
+            className="flex flex-col items-center justify-center bg-[#ccfbf1] rounded-xl p-4 hover:scale-105 transition-transform duration-300"
           >
             {skill.icon}
             <p className="mt-2 text-sm text-[#241d05] font-medium">{skill.name}</p>
