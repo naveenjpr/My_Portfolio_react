@@ -33,7 +33,7 @@ const App = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-teal-100 pt-16">
+      <section id="about" className="py-20 bg-[#facf21] pt-16">
         <About />
       </section>
 
