@@ -56,7 +56,7 @@ export default function Portfolio() {
     {
       title: "ashapurna website  (react.js)",
       description:
-        "Ashapurna Buildcon – Real Estate Developer in Rajasthan” this is website clone",
+        "Ashapurna Buildcon – Real Estate Developer in Rajasthan" this is website clone",
       technologies: ["fronted:react", , "tailwind"],
       github: {
         frontend: "https://github.com/naveenjpr/ashapurna",
@@ -223,7 +223,7 @@ export default function Portfolio() {
     {
       title: "sphere constration (index.html)",
       description:
-        "sphere_constration is One page website,LEADERS IN QUALITY CONSTRUCTION AND INFRASTRUCTURE”",
+        "sphere_constration is One page website,LEADERS IN QUALITY CONSTRUCTION AND INFRASTRUCTURE"",
       technologies: [
         "HTML5",
         "Bootstrap",
@@ -280,7 +280,7 @@ export default function Portfolio() {
     {
       title: "E-Commerce Add to cart (react.js)",
       description:
-        " The code provided is part of a React application that manages a shopping cart with product listing, cart management, and checkout functionalities. Here’s a detailed description of the main components and their behavior:",
+        " The code provided is part of a React application that manages a shopping cart with product listing, cart management, and checkout functionalities. Here's a detailed description of the main components and their behavior:",
       technologies: [
         "React Context,React Router,Tailwind CSS,React Toastify,JavaScript ES6+ Features",
       ],
@@ -320,7 +320,7 @@ export default function Portfolio() {
     {
       title: "APi to data show",
       description:
-        "Every section show data for “dummy .json api”,Todo,Product,Carts,Users,Posts,Comments,Quotes,Recipes",
+        "Every section show data for "dummy .json api",Todo,Product,Carts,Users,Posts,Comments,Quotes,Recipes",
       technologies: [":React,React Router,Tailwind CSS,State Management"],
       github: {
         frontend: "",
@@ -344,7 +344,7 @@ export default function Portfolio() {
     {
       title: "contentholic website (index.html)",
       description:
-        "This webpage is well-structured and provides comprehensive information about the company’s services, achievements, and contact details. It is designed to be user-friendly and visually appealing, with clear calls to action to engage potential clients",
+        "This webpage is well-structured and provides comprehensive information about the company's services, achievements, and contact details. It is designed to be user-friendly and visually appealing, with clear calls to action to engage potential clients",
       technologies: [
         "Navigation with Internal Links",
         "Back-to-Top Navigation",
@@ -378,69 +378,71 @@ export default function Portfolio() {
     // Add more projects as needed
   ];
   return (
-    <div className="container mx-auto px-4">
-      <h2 className="text-4xl font-bold text-center">Portfolio</h2>
-      <h3 className="text-2xl font-[400] text-center py-[5px]">
-        react.js,next.js,node.js,wordpress
-      </h3>
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, index) => (
-          <div
-            key={index} // Unique key for each project
-            className="bg-white overflow-auto p-6 rounded-lg text-gray-900 shadow-lg hover:shadow-xl transition-shadow duration-300"
-          >
-            <h3 className="text-2xl font-bold">{project.title}</h3>
-            <p className="mt-2">📝Description:{project.description}</p>
-            <div className="mt-4">
-              <p className="text-sm text-gray-600">
-                <strong>📌 Technologies:</strong>{" "}
-                {project.technologies.join(", ")}
-              </p>
-            </div>
-            <div>
-              {/* GitHub Links */}
-              {project.github && (
-                <div className="mt-4 space-y-2">
-                  <span></span>
-                  {project.github.frontend && (
-                    <a
-                      href={project.github.frontend}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-blue-600 hover:underline"
-                    >
-                      <span className="text-[black]">
-                        <FaGithub />
-                      </span>
-                      Frontend Repo
-                    </a>
-                  )}
-                  {project.github.backend && (
-                    <a
-                      href={project.github.backend}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-blue-600 hover:underline"
-                    >
-                      <span className="text-[black]">
-                        <FaGithub />
-                      </span>
-                      Backend Repo
-                    </a>
-                  )}
-                </div>
-              )}
-            </div>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+    <div className="bg-gradient-to-r from-[#fef9e7] to-[#facf21] min-h-screen py-20">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center text-[#241d05]">Portfolio</h2>
+        <h3 className="text-2xl font-[400] text-center py-[5px] text-[#241d05]">
+          react.js,next.js,node.js,wordpress
+        </h3>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <div
+              key={index} // Unique key for each project
+              className="bg-white overflow-auto p-6 rounded-lg text-gray-900 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              View Project
-            </a>
-          </div>
-        ))}
+              <h3 className="text-2xl font-bold">{project.title}</h3>
+              <p className="mt-2">📝Description:{project.description}</p>
+              <div className="mt-4">
+                <p className="text-sm text-gray-600">
+                  <strong>📌 Technologies:</strong>{" "}
+                  {project.technologies.join(", ")}
+                </p>
+              </div>
+              <div>
+                {/* GitHub Links */}
+                {project.github && (
+                  <div className="mt-4 space-y-2">
+                    <span></span>
+                    {project.github.frontend && (
+                      <a
+                        href={project.github.frontend}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-blue-600 hover:underline"
+                      >
+                        <span className="text-[black]">
+                          <FaGithub />
+                        </span>
+                        Frontend Repo
+                      </a>
+                    )}
+                    {project.github.backend && (
+                      <a
+                        href={project.github.backend}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-blue-600 hover:underline"
+                      >
+                        <span className="text-[black]">
+                          <FaGithub />
+                        </span>
+                        Backend Repo
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block bg-[#241d05] text-white px-4 py-2 rounded-lg hover:bg-[#3a3a32] transition duration-300"
+              >
+                View Project
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
