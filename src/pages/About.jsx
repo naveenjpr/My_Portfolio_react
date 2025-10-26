@@ -68,7 +68,7 @@ export default function About() {
           <a
             href={resume}
             download="naveen_cv.pdf"
-            className="mt-6 bg-[#facf21] text-[#241d05] px-6 py-2 rounded-lg hover:bg-[#e6ba1e] transition duration-300 font-bold"
+            className="mt-6 bg-[#facf21] text-[#241d05] px-6 py-2 rounded-lg hover:bg-[#e6ba1e] transition duration-300"
           >
             Download My CV
           </a>
@@ -76,31 +76,31 @@ export default function About() {
           <img
             src={image}
             alt="About Me"
-            className="w-full max-w-md lg:max-w-full rounded-lg shadow-lg mt-4"
+            className="w-full max-w-md lg:max-w-full rounded-lg shadow-lg"
           />
-          <div className="h-screen overflow-auto mt-6">
-            <h2 className="text-center text-[black] font-bold py-[10px] text-xl">
+          <div className="h-screen overflow-auto">
+            <h2 className="text-center text-[black] font-medium py-[10px]">
               Our Certificate
             </h2>
             <img
               src={joinletter}
-              alt="Join Letter"
-              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg mb-4"
+              alt="About Me"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
             />
             <img
               src={certificateimage}
-              alt="Certificate 1"
-              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg mb-4"
+              alt="About Me"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
             />
             <img
               src={certificateimage2}
-              alt="Certificate 2"
-              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg mb-4"
+              alt="About Me"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
             />
             <img
               src={certificateimage3}
-              alt="Certificate 3"
-              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg mb-4"
+              alt="About Me"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
             />
           </div>
         </div>
@@ -109,34 +109,34 @@ export default function About() {
         <div className="container mx-auto px-4 text-[black]">
           <h2 className="text-4xl font-bold text-center mb-8">About Me</h2>
           <div className="max-w-4xl mx-auto text-lg">
-            <p className="mb-6 text-center font-medium">
+            <p className="mb-6 text-center">
               Hi, I'm Naveen Saini, a full-stack developer with a passion for
               building modern web applications. I specialize in{" "}
-              <strong className="font-bold">React.js, Node.js, Tailwind CSS, and AWS Lambda</strong>, and I have
-              extensive experience in both <strong className="font-bold">MERN Stack</strong> and{" "}
-              <strong className="font-bold">WordPress Development</strong>. I also work with{" "}
-              <strong className="font-bold">REST APIs</strong> to create scalable and efficient solutions.
+              <strong>React.js, Node.js, Tailwind CSS, and AWS Lambda</strong>, and I have
+              extensive experience in both <strong>MERN Stack</strong> and{" "}
+              <strong>WordPress Development</strong>. I also work with{" "}
+              <strong>REST APIs</strong> to create scalable and efficient solutions.
             </p>
 
-            <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-lg">
+            <div className="bg-[#facf21] p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4">🚀 My Expertise</h3>
-              <ul className="list-disc list-inside space-y-2 font-medium">
+              <ul className="list-disc list-inside space-y-2">
                 <li>
-                  <strong className="font-bold">MERN Stack</strong> (MongoDB, Express.js, React.js, Node.js)
+                  <strong>MERN Stack</strong> (MongoDB, Express.js, React.js, Node.js)
                 </li>
                 <li>
-                  <strong className="font-bold">WordPress Development</strong> (Custom Themes, Plugins, and Websites)
+                  <strong>WordPress Development</strong> (Custom Themes, Plugins, and Websites)
                 </li>
                 <li>
-                  <strong className="font-bold">AWS Lambda</strong> (Serverless functions and cloud-based execution)
+                  <strong>AWS Lambda</strong> (Serverless functions and cloud-based execution)
                 </li>
                 <li>
-                  <strong className="font-bold">REST API</strong> (Designing and integrating scalable APIs)
+                  <strong>REST API</strong> (Designing and integrating scalable APIs)
                 </li>
               </ul>
             </div>
 
-            <div className="mt-8 bg-white bg-opacity-10 p-6 rounded-lg shadow-lg">
+            <div className="mt-8 bg-[#facf21] p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4">
                 📚 My Background & Experience
               </h3>
@@ -147,16 +147,16 @@ export default function About() {
                     key={index}
                     className="flex items-start gap-4 border-b pb-4 last:border-0"
                   >
-                    <div className="p-2 rounded-lg bg-gray-100">
-                      <BiBriefcase className="w-6 h-6 text-[#241d05]" />
+                    <div className="p-2 rounded-lg bg-[#241d05]">
+                      <BiBriefcase className="w-6 h-6 text-[#facf21]" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold">{exp.role}</h3>
-                      <p className="text-gray-700 font-medium">
+                      <h3 className="text-lg font-semibold">{exp.role}</h3>
+                      <p className="text-gray-700">
                         {exp.company} · {exp.type}
                       </p>
-                      <p className="text-sm text-gray-500 font-medium">{exp.duration}</p>
-                      <p className="text-sm text-gray-500 font-medium">{exp.location}</p>
+                      <p className="text-sm text-gray-500">{exp.duration}</p>
+                      <p className="text-sm text-gray-500">{exp.location}</p>
                     </div>
                   </div>
                 ))}
@@ -265,7 +265,7 @@ function Skill() {
             className="flex flex-col items-center justify-center bg-[#facf21] rounded-xl p-4 hover:scale-105 transition-transform duration-300"
           >
             {skill.icon}
-            <p className="mt-2 text-sm text-[#241d05] font-bold">{skill.name}</p>
+            <p className="mt-2 text-sm text-[#241d05] font-medium">{skill.name}</p>
           </div>
         ))}
       </div>
