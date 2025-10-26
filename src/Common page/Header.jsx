@@ -9,7 +9,7 @@ const Header = () => {
   }
 
   return (
-    <header className="bg-[#facf21] py-4">
+    <header className="bg-[#facf21] py-1">
       <div className="container mx-auto flex justify-between items-center px-4">
         {/* Logo */}
         <h1 className="text-2xl font-bold text-[#241d05]">My Portfolio</h1>
