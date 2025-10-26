@@ -36,7 +36,7 @@ const Header = () => {
           <li>
             <a
               href="#home"
-              className="block py-2 text-[#241d05] hover:text-[#4a3f0a] transition-colors"
+              className="block py-2 text-[#241d05] hover:text-[#4a3f0a] transition-colors font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
@@ -45,7 +45,7 @@ const Header = () => {
           <li>
             <a
               href="#about"
-              className="block py-2 text-[#241d05] hover:text-[#4a3f0a] transition-colors"
+              className="block py-2 text-[#241d05] hover:text-[#4a3f0a] transition-colors font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               About
@@ -54,7 +54,7 @@ const Header = () => {
           <li>
             <a
               href="#portfolio"
-              className="block py-2 text-[#241d05] hover:text-[#4a3f0a] transition-colors"
+              className="block py-2 text-[#241d05] hover:text-[#4a3f0a] transition-colors font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               Portfolio
@@ -63,7 +63,7 @@ const Header = () => {
           <li>
             <a
               href="#contact"
-              className="block py-2 text-[#241d05] hover:text-[#4a3f0a] transition-colors"
+              className="block py-2 text-[#241d05] hover:text-[#4a3f0a] transition-colors font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
