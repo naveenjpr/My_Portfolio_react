@@ -31,8 +31,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { DiJqueryLogo, DiMongodb } from "react-icons/di";
 import { RiNextjsFill, RiVercelLine } from "react-icons/ri";
 import { BiBriefcase } from "react-icons/bi";
-export default function About() {
 
+export default function About() {
   const experiences = [
     {
       role: "AWS Developer",
@@ -56,6 +56,7 @@ export default function About() {
       location: "Jaipur, Rajasthan, India · Remote",
     },
   ];
+
   return (
     <>
       <Skill />
@@ -65,41 +66,41 @@ export default function About() {
         <div className="flex flex-col justify-start items-center">
           {/* Download CV Button */}
           <a
-            href={resume} // Replace with the actual path to your CV file
-            download="naveen_cv.pdf" // Replace with your desired file name
-            className="mt-6 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+            href={resume}
+            download="naveen_cv.pdf"
+            className="mt-6 bg-[#facf21] text-[#241d05] px-6 py-2 rounded-lg hover:bg-[#e6ba1e] transition duration-300 font-bold"
           >
             Download My CV
           </a>
           {/* Image Section */}
           <img
-            src={image} // Replace `image` with your actual image source
+            src={image}
             alt="About Me"
-            className="w-full max-w-md lg:max-w-full rounded-lg shadow-lg"
+            className="w-full max-w-md lg:max-w-full rounded-lg shadow-lg mt-4"
           />
-          <div className="h-screen overflow-auto">
-            <h2 className="text-center text-[black] font-medium py-[10px]">
+          <div className="h-screen overflow-auto mt-6">
+            <h2 className="text-center text-[black] font-bold py-[10px] text-xl">
               Our Certificate
             </h2>
             <img
-              src={joinletter} // Replace `image` with your actual image source
-              alt="About Me"
-              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+              src={joinletter}
+              alt="Join Letter"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg mb-4"
             />
             <img
-              src={certificateimage} // Replace `image` with your actual image source
-              alt="About Me"
-              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+              src={certificateimage}
+              alt="Certificate 1"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg mb-4"
             />
             <img
-              src={certificateimage2} // Replace `image` with your actual image source
-              alt="About Me"
-              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+              src={certificateimage2}
+              alt="Certificate 2"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg mb-4"
             />
             <img
-              src={certificateimage3} // Replace `image` with your actual image source
-              alt="About Me"
-              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+              src={certificateimage3}
+              alt="Certificate 3"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg mb-4"
             />
           </div>
         </div>
@@ -108,33 +109,31 @@ export default function About() {
         <div className="container mx-auto px-4 text-[black]">
           <h2 className="text-4xl font-bold text-center mb-8">About Me</h2>
           <div className="max-w-4xl mx-auto text-lg">
-            <p className="mb-6 text-center">
+            <p className="mb-6 text-center font-medium">
               Hi, I'm Naveen Saini, a full-stack developer with a passion for
               building modern web applications. I specialize in{" "}
-              <strong>React.js, Node.js, Tailwind CSS, and AWS Lambda</strong>, and I have
-              extensive experience in both <strong>MERN Stack</strong> and{" "}
-              <strong>WordPress Development</strong>. I also work with{" "}
-              <strong>REST APIs</strong> to create scalable and efficient solutions.
+              <strong className="font-bold">React.js, Node.js, Tailwind CSS, and AWS Lambda</strong>, and I have
+              extensive experience in both <strong className="font-bold">MERN Stack</strong> and{" "}
+              <strong className="font-bold">WordPress Development</strong>. I also work with{" "}
+              <strong className="font-bold">REST APIs</strong> to create scalable and efficient solutions.
             </p>
-
 
             <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4">🚀 My Expertise</h3>
-              <ul className="list-disc list-inside space-y-2">
+              <ul className="list-disc list-inside space-y-2 font-medium">
                 <li>
-                  <strong>MERN Stack</strong> (MongoDB, Express.js, React.js, Node.js)
+                  <strong className="font-bold">MERN Stack</strong> (MongoDB, Express.js, React.js, Node.js)
                 </li>
                 <li>
-                  <strong>WordPress Development</strong> (Custom Themes, Plugins, and Websites)
+                  <strong className="font-bold">WordPress Development</strong> (Custom Themes, Plugins, and Websites)
                 </li>
                 <li>
-                  <strong>AWS Lambda</strong> (Serverless functions and cloud-based execution)
+                  <strong className="font-bold">AWS Lambda</strong> (Serverless functions and cloud-based execution)
                 </li>
                 <li>
-                  <strong>REST API</strong> (Designing and integrating scalable APIs)
+                  <strong className="font-bold">REST API</strong> (Designing and integrating scalable APIs)
                 </li>
               </ul>
-
             </div>
 
             <div className="mt-8 bg-white bg-opacity-10 p-6 rounded-lg shadow-lg">
@@ -149,23 +148,20 @@ export default function About() {
                     className="flex items-start gap-4 border-b pb-4 last:border-0"
                   >
                     <div className="p-2 rounded-lg bg-gray-100">
-                      <BiBriefcase className="w-6 h-6 text-blue-600" />
+                      <BiBriefcase className="w-6 h-6 text-[#241d05]" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold">{exp.role}</h3>
-                      <p className="text-gray-700">
+                      <h3 className="text-lg font-bold">{exp.role}</h3>
+                      <p className="text-gray-700 font-medium">
                         {exp.company} · {exp.type}
                       </p>
-                      <p className="text-sm text-gray-500">{exp.duration}</p>
-                      <p className="text-sm text-gray-500">{exp.location}</p>
+                      <p className="text-sm text-gray-500 font-medium">{exp.duration}</p>
+                      <p className="text-sm text-gray-500 font-medium">{exp.location}</p>
                     </div>
                   </div>
                 ))}
               </div>
-
             </div>
-
-           
           </div>
         </div>
       </div>
@@ -213,7 +209,6 @@ function Skill() {
       name: "Express",
       icon: <SiExpress className="text-white" size={40} />,
     },
-
     {
       name: "MongoDB",
       icon: <DiMongodb className="text-[#00e661]" size={40} />,
@@ -230,7 +225,6 @@ function Skill() {
       name: "AWS Lambda & REST",
       icon: <FaAws className="text-white" size={40} />,
     },
-
     {
       name: "Vercel",
       icon: <RiVercelLine className="text-white" size={40} />,
@@ -256,7 +250,6 @@ function Skill() {
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Cursor AI icon का SVG path यहां डालें */}
         <path d="M4 2L20 12L4 22L6 14L14 12L6 10L4 2Z" />
       </svg>
     },
@@ -264,15 +257,15 @@ function Skill() {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold text-[#ed143d] text-center mb-4">My Skills</h2>
+      <h2 className="text-2xl font-bold text-[#241d05] text-center mb-4">My Skills</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition-transform duration-300"
+            className="flex flex-col items-center justify-center bg-[#facf21] rounded-xl p-4 hover:scale-105 transition-transform duration-300"
           >
             {skill.icon}
-            <p className="mt-2 text-sm text-white font-medium">{skill.name}</p>
+            <p className="mt-2 text-sm text-[#241d05] font-bold">{skill.name}</p>
           </div>
         ))}
       </div>
