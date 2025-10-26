@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div className="font-sans bg-gray-900 text-white min-h-screen">
       {/* Navbar */}
-      <nav className="p-1 bg-[#facf21] fixed w-full top-0 z-50">
+      <nav className=" bg-[#facf21] fixed w-full top-0 z-50">
         <Header />
       </nav>
 
