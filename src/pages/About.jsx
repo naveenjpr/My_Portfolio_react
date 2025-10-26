@@ -68,7 +68,7 @@ export default function About() {
           <a
             href={resume}
             download="naveen_cv.pdf"
-            className="mt-6 bg-white text-[#241d05] px-6 py-2 rounded-lg hover:bg-gray-100 transition duration-300"
+            className="mt-6 bg-[#4f4f45] text-white px-6 py-2 rounded-lg hover:bg-[#3a3a32] transition duration-300"
           >
             Download My CV
           </a>
@@ -118,7 +118,7 @@ export default function About() {
               <strong>REST APIs</strong> to create scalable and efficient solutions.
             </p>
 
-            <div className="p-6 rounded-lg shadow-lg">
+            <div className="bg-[#4f4f45] p-6 rounded-lg shadow-lg text-white">
               <h3 className="text-2xl font-bold mb-4">🚀 My Expertise</h3>
               <ul className="list-disc list-inside space-y-2">
                 <li>
@@ -136,7 +136,7 @@ export default function About() {
               </ul>
             </div>
 
-            <div className="mt-8 p-6 rounded-lg shadow-lg">
+            <div className="mt-8 bg-[#4f4f45] p-6 rounded-lg shadow-lg text-white">
               <h3 className="text-2xl font-bold mb-4">
                 📚 My Background & Experience
               </h3>
@@ -145,18 +145,18 @@ export default function About() {
                 {experiences.map((exp, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-4 border-b pb-4 last:border-0"
+                    className="flex items-start gap-4 border-b border-gray-600 pb-4 last:border-0"
                   >
-                    <div className="p-2 rounded-lg">
-                      <BiBriefcase className="w-6 h-6 text-[#241d05]" />
+                    <div className="p-2 rounded-lg bg-[#3a3a32]">
+                      <BiBriefcase className="w-6 h-6 text-white" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold">{exp.role}</h3>
-                      <p className="text-gray-700">
+                      <p className="text-gray-300">
                         {exp.company} · {exp.type}
                       </p>
-                      <p className="text-sm text-gray-500">{exp.duration}</p>
-                      <p className="text-sm text-gray-500">{exp.location}</p>
+                      <p className="text-sm text-gray-400">{exp.duration}</p>
+                      <p className="text-sm text-gray-400">{exp.location}</p>
                     </div>
                   </div>
                 ))}
@@ -262,10 +262,10 @@ function Skill() {
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center bg-white rounded-xl p-4 hover:scale-105 transition-transform duration-300"
+            className="flex flex-col items-center justify-center bg-[#4f4f45] rounded-xl p-4 hover:scale-105 transition-transform duration-300"
           >
             {skill.icon}
-            <p className="mt-2 text-sm text-[#241d05] font-medium">{skill.name}</p>
+            <p className="mt-2 text-sm text-white font-medium">{skill.name}</p>
           </div>
         ))}
       </div>
