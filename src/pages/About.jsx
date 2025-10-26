@@ -58,7 +58,7 @@ export default function About() {
   ];
 
   return (
-    <>
+    <div className="bg-[#facf21] min-h-screen">
       <Skill />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -68,7 +68,7 @@ export default function About() {
           <a
             href={resume}
             download="naveen_cv.pdf"
-            className="mt-6 bg-[#facf21] text-[#241d05] px-6 py-2 rounded-lg hover:bg-[#e6ba1e] transition duration-300"
+            className="mt-6 bg-white text-[#241d05] px-6 py-2 rounded-lg hover:bg-gray-100 transition duration-300"
           >
             Download My CV
           </a>
@@ -165,7 +165,7 @@ export default function About() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -262,7 +262,7 @@ function Skill() {
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center rounded-xl p-4 hover:scale-105 transition-transform duration-300"
+            className="flex flex-col items-center justify-center bg-white rounded-xl p-4 hover:scale-105 transition-transform duration-300"
           >
             {skill.icon}
             <p className="mt-2 text-sm text-[#241d05] font-medium">{skill.name}</p>
