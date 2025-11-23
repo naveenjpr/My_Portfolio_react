@@ -1,150 +1,157 @@
-// import React, { useState } from "react"
-// import { FaBars, FaTimes } from "react-icons/fa"
-
-// const Header = () => {
-//   const [isMenuOpen, setIsMenuOpen] = useState(false) // State for mobile menu
-
-//   const toggleMenu = () => {
-//     setIsMenuOpen(!isMenuOpen)
-//   }
-
-//   return (
-//     <header className="">
-//       <div className="container mx-auto flex justify-between items-center px-4">
-//         {/* Logo */}
-//         <h1 className="text-2xl font-bold text-white">My Portfolio</h1>
-
-//         {/* Hamburger Menu (Mobile) */}
-//         <button
-//           onClick={toggleMenu}
-//           className="md:hidden text-white focus:outline-none"
-//           aria-label="Toggle Menu"
-//         >
-//           {isMenuOpen ? (
-//             <FaTimes className="w-6 h-6" />
-//           ) : (
-//             <FaBars className="w-6 h-6" />
-//           )}
-//         </button>
-
-//         {/* Navigation Links */}
-//         <ul
-//           className={`${isMenuOpen ? "block" : "hidden"
-//             } md:flex md:space-x-4 absolute md:static  md:bg-transparent w-full md:w-auto left-0 px-4 md:px-0 top-16 md:top-0 pb-4 md:pb-0 z-10`}
-//         >
-//           <li>
-//             <a
-//               href="#home"
-//               className="block py-2 text-white hover:text-[#4a3f0a] transition-colors font-bold"
-//               onClick={() => setIsMenuOpen(false)}
-//             >
-//               Home
-//             </a>
-//           </li>
-//           <li>
-//             <a
-//               href="#about"
-//               className="block py-2 text-white hover:text-[#4a3f0a] transition-colors font-bold"
-//               onClick={() => setIsMenuOpen(false)}
-//             >
-//               About
-//             </a>
-//           </li>
-//           <li>
-//             <a
-//               href="#portfolio"
-//               className="block py-2 text-white hover:text-[#4a3f0a] transition-colors font-bold"
-//               onClick={() => setIsMenuOpen(false)}
-//             >
-//               Portfolio
-//             </a>
-//           </li>
-//           <li>
-//             <a
-//               href="#contact"
-//               className="block py-2 text-white hover:text-[#4a3f0a] transition-colors font-bold"
-//               onClick={() => setIsMenuOpen(false)}
-//             >
-//               Contact
-//             </a>
-//           </li>
-//         </ul>
-//       </div>
-//     </header>
-//   )
-// }
-
-// export default Header
-
-import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
-
-const NAV_ITEMS = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "portfolio", label: "Portfolio" },
-  { id: "contact", label: "Contact" },
-];
+import React, { useState, useEffect } from "react";
+import { FaBars, FaTimes, FaDownload, FaMoon, FaSun, FaHome, FaUser, FaBriefcase, FaEnvelope } from "react-icons/fa";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [activeSection, setActiveSection] = useState("home");
 
-  const toggleMenu = () => setIsMenuOpen((s) => !s);
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+
+      // Update active section based on scroll position
+      const sections = ['home', 'about', 'portfolio', 'contact'];
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Handle dark mode
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  const navItems = [
+    { id: 'home', label: 'Home', icon: <FaHome className="w-4 h-4" /> },
+    { id: 'about', label: 'About', icon: <FaUser className="w-4 h-4" /> },
+    { id: 'portfolio', label: 'Portfolio', icon: <FaBriefcase className="w-4 h-4" /> },
+    { id: 'contact', label: 'Contact', icon: <FaEnvelope className="w-4 h-4" /> }
+  ];
+
+  const handleNavClick = (sectionId) => {
+    setIsMenuOpen(false);
+    setActiveSection(sectionId);
+  };
 
   return (
-    <header className="sticky top-0 z-30">
-      {/* translucent, blurred bar */}
-      <div className="backdrop-blur-sm bg-white/6 border-b border-white/8">
-        <div className="container mx-auto flex items-center justify-between px-4 py-3 md:py-4">
-          {/* Left: Logo */}
-          <a href="#home" className="flex items-center gap-3">
-            {/* small mark + name */}
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-yellow-400 to-orange-600 shadow-md">
-              <span className="text-sm font-extrabold text-black">N</span>
-            </span>
-            <div>
-              <h1 className="text-lg md:text-xl font-semibold text-white/95">
-                My Portfolio
+    <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
+        ? 'bg-blue-900/95 dark:bg-blue-950/95 backdrop-blur-xl shadow-2xl shadow-blue-500/20'
+        : 'bg-gradient-to-b from-blue-900/80 to-transparent'
+      }`}>
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <a
+            href="#home"
+            className="flex items-center gap-3 group"
+            onClick={() => handleNavClick('home')}
+          >
+            <div className="relative">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-2xl shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
+                <span className="text-white font-bold text-lg">N</span>
+              </div>
+              <div className="absolute -inset-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl blur opacity-50 group-hover:opacity-70 transition duration-300"></div>
+            </div>
+
+            <div className="hidden sm:block">
+              <h1 className="text-xl font-bold text-white group-hover:text-blue-200 transition-colors">
+                Naveen Saini
               </h1>
-              <p className="text-xs text-white/60 -mt-0.5 tracking-wide">
-                <span className="text-yellow-300">●</span> MERN Stack Developer
+              <p className="text-xs text-blue-200/80 -mt-0.5 group-hover:text-blue-100 transition-colors">
+                Full Stack Developer
               </p>
             </div>
           </a>
 
-          {/* Desktop nav + CTA */}
-          <nav className="hidden md:flex items-center gap-6">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
             <ul className="flex items-center gap-6">
-              {NAV_ITEMS.map((item) => (
+              {navItems.map((item) => (
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
-                    className="relative inline-block py-2 text-sm font-medium text-white/95 hover:text-yellow-300 transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`relative flex items-center gap-2 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300 group ${activeSection === item.id
+                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
+                        : 'text-blue-100 hover:bg-blue-800/50 hover:text-white'
+                      }`}
                   >
+                    {item.icon}
                     {item.label}
-                    {/* underline indicator */}
-                    <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-yellow-300 transition-all group-hover:w-full"></span>
+                    {activeSection === item.id && (
+                      <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-300 rounded-full"></span>
+                    )}
                   </a>
                 </li>
               ))}
             </ul>
 
-            <a
-              href="#contact"
-              className="ml-2 inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-yellow-400 to-orange-500 px-4 py-2 text-sm font-semibold text-black shadow hover:scale-105 transform transition"
-            >
-              Hire Me
-            </a>
+            {/* Action Buttons */}
+            <div className="flex items-center gap-3 ml-4">
+              {/* Dark Mode Toggle */}
+              <button
+                onClick={() => setIsDarkMode(!isDarkMode)}
+                className="p-3 rounded-xl bg-blue-800/50 text-blue-100 hover:bg-blue-700 hover:text-white transition-all duration-300 group"
+                aria-label="Toggle dark mode"
+              >
+                {isDarkMode ? <FaSun className="w-4 h-4 group-hover:rotate-180 transition-transform" /> : <FaMoon className="w-4 h-4 group-hover:rotate-180 transition-transform" />}
+              </button>
+
+              {/* Download CV */}
+              <a
+                href="/resume.pdf"
+                download
+                className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 hover:shadow-blue-400/40 transform hover:scale-105 transition-all duration-300 group"
+              >
+                <FaDownload className="w-4 h-4 group-hover:animate-bounce" />
+                <span className="text-sm font-medium">Resume</span>
+              </a>
+
+              {/* Hire Me Button */}
+              <a
+                href="#contact"
+                onClick={() => handleNavClick('contact')}
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300 hover:from-cyan-400 hover:to-blue-500"
+              >
+                Hire Me
+              </a>
+            </div>
           </nav>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile Menu Toggle */}
+          <div className="flex items-center gap-3 lg:hidden">
+            {/* Dark Mode Toggle - Mobile */}
             <button
-              onClick={toggleMenu}
-              aria-label="Toggle menu"
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className="p-3 rounded-xl bg-blue-800/50 text-blue-100 hover:bg-blue-700 hover:text-white transition-all duration-300"
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? <FaSun className="w-4 h-4" /> : <FaMoon className="w-4 h-4" />}
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen((s) => !s)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-white/4 text-white hover:bg-white/8 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
             >
               <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
               {isMenuOpen ? <FaTimes className="w-5 h-5" /> : <FaBars className="w-5 h-5" />}
@@ -153,74 +160,104 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile menu panel (animated) */}
+      {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-20 md:hidden transform transition-all duration-300 ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
           }`}
         aria-hidden={!isMenuOpen}
       >
-        {/* backdrop */}
+        {/* Backdrop */}
         <button
           onClick={() => setIsMenuOpen(false)}
-          className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity ${isMenuOpen ? "opacity-100" : "opacity-0"
+          className={`absolute inset-0 bg-blue-950/80 backdrop-blur-sm transition-opacity duration-500 ${isMenuOpen ? "opacity-100" : "opacity-0"
             }`}
           aria-hidden="true"
         />
 
-        {/* panel */}
+        {/* Sliding Panel */}
         <aside
-          className={`absolute right-0 top-0 h-full w-11/12 max-w-xs bg-[#0b0b0d]/95 p-6 shadow-lg transform transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          className={`absolute right-0 top-0 h-full w-80 max-w-full bg-gradient-to-b from-blue-900 to-blue-800 shadow-2xl shadow-blue-500/20 transform transition-transform duration-500 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
         >
-          <div className="flex items-center justify-between mb-6">
-            <a href="#home" className="flex items-center gap-3" onClick={() => setIsMenuOpen(false)}>
-              <span className="inline-flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-br from-yellow-400 to-orange-500">
-                <span className="text-sm font-extrabold text-black">N</span>
-              </span>
-              <div>
-                <h2 className="text-base font-semibold text-white">My Portfolio</h2>
-                <p className="text-xs text-white/60 -mt-0.5">Frontend Dev</p>
-              </div>
-            </a>
-
-            <button
-              onClick={() => setIsMenuOpen(false)}
-              aria-label="Close menu"
-              className="p-2 rounded-md text-white hover:bg-white/6 focus:outline-none focus:ring-2 focus:ring-yellow-300"
-            >
-              <FaTimes className="w-4 h-4" />
-            </button>
-          </div>
-
-          <nav>
-            <ul className="flex flex-col gap-3">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.id}>
-                  <a
-                    href={`#${item.id}`}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block rounded-md px-3 py-2 text-white/95 text-base font-medium hover:bg-white/6 transition"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-6">
+          <div className="flex flex-col h-full">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-blue-700/50">
               <a
-                href="#contact"
+                href="#home"
+                className="flex items-center gap-3 group"
                 onClick={() => setIsMenuOpen(false)}
-                className="block w-full rounded-md bg-gradient-to-r from-yellow-400 to-orange-500 px-4 py-2 text-center font-semibold text-black shadow"
               >
-                Hire Me
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-lg">
+                  <span className="text-white font-bold">N</span>
+                </div>
+                <div>
+                  <h2 className="text-base font-semibold text-white">Naveen Saini</h2>
+                  <p className="text-xs text-blue-200">Full Stack Developer</p>
+                </div>
               </a>
-            </div>
-          </nav>
 
-          <footer className="absolute bottom-6 left-6 right-6 text-xs text-white/60">
-            <p>© {new Date().getFullYear()} My Portfolio • Built with React</p>
-          </footer>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                aria-label="Close menu"
+                className="p-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-700/50 transition-colors"
+              >
+                <FaTimes className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Navigation */}
+            <nav className="flex-1 p-6">
+              <ul className="space-y-3">
+                {navItems.map((item) => (
+                  <li key={item.id}>
+                    <a
+                      href={`#${item.id}`}
+                      onClick={() => handleNavClick(item.id)}
+                      className={`flex items-center gap-4 px-4 py-4 rounded-xl text-base font-medium transition-all duration-300 group ${activeSection === item.id
+                          ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
+                          : 'text-blue-100 hover:bg-blue-700/50 hover:text-white'
+                        }`}
+                    >
+                      <div className={`p-2 rounded-lg ${activeSection === item.id
+                          ? 'bg-blue-500'
+                          : 'bg-blue-700/50 group-hover:bg-blue-600'
+                        }`}>
+                        {item.icon}
+                      </div>
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Mobile Action Buttons */}
+              <div className="mt-8 space-y-4">
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="flex items-center justify-center gap-3 w-full px-4 py-4 rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-all duration-300"
+                >
+                  <FaDownload className="w-4 h-4" />
+                  <span className="font-medium">Download Resume</span>
+                </a>
+
+                <a
+                  href="#contact"
+                  onClick={() => handleNavClick('contact')}
+                  className="block w-full text-center px-4 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300"
+                >
+                  Hire Me
+                </a>
+              </div>
+            </nav>
+
+            {/* Footer */}
+            <footer className="p-6 border-t border-blue-700/50">
+              <p className="text-center text-sm text-blue-300">
+                © {new Date().getFullYear()} Naveen Saini. All rights reserved.
+              </p>
+            </footer>
+          </div>
         </aside>
       </div>
     </header>
@@ -228,4 +265,3 @@ const Header = () => {
 };
 
 export default Header;
-
