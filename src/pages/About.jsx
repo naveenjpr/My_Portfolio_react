@@ -315,7 +315,9 @@ import { BiBriefcase, BiUser, BiRocket } from "react-icons/bi";
 
 export default function About() {
   const [activeTab, setActiveTab] = useState("about");
+import { BiBriefcase } from "react-icons/bi";
 
+export default function About() {
   const experiences = [
     {
       role: "AWS Developer",
@@ -367,6 +369,8 @@ export default function About() {
           ))}
         </div>
       </div>
+    <div className="bg-[#facf21] min-h-screen">
+      <Skill />
 
       {/* Content based on active tab */}
       <div className="container mx-auto px-4">
@@ -398,6 +402,8 @@ function AboutContent({ experiences }) {
             href={resume}
             download="naveen_saini_resume.pdf"
             className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+            download="naveen_cv.pdf"
+            className="mt-6 bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition duration-300"
           >
             <FaDownload />
             <span>Download CV</span>
@@ -411,6 +417,34 @@ function AboutContent({ experiences }) {
             alt="Naveen Saini"
             className="w-full h-auto object-cover"
           />
+            alt="About Me"
+            className="w-full max-w-md lg:max-w-full rounded-lg shadow-lg"
+          />
+          <div className="h-screen overflow-auto">
+            <h2 className="text-center text-[black] font-medium py-[10px]">
+              Our Certificate
+            </h2>
+            <img
+              src={joinletter}
+              alt="About Me"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+            />
+            <img
+              src={certificateimage}
+              alt="About Me"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+            />
+            <img
+              src={certificateimage2}
+              alt="About Me"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+            />
+            <img
+              src={certificateimage3}
+              alt="About Me"
+              className="w-full h-auto max-w-md lg:max-w-full rounded-lg shadow-lg"
+            />
+          </div>
         </div>
       </div>
 
@@ -433,6 +467,35 @@ function AboutContent({ experiences }) {
           <div className="flex items-center space-x-3 mb-6">
             <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-xl flex items-center justify-center">
               <BiRocket className="text-blue-600 dark:text-blue-400 text-2xl" />
+        {/* Content Section */}
+        <div className="container mx-auto px-4 text-[black]">
+          <h2 className="text-4xl font-bold text-center mb-8">About Me</h2>
+          <div className="max-w-4xl mx-auto text-lg">
+            <p className="mb-6 text-center">
+              Hi, I'm Naveen Saini, a full-stack developer with a passion for
+              building modern web applications. I specialize in{" "}
+              <strong>React.js, Node.js, Tailwind CSS, and AWS Lambda</strong>, and I have
+              extensive experience in both <strong>MERN Stack</strong> and{" "}
+              <strong>WordPress Development</strong>. I also work with{" "}
+              <strong>REST APIs</strong> to create scalable and efficient solutions.
+            </p>
+
+            <div className="bg-black p-6 rounded-lg shadow-lg text-white">
+              <h3 className="text-2xl font-bold mb-4">🚀 My Expertise</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li>
+                  <strong>MERN Stack</strong> (MongoDB, Express.js, React.js, Node.js)
+                </li>
+                <li>
+                  <strong>WordPress Development</strong> (Custom Themes, Plugins, and Websites)
+                </li>
+                <li>
+                  <strong>AWS Lambda</strong> (Serverless functions and cloud-based execution)
+                </li>
+                <li>
+                  <strong>REST API</strong> (Designing and integrating scalable APIs)
+                </li>
+              </ul>
             </div>
             <h2 className="text-2xl font-bold text-gray-800 dark:text-white">My Expertise</h2>
           </div>
@@ -477,6 +540,32 @@ function AboutContent({ experiences }) {
                 </div>
               </div>
             ))}
+            <div className="mt-8 bg-black p-6 rounded-lg shadow-lg text-white">
+              <h3 className="text-2xl font-bold mb-4">
+                📚 My Background & Experience
+              </h3>
+
+              <div className="space-y-6">
+                {experiences.map((exp, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-4 border-b border-gray-700 pb-4 last:border-0"
+                  >
+                    <div className="p-2 rounded-lg bg-gray-800">
+                      <BiBriefcase className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">{exp.role}</h3>
+                      <p className="text-gray-300">
+                        {exp.company} · {exp.type}
+                      </p>
+                      <p className="text-sm text-gray-400">{exp.duration}</p>
+                      <p className="text-sm text-gray-400">{exp.location}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -575,6 +664,31 @@ function SkillsContent() {
       icon: <RiVercelLine className="text-white" size={32} />,
       level: 80,
       category: "Deployment"
+      icon: <RiVercelLine className="text-white" size={40} />,
+    },
+    {
+      name: "Github",
+      icon: <FaGithub className="text-white" size={40} />,
+    },
+    {
+      name: "render",
+      icon: <SiRender className="text-[white]" size={40} />,
+    },
+    {
+      name: "Github Copilot",
+      icon: <SiGithubcopilot className="text-[#25c5df]" size={40} />,
+    },
+    {
+      name: "cursor ai",
+      icon: <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M4 2L20 12L4 22L6 14L14 12L6 10L4 2Z" />
+      </svg>
     },
   ];
 
@@ -650,6 +764,13 @@ function CertificatesContent() {
           <div
             key={index}
             className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+    <div className="p-4">
+      <h2 className="text-2xl font-bold text-[#241d05] text-center mb-4">My Skills</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        {skills.map((skill, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center justify-center bg-black rounded-xl p-4 hover:scale-105 transition-transform duration-300"
           >
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center">
