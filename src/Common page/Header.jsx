@@ -142,8 +142,8 @@ const Header = () => {
 
               {/* Download CV */}
               <a
-                href="/resume.pdf"
-                download
+                href={resume}
+                download="new2 resume.pdf"
                 className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 hover:shadow-blue-400/40 transform hover:scale-105 transition-all duration-300 group"
               >
                 <FaDownload className="w-4 h-4 group-hover:animate-bounce" />
@@ -278,8 +278,8 @@ const Header = () => {
               {/* Mobile Action Buttons */}
               <div className="mt-8 space-y-4">
                 <a
-                  href="/resume.pdf"
-                  download
+                  href={resume}
+                  download="new2 resume.pdf"
                   className="flex items-center justify-center gap-3 w-full px-4 py-4 rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-all duration-300"
                 >
                   <FaDownload className="w-4 h-4" />
