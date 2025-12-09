@@ -1,530 +1,11 @@
-// import React from "react";
-// import { FaGithub } from "react-icons/fa";
-// import dronetv from "../assets/dronetv.png";
-// import shubhFashion from "../assets/shubhFashion.png";
-// import shubhFashionadminpanel from "../assets/shubhFashionadminpanel.png";
-// import aiassist from "../assets/AI Assist.png";
-// import Hundred from "../assets/hundren.png";
-// import question from "../assets/question.png";
-// import ashapurna from "../assets/ashapurna.png";
-// import frankandoak from "../assets/frankandoak.png";
-// import myntra from "../assets/mantrawebsite.png";
-// import razorpay from "../assets/razorpay.png";
-// import curdoperation from "../assets/curdoperation.png";
-// import loginRegister from "../assets/loginRegister.png";
-// import mailsend from "../assets/mailsend.png";
-// import imageuploadlogic from "../assets/imageuploadlogic.png";
-// import pagination from "../assets/pagination.png"
-// import searchApi from "../assets/searchApi.png"
-// import flowbite from "../assets/flowbite.png"
-// import spheraconstion from "../assets/spheraconstion.png"
-// import blogapp from "../assets/blogconstration.png"
-// import skydashadmin from "../assets/skydashadmin.png"
-// import multiapp from "../assets/multiapp.png"
-// import addtocart from "../assets/addtocart.png"
-// import onepage from "../assets/onepage.png"
-// import dermalife from "../assets/dreamlife.png"
-// import apiapply from "../assets/apiapply.png"
-// import smartcity from "../assets/smartcity.png"
-// import container from "../assets/container.png"
-// import ecommerce from "../assets/ecommerce.png"
-// import lms from "../assets/lms.png"
-// import portfolie from "../assets/portfolie.png"
-
-// export default function Portfolio() {
-//   const projects = [
-//     {
-//       image: dronetv,
-//       title: "dronetv.in",
-//       description: "different type project create this series",
-//       technologies: ["", "react.js", "Tailwind CSS", "aws"],
-//       github: {
-//         frontend: "https://github.com/gisipageums-droid/Dronetv",
-//         backend: "",
-//       },
-//       link: "https://www.dronetv.in/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: shubhFashion,
-//       title: "full ecommerce website frontend",
-//       description: "different type project create this series",
-//       technologies: ["", "Next.js", "Tailwind CSS", "node.js api"],
-//       github: {
-//         frontend: "https://github.com/Gionee123/gudiya_website",
-//         backend: "",
-//       },
-//       link: "https://gudiya-website.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: shubhFashionadminpanel,
-//       title: "Full-Stack E-commerce Website with (Admin Dashboard)",
-//       description: "different type project create this series",
-//       technologies: ["", "React", "Tailwind CSS", "node js api"],
-//       github: {
-//         frontend: "",
-//         backend: "https://github.com/Gionee123/Gudiya_admin_panel",
-//       },
-//       link: "https://gudiya-adminpanel.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: ashapurna,
-//       title: "ashapurna website  (react.js)",
-//       description:
-//         "Ashapurna Buildcon – Real Estate Developer in Rajasthan” this is website clone",
-//       technologies: ["fronted:react", , "tailwind"],
-//       github: {
-//         frontend: "https://github.com/naveenjpr/ashapurna",
-//         backend: "",
-//       },
-//       link: "https://ashapurna-clone.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: frankandoak,
-//       title: "frank-and-ok website  (backend:node.js)+(frontend:next.js)",
-//       description: "This is clothing ecommerce website",
-//       technologies: ["Next.js", "Tailwind CSS", "node js"],
-//       github: {
-//         frontend:
-//           "https://github.com/naveenjpr/FrankAndOak-nextjs-nodejs/tree/main/frankandoak",
-//         backend: "https://github.com/naveenjpr/API-frank-And-Oak",
-//       },
-//       link: "https://frank-and-ok.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: aiassist,
-//       title: "AI Assist",
-//       description: "AI-Assistant-with-Gemini",
-//       technologies: ["", "React", "Tailwind CSS", "node js api", "GEMINI_API_KEY"],
-//       github: {
-//         frontend: "https://github.com/Gionee123/ai-assistant-in-with-gemini-react",
-//         backend: "https://github.com/Gionee123/AI-Assistant-in-node.js-with-Gemini-node.js",
-//       },
-//       link: "https://ai-assistant-in-with-gemini-react.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-
-//     {
-//       image: Hundred,
-//       title: "100 project series (backend:node.js)+(frontend:react.js)",
-//       description: "different type project create this series",
-//       technologies: ["", "React", "Tailwind CSS", "node js"],
-//       github: {
-//         frontend: "https://github.com/naveenjpr/100_react_next_project_list",
-//         backend: "https://github.com/naveenjpr/rss-feed-node.js",
-//       },
-//       link: "https://100-react-next-project-list.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: question,
-//       title: "practics_question_ (admin panel)",
-//       description: "practics question html, css ,tailwind,node.js,express,avs,react,next.js,how live aws website logic,wordpress website question",
-//       technologies: ["", "React", "Tailwind CSS", "backend  node js api using"],
-//       github: {
-//         frontend: "",
-//         backend: "",
-//       },
-//       link: "https://practics-question-admin.vercel.app/login", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-
-
-//     {
-//       image: myntra,
-//       title: "myntra website filter logic",
-//       description:
-//         "This is myntra online shoping website category,brand,price,rating,low to high,high to low, many other type filter logic using this website",
-//       technologies: ["react.js", "Tailwind CSS", "using api dynmic data show"],
-//       github: {
-//         frontend: "https://github.com/naveenjpr/myntra-project",
-//       },
-//       link: "https://myntra-project-wheat.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: razorpay,
-//       title:
-//         "E-commerce razorpay payment method (backend:node.js)+(frontend:next.js)",
-//       description:
-//         "using backend node.js api and frontend next.js Framework E-commerce website product add to cart automatic price update and click checkout button payment option show ",
-//       technologies: [
-//         "MVC",
-//         "Node.js api",
-//         "next.js",
-//         "api online using render platform plus vercel",
-//       ],
-//       github: {
-//         frontend: "https://github.com/Gionee123/next.js-razor-payment-t",
-//         backend: "https://github.com/Gionee123/node.js-razor-payment-api",
-//       },
-
-//       link: "https://next-js-razor-payment.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: curdoperation,
-//       title: "CURD OPERATION (backend:node.js)+(frontend:next.js)",
-//       description:
-//         "using backend node.js api and frontend next.js Framework curd operation means C-> Create,R-> Read, U-> Update, D->Delete",
-//       technologies: [
-//         "MVC",
-//         "Node.js api",
-//         "next.js",
-//         "api online using render platform plus vercel",
-//       ],
-//       github: {
-//         frontend:
-//           "https://github.com/Gionee123/curd-operation-next.js-online-api",
-//         backend: "https://github.com/Gionee123/node.js-curd-operation",
-//       },
-
-//       link: "https://curd-operation-next-js-online-api.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: loginRegister,
-//       title: "Login,Register,Profile (backend:node.js)+(frontend:next.js)",
-//       description:
-//         "using backend node.js api and frontend next.js Framework show login,logout,register,profile ",
-//       technologies: [
-//         "MVC",
-//         "Node.js api",
-//         "next.js",
-//         "api online using render platform plus vercel",
-//       ],
-//       github: {
-//         frontend: "https://github.com/Gionee123/next.js-login-register-profile",
-//         backend: "https://github.com/Gionee123/node.js-login-register-profile",
-//       },
-
-//       link: "https://next-js-login-register-profile.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: mailsend,
-//       title: "Mail send using node.js api (backend:node.js)+(frontend:next.js)",
-//       description:
-//         "using backend node.js api and frontend next.js Framework mail send node.js api",
-//       technologies: [
-//         "MVC",
-//         "Node.js api",
-//         "next.js",
-//         "api online using render platform plus vercel",
-//       ],
-//       github: {
-//         frontend: "https://github.com/Gionee123/next.js-send-mail-",
-//         backend: "https://github.com/Gionee123/node.js-mail_send-api",
-//       },
-
-//       link: "https://next-js-send-mail.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: imageuploadlogic,
-//       title:
-//         "single or multiple image upload admin panel (backend:node.js)+(frontend:next.js)",
-//       description:
-//         "using backend node.js api and frontend next.js Framework show single,multiple image upload admin panel logic",
-//       technologies: [
-//         "MVC",
-//         "Node.js api",
-//         "next.js",
-//         "api online using render platform plus vercel",
-//       ],
-//       github: {
-//         frontend: "https://github.com/Gionee123/next.js-image-upload",
-//         backend: "https://github.com/Gionee123/node.js-image-upload",
-//       },
-
-//       link: "https://next-js-image-upload.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: pagination,
-//       title:
-//         "pagination using node.js api (backend:node.js)+(frontend:next.js)",
-//       description:
-//         "using backend node.js api and frontend next.js Framework show pagination logic using node.js api",
-//       technologies: [
-//         "MVC",
-//         "Node.js api",
-//         "next.js",
-//         "api online using render platform plus vercel",
-//       ],
-//       github: {
-//         frontend: "https://github.com/Gionee123/next.js-pagination",
-//         backend: "https://github.com/Gionee123/node.js-pagination",
-//       },
-
-//       link: "https://next-js-pagination-gamma.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: searchApi,
-//       title: "search api node.js (backend:node.js)+(frontend:next.js)",
-//       description:
-//         "using backend node.js api and frontend next.js Framework search api found name,duration and other field",
-//       technologies: [
-//         "MVC",
-//         "Node.js api",
-//         "next.js",
-//         "api online using render platform plus vercel",
-//       ],
-//       github: {
-//         frontend: "https://github.com/Gionee123/next.js-search-api",
-//         backend: "https://github.com/Gionee123/node.js-search-api",
-//       },
-
-//       link: "https://next-js-search-api.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: flowbite,
-//       title: "Flowbite Next.js ",
-//       description:
-//         "Flowbite React show all component Accordion, Alert, Avatar, Button, ButtonGroup, Card, Carousel, Dropdown, Forms, Modal, Tabs,sidebar,rating,progressBar,Spinner",
-//       technologies: ["Next.js", "Tailwind", "recat flowbite"],
-//       github: {
-//         frontend: "https://github.com/naveenjpr/flowbite",
-//         backend: "",
-//       },
-
-//       link: "https://flowbite-kappa.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: spheraconstion,
-//       title: "sphere constration (index.html)",
-//       description:
-//         "sphere_constration is One page website,LEADERS IN QUALITY CONSTRUCTION AND INFRASTRUCTURE”",
-//       technologies: [
-//         "HTML5",
-//         "Bootstrap",
-//         "CSS",
-//         "JavaScript",
-//         "Google Maps Embed API<iframe>",
-//         "CDN (Content Delivery Network)",
-//       ],
-//       github: {
-//         frontend: "https://github.com/naveenjpr/sphere_constration",
-//         backend: "",
-//       },
-
-//       link: "https://sphere-constration.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: blogapp,
-//       title: "blog app (react.js) (Google firebase)",
-//       description:
-//         "this is a blog application that utilizes Firebase for authentication and possibly Firestore for data storage. Below is a breakdown of its key functionalities based on the provided files",
-//       technologies: [
-//         " Frontend Technologies:React.j:,React Context API,React Router ,Firebase Authentication: GoogleAuthProvider for Google Sign-In.",
-//       ],
-//       github: {
-//         frontend: "https://github.com/naveenjpr/blog-app",
-//         backend: "",
-//       },
-//       link: "https://blog-app-five-chi.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: skydashadmin,
-//       title: "skydash-admin (react.js)",
-//       description:
-//         " Course Management:Add or view courses available in the system.Media Management:Upload videos/slides for tutorials or presentations.Team Management:Add team members or view the list of current team members.User Management:View registered users for monitoring or administrative purposes.Search Bar API Integration",
-//       technologies: [
-//         "React,React Router DOM,React Icons,Tailwind CSS,JavaScript",
-//       ],
-//       github: {
-//         frontend: "https://github.com/naveenjpr/skydash-admin-panel",
-//         backend: "",
-//       },
-//       link: "https://skydash-admin-panel.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-
-//     {
-//       image: multiapp,
-//       title: "multiple app",
-//       description:
-//         " these are multiple categories show this field.type of movie app,to-do-list,dummy . json api,table to form data show,weather app,curd operation,category click product show,password generator etc…",
-//       technologies: ["React,tailwind,dummy.json api"],
-//       github: {
-//         frontend: "https://github.com/Gionee123/next.js-image-upload",
-//         backend: "https://github.com/naveenjpr/SearchMovieForApi/tree/main/src",
-//       },
-//       link: "https://search-movie-for-api.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: addtocart,
-//       title: "E-Commerce Add to cart (react.js)",
-//       description:
-//         " The code provided is part of a React application that manages a shopping cart with product listing, cart management, and checkout functionalities. Here’s a detailed description of the main components and their behavior:",
-//       technologies: [
-//         "React Context,React Router,Tailwind CSS,React Toastify,JavaScript ES6+ Features",
-//       ],
-//       github: {
-//         frontend:
-//           "https://github.com/naveenjpr/context-api-dummyApi-update-delete",
-//         backend: "",
-//       },
-//       link: "https://context-api-dummy-api-update-delete.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: onepage,
-//       title: "one page second website",
-//       description: "The code provided is part of a React",
-//       technologies: [
-//         "Navigation with Internal Links",
-//         "Back-to-Top Navigation",
-//       ],
-//       github: {
-//         frontend: "https://github.com/naveenjpr/one-page-second-website",
-//         backend: "",
-//       },
-//       link: "https://one-page-second-website.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: dermalife,
-//       title: "Next.js,tailwind",
-//       description: "this is hair transplant website one page website clone",
-//       technologies: [
-//         "Navigation with Internal Links",
-//         "Back-to-Top Navigation",
-//       ],
-//       github: {
-//         frontend: "https://github.com/naveenjpr/derma-life",
-//         backend: "",
-//       },
-//       link: "https://derma-life.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: apiapply,
-//       title: "APi to data show",
-//       description:
-//         "Every section show data for “dummy .json api”,Todo,Product,Carts,Users,Posts,Comments,Quotes,Recipes",
-//       technologies: [":React,React Router,Tailwind CSS,State Management"],
-//       github: {
-//         frontend: "",
-//         backend: "",
-//       },
-//       link: "https://react-api-eta-two.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: smartcity,
-//       title: "Smart city mohali (index.html)",
-//       description:
-//         " The webpage is a comprehensive real estate project page that uses a combination of HTML, CSS, and likely JavaScript to create an interactive and visually appealing user experience. It includes various multimedia elements, forms, and external integrations to provide users with all the necessary information about the project",
-//       technologies: [
-//         "HTML5,CSS,Google Maps,YouTube Embed,SEO and Meta Tags,Forms,External Links,Footer",
-//       ],
-//       github: {
-//         frontend: "https://github.com/naveenjpr/smart-city",
-//         backend: "",
-//       },
-//       link: "https://smart-city-red.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: container,
-//       title: "contentholic website (index.html)",
-//       description:
-//         "This webpage is well-structured and provides comprehensive information about the company’s services, achievements, and contact details. It is designed to be user-friendly and visually appealing, with clear calls to action to engage potential clients",
-//       technologies: [
-//         "Navigation with Internal Links",
-//         "Back-to-Top Navigation",
-//       ],
-//       github: {
-//         frontend: "https://github.com/naveenjpr/contentholic_clone",
-//         backend: "",
-//       },
-//       link: "https://one-page-second-website.vercel.app/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: ecommerce,
-//       title: "E-Commerce (wordpess)",
-//       description: "wordpress E-Commerce Website",
-//       technologies: ["Wordpress Ecommerce Website"],
-
-//       link: "http://naveenwebsitecreate.great-site.net/?i=1", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: lms,
-//       title: "LMS-PROJECT (wordpress)",
-//       description: "wordpress LMS website",
-//       technologies: ["wordpess"],
-//       link: "https://naveensainlmsproject.infinityfreeapp.com/?i=1", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-//     {
-//       image: portfolie,
-//       title: "My portfolio website (wordpress)",
-//       description: "",
-//       technologies: [""],
-//       link: "http://naveen.lovestoblog.com/", // Add a link to the project (e.g., GitHub or live demo)
-//     },
-
-//     // Add more projects as needed
-//   ];
-//   return (
-//     <div className="container mx-auto px-4">
-//       <h2 className="text-4xl font-bold text-center">Portfolio</h2>
-//       <h3 className="text-2xl font-[400] text-center py-[5px]">
-//         react.js,next.js,node.js,wordpress
-//       </h3>
-//       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-justify">
-//         {projects.map((project, index) => (
-//           <div
-//             key={index} // Unique key for each project
-//             className="bg-white overflow-auto p-2 rounded-lg text-gray-900 shadow-lg hover:shadow-xl transition-shadow duration-300 max-h-[500px] overflow-y-auto"
-//           >
-//             <img src={project.image} alt="test" className="w-[100%] h-[200px] " />
-//             <h3 className="text-2xl font-bold">{project.title}</h3>
-//             <p className="mt-2">📝Description:{project.description}</p>
-//             <div className="mt-4">
-//               <p className="text-sm text-gray-600">
-//                 <strong>📌 Technologies:</strong>{" "}
-//                 {project.technologies.join(", ")}
-//               </p>
-//             </div>
-//             <div>
-//               {/* GitHub Links */}
-//               {project.github && (
-//                 <div className="mt-4 space-y-2 flex gap-4">
-//                   <span></span>
-//                   {project.github.frontend && (
-//                     <a
-//                       href={project.github.frontend}
-//                       target="_blank"
-//                       rel="noopener noreferrer"
-//                       className="flex items-center text-blue-600 hover:underline"
-//                     >
-//                       <span className="text-[black]">
-//                         <FaGithub />
-//                       </span>
-//                       Frontend Repo
-//                     </a>
-//                   )}
-//                   {project.github.backend && (
-//                     <a
-//                       href={project.github.backend}
-//                       target="_blank"
-//                       rel="noopener noreferrer"
-//                       className="flex items-center text-blue-600 hover:underline"
-//                     >
-//                       <span className="text-[black]">
-//                         <FaGithub />
-//                       </span>
-//                       Backend Repo
-//                     </a>
-//                   )}
-//                 </div>
-//               )}
-//             </div>
-//             <a
-//               href={project.link}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300"
-//             >
-//               View Project
-//             </a>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-
-
-//   );
-// }
-
-
 import React, { useState } from "react";
-import { FaGithub, FaExternalLinkAlt, FaCode, FaServer, FaFilter } from "react-icons/fa";
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaCode,
+  FaServer,
+  FaFilter,
+} from "react-icons/fa";
 import dronetv from "../assets/dronetv.png";
 import shubhFashion from "../assets/shubhFashion.png";
 import shubhFashionadminpanel from "../assets/shubhFashionadminpanel.png";
@@ -539,22 +20,22 @@ import curdoperation from "../assets/curdoperation.png";
 import loginRegister from "../assets/loginRegister.png";
 import mailsend from "../assets/mailsend.png";
 import imageuploadlogic from "../assets/imageuploadlogic.png";
-import pagination from "../assets/pagination.png"
-import searchApi from "../assets/searchApi.png"
-import flowbite from "../assets/flowbite.png"
-import spheraconstion from "../assets/spheraconstion.png"
-import blogapp from "../assets/blogconstration.png"
-import skydashadmin from "../assets/skydashadmin.png"
-import multiapp from "../assets/multiapp.png"
-import addtocart from "../assets/addtocart.png"
-import onepage from "../assets/onepage.png"
-import dermalife from "../assets/dreamlife.png"
-import apiapply from "../assets/apiapply.png"
-import smartcity from "../assets/smartcity.png"
-import container from "../assets/container.png"
-import ecommerce from "../assets/ecommerce.png"
-import lms from "../assets/lms.png"
-import portfolie from "../assets/portfolie.png"
+import pagination from "../assets/pagination.png";
+import searchApi from "../assets/searchApi.png";
+import flowbite from "../assets/flowbite.png";
+import spheraconstion from "../assets/spheraconstion.png";
+import blogapp from "../assets/blogconstration.png";
+import skydashadmin from "../assets/skydashadmin.png";
+import multiapp from "../assets/multiapp.png";
+import addtocart from "../assets/addtocart.png";
+import onepage from "../assets/onepage.png";
+import dermalife from "../assets/dreamlife.png";
+import apiapply from "../assets/apiapply.png";
+import smartcity from "../assets/smartcity.png";
+import container from "../assets/container.png";
+import ecommerce from "../assets/ecommerce.png";
+import lms from "../assets/lms.png";
+import portfolie from "../assets/portfolie.png";
 
 export default function Portfolio() {
   const [selectedTech, setSelectedTech] = useState("All");
@@ -563,7 +44,8 @@ export default function Portfolio() {
     {
       image: dronetv,
       title: "Dronetv.in",
-      description: "Drone TV offers news, interviews, expert insights and services related to drone technology — covering drone surveying, manufacturing/deployment support, photography/videography, simulator software development, and broader industry commentary",
+      description:
+        "Drone TV offers news, interviews, expert insights and services related to drone technology — covering drone surveying, manufacturing/deployment support, photography/videography, simulator software development, and broader industry commentary",
       technologies: ["React.js", "Tailwind CSS", "AWS", "typescript"],
       github: {
         frontend: "https://github.com/gisipageums-droid/Dronetv",
@@ -574,7 +56,8 @@ export default function Portfolio() {
     {
       image: shubhFashion,
       title: "Full Ecommerce Website Frontend",
-      description: "This website  is an online shopping platform showcasing trendy products with sections like Home, Shop, Wishlist, Cart, and My Orders. It appears to be an e-commerce site where products are displayed and purchased online.",
+      description:
+        "This website  is an online shopping platform showcasing trendy products with sections like Home, Shop, Wishlist, Cart, and My Orders. It appears to be an e-commerce site where products are displayed and purchased online.",
       technologies: ["Next.js", "Tailwind CSS", "Node.js API"],
       github: {
         frontend: "https://github.com/Gionee123/gudiya_website",
@@ -585,7 +68,8 @@ export default function Portfolio() {
     {
       image: shubhFashionadminpanel,
       title: "E-commerce with Admin Dashboard",
-      description: "It offers backend controls for managing things like products, orders, users, or website data — typically used by administrators rather than shoppers.",
+      description:
+        "It offers backend controls for managing things like products, orders, users, or website data — typically used by administrators rather than shoppers.",
       technologies: ["React", "Tailwind CSS", "Node.js API"],
       github: {
         frontend: "",
@@ -596,7 +80,8 @@ export default function Portfolio() {
     {
       image: ashapurna,
       title: "Ashapurna Website",
-      description: "This appears to be a clone version of the Ashapurna Buildcon Ltd. website—likely a front-end replication showcasing projects, property offerings and the developer branding (townships, villas, plots in Jodhpur/Rajasthan).",
+      description:
+        "This appears to be a clone version of the Ashapurna Buildcon Ltd. website—likely a front-end replication showcasing projects, property offerings and the developer branding (townships, villas, plots in Jodhpur/Rajasthan).",
       technologies: ["React", "Tailwind CSS"],
       github: {
         frontend: "https://github.com/naveenjpr/ashapurna",
@@ -607,10 +92,12 @@ export default function Portfolio() {
     {
       image: frankandoak,
       title: "Frank & Oak E-commerce",
-      description: "This appears to be a fashion-ecommerce storefront, showcasing women’s and men’s clothing (tops, shirts, dresses, swimwear, etc.) with features like free shipping, free returns, loyalty “Frank Rewards”, and a “Buy Now, Pay Later” option",
+      description:
+        "This appears to be a fashion-ecommerce storefront, showcasing women’s and men’s clothing (tops, shirts, dresses, swimwear, etc.) with features like free shipping, free returns, loyalty “Frank Rewards”, and a “Buy Now, Pay Later” option",
       technologies: ["Next.js", "Tailwind CSS", "Node.js"],
       github: {
-        frontend: "https://github.com/naveenjpr/FrankAndOak-nextjs-nodejs/tree/main/frankandoak",
+        frontend:
+          "https://github.com/naveenjpr/FrankAndOak-nextjs-nodejs/tree/main/frankandoak",
         backend: "https://github.com/naveenjpr/API-frank-And-Oak",
       },
       link: "https://frank-and-ok.vercel.app/",
@@ -618,18 +105,22 @@ export default function Portfolio() {
     {
       image: aiassist,
       title: "AI Assist",
-      description: "This appears to be a React-based AI assistant web app built using the Google Gemini API (or at least styled as such). The interface likely enables conversational chat with an AI model, possibly allowing text (and maybe other input types) and delivering replies in a chat UI.",
+      description:
+        "This appears to be a React-based AI assistant web app built using the Google Gemini API (or at least styled as such). The interface likely enables conversational chat with an AI model, possibly allowing text (and maybe other input types) and delivering replies in a chat UI.",
       technologies: ["React", "Tailwind CSS", "Node.js API", "Gemini AI"],
       github: {
-        frontend: "https://github.com/Gionee123/ai-assistant-in-with-gemini-react",
-        backend: "https://github.com/Gionee123/AI-Assistant-in-node.js-with-Gemini-node.js",
+        frontend:
+          "https://github.com/Gionee123/ai-assistant-in-with-gemini-react",
+        backend:
+          "https://github.com/Gionee123/AI-Assistant-in-node.js-with-Gemini-node.js",
       },
       link: "https://ai-assistant-in-with-gemini-react.vercel.app/",
     },
     {
       image: Hundred,
       title: "100 Project Series",
-      description: "This appears to be a curated list of 100 projects built with React and Next.js, aimed at developers looking for ideas and challenges. It likely categorises project ideas by skill-level and includes details or links to each.This kind of list is helpful if you (like you are) are working through a 100-projects challenge and want inspiration or structure for your next builds.",
+      description:
+        "This appears to be a curated list of 100 projects built with React and Next.js, aimed at developers looking for ideas and challenges. It likely categorises project ideas by skill-level and includes details or links to each.This kind of list is helpful if you (like you are) are working through a 100-projects challenge and want inspiration or structure for your next builds.",
       technologies: ["React", "Tailwind CSS", "Node.js"],
       github: {
         frontend: "https://github.com/naveenjpr/100_react_next_project_list",
@@ -640,7 +131,8 @@ export default function Portfolio() {
     {
       image: question,
       title: "Practice Questions Admin",
-      description: "This appears to be an Admin Dashboard interface for a platform likely named “Practics Question”. It is used by administrators to manage question-sets, users, analytics, or system settings rather than general end-users.",
+      description:
+        "This appears to be an Admin Dashboard interface for a platform likely named “Practics Question”. It is used by administrators to manage question-sets, users, analytics, or system settings rather than general end-users.",
       technologies: ["React", "Tailwind CSS", "Node.js API"],
       github: {
         frontend: "",
@@ -651,7 +143,8 @@ export default function Portfolio() {
     {
       image: myntra,
       title: "Myntra Filter Logic",
-      description: "This appears to be a clone or practice version of the Myntra e-commerce website. Likely built for learning or showcasing a project, it mimics a fashion retail storefront with categories, product listings, and possibly cart/wishlist features.",
+      description:
+        "This appears to be a clone or practice version of the Myntra e-commerce website. Likely built for learning or showcasing a project, it mimics a fashion retail storefront with categories, product listings, and possibly cart/wishlist features.",
       technologies: ["React.js", "Tailwind CSS", "Dynamic API"],
       github: {
         frontend: "https://github.com/naveenjpr/myntra-project",
@@ -661,7 +154,8 @@ export default function Portfolio() {
     {
       image: razorpay,
       title: "Razorpay Payment Integration",
-      description: "This appears to be a demo or starter project built with Next.js that integrates the Razorpay payment gateway. Users can likely enter an amount or select a product and proceed to make a payment via Razorpay’s checkout flow.",
+      description:
+        "This appears to be a demo or starter project built with Next.js that integrates the Razorpay payment gateway. Users can likely enter an amount or select a product and proceed to make a payment via Razorpay’s checkout flow.",
       technologies: ["MVC", "Node.js API", "Next.js"],
       github: {
         frontend: "https://github.com/Gionee123/next.js-razor-payment-t",
@@ -672,10 +166,12 @@ export default function Portfolio() {
     {
       image: curdoperation,
       title: "CRUD Operations",
-      description: "This appears to be a demo or tutorial-style web application built with Next.js (likely using its API routes) showcasing full CRUD functionality (Create, Read, Update, Delete) via an online API. Users can interact with a backend to add, view, modify, and remove data entries.",
+      description:
+        "This appears to be a demo or tutorial-style web application built with Next.js (likely using its API routes) showcasing full CRUD functionality (Create, Read, Update, Delete) via an online API. Users can interact with a backend to add, view, modify, and remove data entries.",
       technologies: ["MVC", "Node.js API", "Next.js"],
       github: {
-        frontend: "https://github.com/Gionee123/curd-operation-next.js-online-api",
+        frontend:
+          "https://github.com/Gionee123/curd-operation-next.js-online-api",
         backend: "https://github.com/Gionee123/node.js-curd-operation",
       },
       link: "https://curd-operation-next-js-online-api.vercel.app/",
@@ -683,7 +179,8 @@ export default function Portfolio() {
     {
       image: loginRegister,
       title: "Authentication System",
-      description: "This looks like a demo or project built with Next.js that offers user authentication flows: login, registration, and a protected profile page. Users can sign up, log in, and view their profile once authenticated",
+      description:
+        "This looks like a demo or project built with Next.js that offers user authentication flows: login, registration, and a protected profile page. Users can sign up, log in, and view their profile once authenticated",
       technologies: ["MVC", "Node.js API", "Next.js"],
       github: {
         frontend: "https://github.com/Gionee123/next.js-login-register-profile",
@@ -694,7 +191,8 @@ export default function Portfolio() {
     {
       image: mailsend,
       title: "Email System",
-      description: "This appears to be a demo or project built with Next.js that implements an email-sending feature. It likely offers a form or interface where users can input details (subject, message, recipient) and then send an email via an API route (server side) or integration like Nodemailer / SMTP",
+      description:
+        "This appears to be a demo or project built with Next.js that implements an email-sending feature. It likely offers a form or interface where users can input details (subject, message, recipient) and then send an email via an API route (server side) or integration like Nodemailer / SMTP",
       technologies: ["MVC", "Node.js API", "Next.js"],
       github: {
         frontend: "https://github.com/Gionee123/next.js-send-mail-",
@@ -705,7 +203,8 @@ export default function Portfolio() {
     {
       image: imageuploadlogic,
       title: "Image Upload System",
-      description: "This appears to be a demo or project built with Next.js that allows image upload functionality. It likely provides a UI for selecting and uploading images (and possibly previewing them) and uses backend/API routes to handle the upload process.",
+      description:
+        "This appears to be a demo or project built with Next.js that allows image upload functionality. It likely provides a UI for selecting and uploading images (and possibly previewing them) and uses backend/API routes to handle the upload process.",
       technologies: ["MVC", "Node.js API", "Next.js"],
       github: {
         frontend: "https://github.com/Gionee123/next.js-image-upload",
@@ -716,7 +215,8 @@ export default function Portfolio() {
     {
       image: pagination,
       title: "Pagination System",
-      description: "This appears to be a demo or tutorial project built with Next.js that implements pagination functionality—likely showcasing how to display long lists/items, split them into pages, and navigate between them in a web-app.",
+      description:
+        "This appears to be a demo or tutorial project built with Next.js that implements pagination functionality—likely showcasing how to display long lists/items, split them into pages, and navigate between them in a web-app.",
       technologies: ["MVC", "Node.js API", "Next.js"],
       github: {
         frontend: "https://github.com/Gionee123/next.js-pagination",
@@ -727,7 +227,8 @@ export default function Portfolio() {
     {
       image: searchApi,
       title: "Search API",
-      description: "This appears to be a project built with Next.js that implements a search API / search-feature. The interface likely lets users enter a query and fetch results dynamically (via API route) demonstrating how to integrate search functionality in a Next.js application.",
+      description:
+        "This appears to be a project built with Next.js that implements a search API / search-feature. The interface likely lets users enter a query and fetch results dynamically (via API route) demonstrating how to integrate search functionality in a Next.js application.",
       technologies: ["MVC", "Node.js API", "Next.js"],
       github: {
         frontend: "https://github.com/Gionee123/next.js-search-api",
@@ -738,7 +239,8 @@ export default function Portfolio() {
     {
       image: spheraconstion,
       title: "Sphere Construction",
-      description: "This appears to be a demonstration or portfolio website built under the name “Sphere Constration” (which may be a typo for “Sphere Construction”). The site likely showcases a construction-oriented company or service, possibly featuring buildings, projects, company info and visual elements typical of construction/architecture themes.",
+      description:
+        "This appears to be a demonstration or portfolio website built under the name “Sphere Constration” (which may be a typo for “Sphere Construction”). The site likely showcases a construction-oriented company or service, possibly featuring buildings, projects, company info and visual elements typical of construction/architecture themes.",
       technologies: ["HTML5", "Bootstrap", "CSS", "JavaScript"],
       github: {
         frontend: "https://github.com/naveenjpr/sphere_constration",
@@ -749,7 +251,8 @@ export default function Portfolio() {
     {
       image: blogapp,
       title: "Blog Application",
-      description: "This appears to be a blog application built with React (or Next.js) deployed on Vercel. It likely allows users to read articles/posts, and might include features like post listing, detail view, perhaps author info or comments.",
+      description:
+        "This appears to be a blog application built with React (or Next.js) deployed on Vercel. It likely allows users to read articles/posts, and might include features like post listing, detail view, perhaps author info or comments.",
       technologies: ["React", "Firebase", "Context API"],
       github: {
         frontend: "https://github.com/naveenjpr/blog-app",
@@ -760,7 +263,8 @@ export default function Portfolio() {
     {
       image: skydashadmin,
       title: "Skydash Admin Panel",
-      description: "Comprehensive admin dashboard with multiple management features",
+      description:
+        "Comprehensive admin dashboard with multiple management features",
       technologies: ["React", "React Router", "Tailwind CSS"],
       github: {
         frontend: "https://github.com/naveenjpr/skydash-admin-panel",
@@ -785,7 +289,8 @@ export default function Portfolio() {
       description: "Shopping cart with product management and checkout",
       technologies: ["React Context", "React Router", "Tailwind CSS"],
       github: {
-        frontend: "https://github.com/naveenjpr/context-api-dummyApi-update-delete",
+        frontend:
+          "https://github.com/naveenjpr/context-api-dummyApi-update-delete",
         backend: "",
       },
       link: "https://context-api-dummy-api-update-delete.vercel.app/",
@@ -848,7 +353,8 @@ export default function Portfolio() {
     {
       image: ecommerce,
       title: "WordPress E-commerce",
-      description: "This appears to be an e-commerce demo/storefront (hosted on the free platform InfinityFree via the sub-domain “great-site.net”) with categories like “Men’s T Shirts”, “Men’s Jeans”, “Women’s Skirts”, etc.",
+      description:
+        "This appears to be an e-commerce demo/storefront (hosted on the free platform InfinityFree via the sub-domain “great-site.net”) with categories like “Men’s T Shirts”, “Men’s Jeans”, “Women’s Skirts”, etc.",
       technologies: ["WordPress", "E-commerce"],
       github: {},
       link: "http://naveenwebsitecreate.great-site.net/?i=1",
@@ -856,7 +362,8 @@ export default function Portfolio() {
     {
       image: lms,
       title: "LMS Project",
-      description: "This looks like an LMS (Learning Management System) project — likely created by you (since your name is Naveen Saini) — deployed on a free hosting subdomain. It’s probably a demo where you can manage courses, users, lessons, etc., as part of your MERN/React/Next.js stack work.",
+      description:
+        "This looks like an LMS (Learning Management System) project — likely created by you (since your name is Naveen Saini) — deployed on a free hosting subdomain. It’s probably a demo where you can manage courses, users, lessons, etc., as part of your MERN/React/Next.js stack work.",
       technologies: ["WordPress", "LMS"],
       github: {},
       link: "https://naveensainlmsproject.infinityfreeapp.com/?i=1",
@@ -864,7 +371,8 @@ export default function Portfolio() {
     {
       image: portfolie,
       title: "Portfolio Website",
-      description: "This appears to be a personal portfolio site for “Naveen”, detailing over 2 years of experience in IT as a React.js Developer, showcasing dynamic, responsive and user-friendly web work.",
+      description:
+        "This appears to be a personal portfolio site for “Naveen”, detailing over 2 years of experience in IT as a React.js Developer, showcasing dynamic, responsive and user-friendly web work.",
       technologies: ["WordPress"],
       github: {},
       link: "http://naveen.lovestoblog.com/",
@@ -872,18 +380,22 @@ export default function Portfolio() {
   ];
 
   // Extract all unique technologies for filtering
-  const allTechnologies = ["All", ...new Set(
-    projects.flatMap(project =>
-      project.technologies.filter(tech => tech && tech.trim() !== '')
-    )
-  )];
+  const allTechnologies = [
+    "All",
+    ...new Set(
+      projects.flatMap((project) =>
+        project.technologies.filter((tech) => tech && tech.trim() !== "")
+      )
+    ),
+  ];
 
   // Filter projects based on selected technology
-  const filteredProjects = selectedTech === "All"
-    ? projects
-    : projects.filter(project =>
-      project.technologies.some(tech => tech === selectedTech)
-    );
+  const filteredProjects =
+    selectedTech === "All"
+      ? projects
+      : projects.filter((project) =>
+          project.technologies.some((tech) => tech === selectedTech)
+        );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4">
@@ -894,10 +406,17 @@ export default function Portfolio() {
             My Portfolio
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            A collection of my projects built with React.js, Next.js, Node.js, and WordPress
+            A collection of my projects built with React.js, Next.js, Node.js,
+            and WordPress
           </p>
           <div className="flex justify-center gap-3 mt-6 flex-wrap">
-            {["React.js", "Next.js", "Node.js", "WordPress", "Tailwind CSS"].map((tech) => (
+            {[
+              "React.js",
+              "Next.js",
+              "Node.js",
+              "WordPress",
+              "Tailwind CSS",
+            ].map((tech) => (
               <span
                 key={tech}
                 className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
@@ -918,10 +437,11 @@ export default function Portfolio() {
             <button
               key={tech}
               onClick={() => setSelectedTech(tech)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedTech === tech
-                ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transform scale-105"
-                : "bg-white text-gray-700 shadow-sm hover:shadow-md border border-gray-200 hover:border-blue-300"
-                }`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                selectedTech === tech
+                  ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transform scale-105"
+                  : "bg-white text-gray-700 shadow-sm hover:shadow-md border border-gray-200 hover:border-blue-300"
+              }`}
             >
               {tech}
             </button>
@@ -962,14 +482,17 @@ export default function Portfolio() {
 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-1 mb-4">
-                  {project.technologies.filter(tech => tech && tech.trim() !== '').slice(0, 3).map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs font-medium border border-blue-100"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {project.technologies
+                    .filter((tech) => tech && tech.trim() !== "")
+                    .slice(0, 3)
+                    .map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs font-medium border border-blue-100"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   {project.technologies.length > 3 && (
                     <span className="px-2 py-1 bg-gray-50 text-gray-500 rounded text-xs border border-gray-200">
                       +{project.technologies.length - 3}
@@ -990,34 +513,35 @@ export default function Portfolio() {
                   </a>
 
                   {/* GitHub Links */}
-                  {project.github && (project.github.frontend || project.github.backend) && (
-                    <div className="flex gap-2">
-                      {project.github.frontend && (
-                        <a
-                          href={project.github.frontend}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all duration-300 text-sm font-medium"
-                          title="Frontend Code"
-                        >
-                          <FaCode className="text-sm" />
-                          <span className="hidden sm:inline">Frontend</span>
-                        </a>
-                      )}
-                      {project.github.backend && (
-                        <a
-                          href={project.github.backend}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all duration-300 text-sm font-medium"
-                          title="Backend Code"
-                        >
-                          <FaServer className="text-sm" />
-                          <span className="hidden sm:inline">Backend</span>
-                        </a>
-                      )}
-                    </div>
-                  )}
+                  {project.github &&
+                    (project.github.frontend || project.github.backend) && (
+                      <div className="flex gap-2">
+                        {project.github.frontend && (
+                          <a
+                            href={project.github.frontend}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all duration-300 text-sm font-medium"
+                            title="Frontend Code"
+                          >
+                            <FaCode className="text-sm" />
+                            <span className="hidden sm:inline">Frontend</span>
+                          </a>
+                        )}
+                        {project.github.backend && (
+                          <a
+                            href={project.github.backend}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all duration-300 text-sm font-medium"
+                            title="Backend Code"
+                          >
+                            <FaServer className="text-sm" />
+                            <span className="hidden sm:inline">Backend</span>
+                          </a>
+                        )}
+                      </div>
+                    )}
                 </div>
               </div>
             </div>
@@ -1029,9 +553,12 @@ export default function Portfolio() {
           <div className="text-center py-16">
             <div className="bg-white rounded-2xl shadow-lg p-8 max-w-md mx-auto">
               <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">No projects found</h3>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                No projects found
+              </h3>
               <p className="text-gray-600">
-                No projects match the selected technology filter. Try selecting a different technology.
+                No projects match the selected technology filter. Try selecting
+                a different technology.
               </p>
             </div>
           </div>
@@ -1040,7 +567,8 @@ export default function Portfolio() {
         {/* Footer Note */}
         <div className="text-center mt-16">
           <p className="text-gray-500 text-sm">
-            Built with passion and modern web technologies • {filteredProjects.length} projects displayed
+            Built with passion and modern web technologies •{" "}
+            {filteredProjects.length} projects displayed
           </p>
         </div>
       </div>

@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { FaBars, FaTimes, FaDownload, FaMoon, FaSun, FaHome, FaUser, FaBriefcase, FaEnvelope } from "react-icons/fa";
+import resume from "../assets/new2 resume.pdf";
+import {
+  FaBars,
+  FaTimes,
+  FaDownload,
+  FaMoon,
+  FaSun,
+  FaHome,
+  FaUser,
+  FaBriefcase,
+  FaEnvelope,
+} from "react-icons/fa";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,8 +24,8 @@ const Header = () => {
       setIsScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ['home', 'about', 'portfolio', 'contact'];
-      const current = sections.find(section => {
+      const sections = ["home", "about", "portfolio", "contact"];
+      const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -25,24 +36,32 @@ const Header = () => {
       if (current) setActiveSection(current);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Handle dark mode
   useEffect(() => {
     if (isDarkMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, [isDarkMode]);
 
   const navItems = [
-    { id: 'home', label: 'Home', icon: <FaHome className="w-4 h-4" /> },
-    { id: 'about', label: 'About', icon: <FaUser className="w-4 h-4" /> },
-    { id: 'portfolio', label: 'Portfolio', icon: <FaBriefcase className="w-4 h-4" /> },
-    { id: 'contact', label: 'Contact', icon: <FaEnvelope className="w-4 h-4" /> }
+    { id: "home", label: "Home", icon: <FaHome className="w-4 h-4" /> },
+    { id: "about", label: "About", icon: <FaUser className="w-4 h-4" /> },
+    {
+      id: "portfolio",
+      label: "Portfolio",
+      icon: <FaBriefcase className="w-4 h-4" />,
+    },
+    {
+      id: "contact",
+      label: "Contact",
+      icon: <FaEnvelope className="w-4 h-4" />,
+    },
   ];
 
   const handleNavClick = (sectionId) => {
@@ -51,17 +70,19 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
-        ? 'bg-blue-900/95 dark:bg-blue-950/95 backdrop-blur-xl shadow-2xl shadow-blue-500/20'
-        : 'bg-gradient-to-b from-blue-900/80 to-transparent'
-      }`}>
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
+          ? "bg-blue-900/95 dark:bg-blue-950/95 backdrop-blur-xl shadow-2xl shadow-blue-500/20"
+          : "bg-gradient-to-b from-blue-900/80 to-transparent"
+        }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <a
             href="#home"
             className="flex items-center gap-3 group"
-            onClick={() => handleNavClick('home')}
+            onClick={() => handleNavClick("home")}
           >
             <div className="relative">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-2xl shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
@@ -89,8 +110,8 @@ const Header = () => {
                     href={`#${item.id}`}
                     onClick={() => handleNavClick(item.id)}
                     className={`relative flex items-center gap-2 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300 group ${activeSection === item.id
-                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
-                        : 'text-blue-100 hover:bg-blue-800/50 hover:text-white'
+                        ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
+                        : "text-blue-100 hover:bg-blue-800/50 hover:text-white"
                       }`}
                   >
                     {item.icon}
@@ -111,13 +132,17 @@ const Header = () => {
                 className="p-3 rounded-xl bg-blue-800/50 text-blue-100 hover:bg-blue-700 hover:text-white transition-all duration-300 group"
                 aria-label="Toggle dark mode"
               >
-                {isDarkMode ? <FaSun className="w-4 h-4 group-hover:rotate-180 transition-transform" /> : <FaMoon className="w-4 h-4 group-hover:rotate-180 transition-transform" />}
+                {isDarkMode ? (
+                  <FaSun className="w-4 h-4 group-hover:rotate-180 transition-transform" />
+                ) : (
+                  <FaMoon className="w-4 h-4 group-hover:rotate-180 transition-transform" />
+                )}
               </button>
 
               {/* Download CV */}
               <a
-                href="/resume.pdf"
-                download
+                href={resume}
+                download="new2 resume.pdf"
                 className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 hover:shadow-blue-400/40 transform hover:scale-105 transition-all duration-300 group"
               >
                 <FaDownload className="w-4 h-4 group-hover:animate-bounce" />
@@ -127,7 +152,7 @@ const Header = () => {
               {/* Hire Me Button */}
               <a
                 href="#contact"
-                onClick={() => handleNavClick('contact')}
+                onClick={() => handleNavClick("contact")}
                 className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300 hover:from-cyan-400 hover:to-blue-500"
               >
                 Hire Me
@@ -143,7 +168,11 @@ const Header = () => {
               className="p-3 rounded-xl bg-blue-800/50 text-blue-100 hover:bg-blue-700 hover:text-white transition-all duration-300"
               aria-label="Toggle dark mode"
             >
-              {isDarkMode ? <FaSun className="w-4 h-4" /> : <FaMoon className="w-4 h-4" />}
+              {isDarkMode ? (
+                <FaSun className="w-4 h-4" />
+              ) : (
+                <FaMoon className="w-4 h-4" />
+              )}
             </button>
 
             {/* Mobile Menu Button */}
@@ -153,8 +182,14 @@ const Header = () => {
               aria-expanded={isMenuOpen}
               className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
             >
-              <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
-              {isMenuOpen ? <FaTimes className="w-5 h-5" /> : <FaBars className="w-5 h-5" />}
+              <span className="sr-only">
+                {isMenuOpen ? "Close menu" : "Open menu"}
+              </span>
+              {isMenuOpen ? (
+                <FaTimes className="w-5 h-5" />
+              ) : (
+                <FaBars className="w-5 h-5" />
+              )}
             </button>
           </div>
         </div>
@@ -162,7 +197,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
+        className={`fixed inset-0 z-40 lg:hidden  transition-all duration-500 ${isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
           }`}
         aria-hidden={!isMenuOpen}
       >
@@ -179,7 +214,7 @@ const Header = () => {
           className={`absolute right-0 top-0 h-full w-80 max-w-full bg-gradient-to-b from-blue-900 to-blue-800 shadow-2xl shadow-blue-500/20 transform transition-transform duration-500 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
         >
-          <div className="flex flex-col h-full">
+          <div className="flex flex-col h-full ">
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-blue-700/50">
               <a
@@ -191,7 +226,9 @@ const Header = () => {
                   <span className="text-white font-bold">N</span>
                 </div>
                 <div>
-                  <h2 className="text-base font-semibold text-white">Naveen Saini</h2>
+                  <h2 className="text-base font-semibold text-white">
+                    Naveen Saini
+                  </h2>
                   <p className="text-xs text-blue-200">Full Stack Developer</p>
                 </div>
               </a>
@@ -206,7 +243,7 @@ const Header = () => {
             </div>
 
             {/* Navigation */}
-            <nav className="flex-1 p-6">
+            <nav className="flex-1 p-6 bg-blue-700">
               <ul className="space-y-3">
                 {navItems.map((item) => (
                   <li key={item.id}>
@@ -214,14 +251,16 @@ const Header = () => {
                       href={`#${item.id}`}
                       onClick={() => handleNavClick(item.id)}
                       className={`flex items-center gap-4 px-4 py-4 rounded-xl text-base font-medium transition-all duration-300 group ${activeSection === item.id
-                          ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
-                          : 'text-blue-100 hover:bg-blue-700/50 hover:text-white'
+                          ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
+                          : "text-blue-100 hover:bg-blue-700/50 hover:text-white"
                         }`}
                     >
-                      <div className={`p-2 rounded-lg ${activeSection === item.id
-                          ? 'bg-blue-500'
-                          : 'bg-blue-700/50 group-hover:bg-blue-600'
-                        }`}>
+                      <div
+                        className={`p-2 rounded-lg ${activeSection === item.id
+                            ? "bg-blue-500"
+                            : "bg-blue-700/50 group-hover:bg-blue-600"
+                          }`}
+                      >
                         {item.icon}
                       </div>
                       {item.label}
@@ -233,8 +272,8 @@ const Header = () => {
               {/* Mobile Action Buttons */}
               <div className="mt-8 space-y-4">
                 <a
-                  href="/resume.pdf"
-                  download
+                  href={resume}
+                  download="new2 resume.pdf"
                   className="flex items-center justify-center gap-3 w-full px-4 py-4 rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-all duration-300"
                 >
                   <FaDownload className="w-4 h-4" />
@@ -243,7 +282,7 @@ const Header = () => {
 
                 <a
                   href="#contact"
-                  onClick={() => handleNavClick('contact')}
+                  onClick={() => handleNavClick("contact")}
                   className="block w-full text-center px-4 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300"
                 >
                   Hire Me

@@ -4,7 +4,7 @@ import image from "../assets/converted_1 (1).webp";
 import certificateimage from "../assets/converted_4.webp";
 import certificateimage2 from "../assets/converted_2.webp";
 import certificateimage3 from "../assets/converted_3 (1).webp";
-import resume from "../assets/new resume pdf (1).pdf";
+import resume from "../assets/new2 resume.pdf";
 import joinletter from "../assets/join letter_page-0001.jpg";
 import {
   FaHtml5,
@@ -70,7 +70,11 @@ export default function About() {
           {[
             { id: "about", label: "About Me", icon: <BiUser /> },
             { id: "skills", label: "Skills", icon: <BiRocket /> },
-            { id: "certificates", label: "Certificates", icon: <FaCertificate /> },
+            {
+              id: "certificates",
+              label: "Certificates",
+              icon: <FaCertificate />,
+            },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -110,7 +114,11 @@ function AboutContent({ experiences }) {
         {/* Profile Image (circular) */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 flex items-center justify-center">
           <div className="w-44 h-44 rounded-full overflow-hidden ring-4 ring-white/10 dark:ring-gray-700 shadow-xl transform hover:scale-105 transition">
-            <img src={image} alt="Naveen Saini portrait" className="w-full h-full object-cover" />
+            <img
+              src={image}
+              alt="Naveen Saini portrait"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
@@ -130,13 +138,17 @@ function AboutContent({ experiences }) {
             <span className="inline-block rounded-full bg-gradient-to-r from-yellow-300 to-orange-400 text-black text-xs font-semibold px-3 py-1">
               MERN Stack Developer
             </span>
-            <span className="ml-3">Building scalable web apps · AWS deployments · Serverless</span>
+            <span className="ml-3">
+              Building scalable web apps · AWS deployments · Serverless
+            </span>
           </p>
 
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            A passionate <strong>Full-Stack Developer</strong> specializing in modern web technologies.
-            I create scalable, efficient solutions using <strong>React.js, Node.js, AWS Lambda,</strong> and <strong>MERN Stack</strong>.
-            With expertise in both development and deployment, I bring ideas to life with clean, maintainable code.
+            A passionate <strong>Full-Stack Developer</strong> specializing in
+            modern web technologies. I create scalable, efficient solutions
+            using <strong>React.js, Node.js, AWS Lambda,</strong> and{" "}
+            <strong>MERN Stack</strong>. With expertise in both development and
+            deployment, I bring ideas to life with clean, maintainable code.
           </p>
         </div>
 
@@ -146,7 +158,9 @@ function AboutContent({ experiences }) {
             <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-xl flex items-center justify-center">
               <BiRocket className="text-blue-600 dark:text-blue-400 text-2xl" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">My Expertise</h2>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+              My Expertise
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -158,9 +172,14 @@ function AboutContent({ experiences }) {
               "Tailwind CSS & UI/UX",
               "Cloud Deployment & DevOps",
             ].map((skill) => (
-              <div key={skill} className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <div
+                key={skill}
+                className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg"
+              >
                 <div className="w-3 h-3 bg-green-500 rounded-full" />
-                <span className="text-gray-700 dark:text-gray-200">{skill}</span>
+                <span className="text-gray-700 dark:text-gray-200">
+                  {skill}
+                </span>
               </div>
             ))}
           </div>
@@ -172,22 +191,35 @@ function AboutContent({ experiences }) {
             <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-xl flex items-center justify-center">
               <BiBriefcase className="text-green-600 dark:text-green-400 text-2xl" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Work Experience</h2>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+              Work Experience
+            </h2>
           </div>
 
           <div className="space-y-6">
             {experiences.map((exp, index) => (
-              <div key={index} className="flex gap-4 items-start p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-md transition-shadow duration-300">
+              <div
+                key={index}
+                className="flex gap-4 items-start p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-md transition-shadow duration-300"
+              >
                 <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-white/60 dark:bg-gray-600 flex items-center justify-center">
                   {exp.icon}
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{exp.role}</h3>
-                    <span className="text-xs text-gray-500 dark:text-gray-400">• {exp.duration}</span>
+                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+                      {exp.role}
+                    </h3>
+                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                      • {exp.duration}
+                    </span>
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{exp.company} {exp.type ? `· ${exp.type}` : ''}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{exp.location}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    {exp.company} {exp.type ? `· ${exp.type}` : ""}
+                  </p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {exp.location}
+                  </p>
                 </div>
               </div>
             ))}
@@ -205,13 +237,17 @@ function ResumeCard() {
       <div className="w-20 h-20 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
         <FaDownload className="text-blue-600 dark:text-blue-400 text-2xl" />
       </div>
-      <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">Download My Resume</h3>
-      <p className="text-gray-600 dark:text-gray-300 mb-4">Get my complete professional profile</p>
+      <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+        Download My Resume
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300 mb-4">
+        Get my complete professional profile
+      </p>
 
       <div className="flex items-center justify-center gap-3 mt-3">
         <a
           href={resume}
-          download="naveen_saini_resume.pdf"
+          download="new2 resume.pdf"
           className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-full font-semibold hover:shadow-lg transition"
         >
           <FaDownload />
@@ -229,7 +265,9 @@ function ResumeCard() {
         </a>
       </div>
 
-      <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">PDF • 220 KB • Last updated: Aug 2025</p>
+      <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
+        PDF • 220 KB • Last updated: Aug 2025
+      </p>
     </div>
   );
 }
@@ -237,21 +275,91 @@ function ResumeCard() {
 /* ---------------- Skills Content ---------------- */
 function SkillsContent() {
   const skills = [
-    { name: "Wordpress", icon: <FaWordpress size={32} />, level: 90, category: "CMS" },
-    { name: "HTML5", icon: <FaHtml5 size={32} />, level: 95, category: "Frontend" },
-    { name: "CSS3", icon: <FaCss3Alt size={32} />, level: 90, category: "Frontend" },
-    { name: "Bootstrap", icon: <FaBootstrap size={32} />, level: 85, category: "Frontend" },
-    { name: "Tailwind", icon: <SiTailwindcss size={32} />, level: 92, category: "Frontend" },
-    { name: "JavaScript", icon: <FaJs size={32} />, level: 88, category: "Frontend" },
-    { name: "React", icon: <FaReact size={32} />, level: 85, category: "Frontend" },
-    { name: "Next.js", icon: <RiNextjsFill size={32} />, level: 80, category: "Frontend" },
-    { name: "Node.js", icon: <FaNodeJs size={32} />, level: 82, category: "Backend" },
-    { name: "Express", icon: <SiExpress size={32} />, level: 80, category: "Backend" },
-    { name: "MongoDB", icon: <DiMongodb size={32} />, level: 78, category: "Database" },
+    {
+      name: "Wordpress",
+      icon: <FaWordpress size={32} />,
+      level: 90,
+      category: "CMS",
+    },
+    {
+      name: "HTML5",
+      icon: <FaHtml5 size={32} />,
+      level: 95,
+      category: "Frontend",
+    },
+    {
+      name: "CSS3",
+      icon: <FaCss3Alt size={32} />,
+      level: 90,
+      category: "Frontend",
+    },
+    {
+      name: "Bootstrap",
+      icon: <FaBootstrap size={32} />,
+      level: 85,
+      category: "Frontend",
+    },
+    {
+      name: "Tailwind",
+      icon: <SiTailwindcss size={32} />,
+      level: 92,
+      category: "Frontend",
+    },
+    {
+      name: "JavaScript",
+      icon: <FaJs size={32} />,
+      level: 88,
+      category: "Frontend",
+    },
+    {
+      name: "React",
+      icon: <FaReact size={32} />,
+      level: 85,
+      category: "Frontend",
+    },
+    {
+      name: "Next.js",
+      icon: <RiNextjsFill size={32} />,
+      level: 80,
+      category: "Frontend",
+    },
+    {
+      name: "Node.js",
+      icon: <FaNodeJs size={32} />,
+      level: 82,
+      category: "Backend",
+    },
+    {
+      name: "Express",
+      icon: <SiExpress size={32} />,
+      level: 80,
+      category: "Backend",
+    },
+    {
+      name: "MongoDB",
+      icon: <DiMongodb size={32} />,
+      level: 78,
+      category: "Database",
+    },
     { name: "AWS", icon: <FaAws size={32} />, level: 75, category: "Cloud" },
-    { name: "Firebase", icon: <SiFirebase size={32} />, level: 70, category: "Backend" },
-    { name: "GitHub", icon: <FaGithub size={32} />, level: 85, category: "Tools" },
-    { name: "Vercel", icon: <RiVercelLine size={32} />, level: 80, category: "Deployment" },
+    {
+      name: "Firebase",
+      icon: <SiFirebase size={32} />,
+      level: 70,
+      category: "Backend",
+    },
+    {
+      name: "GitHub",
+      icon: <FaGithub size={32} />,
+      level: 85,
+      category: "Tools",
+    },
+    {
+      name: "Vercel",
+      icon: <RiVercelLine size={32} />,
+      level: 80,
+      category: "Deployment",
+    },
   ];
 
   const categories = [...new Set(skills.map((s) => s.category))];
@@ -281,8 +389,12 @@ function SkillsContent() {
   return (
     <div className="max-w-6xl mx-auto" ref={containerRef}>
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Technical Skills</h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300">Here's a comprehensive overview of my technical expertise</p>
+        <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          Technical Skills
+        </h2>
+        <p className="text-lg text-gray-600 dark:text-gray-300">
+          Here's a comprehensive overview of my technical expertise
+        </p>
       </div>
 
       {categories.map((category) => (
@@ -302,7 +414,9 @@ function SkillsContent() {
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
                     {skill.icon}
                   </div>
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-2">{skill.name}</h4>
+                  <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+                    {skill.name}
+                  </h4>
 
                   <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                     <div
@@ -311,7 +425,9 @@ function SkillsContent() {
                     />
                   </div>
 
-                  <span className="text-sm text-gray-600 dark:text-gray-400 mt-2 block">{skill.level}%</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-400 mt-2 block">
+                    {skill.level}%
+                  </span>
                 </div>
               ))}
           </div>
@@ -343,8 +459,12 @@ function CertificatesContent() {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Certificates & Achievements</h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300">Professional certifications and recognition</p>
+        <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          Certificates & Achievements
+        </h2>
+        <p className="text-lg text-gray-600 dark:text-gray-300">
+          Professional certifications and recognition
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -354,14 +474,20 @@ function CertificatesContent() {
             className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
           >
             <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center">{cert.title}</h3>
+              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center">
+                {cert.title}
+              </h3>
             </div>
             <button
               onClick={() => setLightbox(cert.image)}
               className="w-full overflow-hidden focus:outline-none"
               aria-label={`Open ${cert.title}`}
             >
-              <img src={cert.image} alt={cert.title} className="w-full h-auto object-cover transition-transform duration-500 hover:scale-110" />
+              <img
+                src={cert.image}
+                alt={cert.title}
+                className="w-full h-auto object-cover transition-transform duration-500 hover:scale-110"
+              />
             </button>
           </div>
         ))}
