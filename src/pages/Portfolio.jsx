@@ -36,6 +36,7 @@ import container from "../assets/container.png";
 import ecommerce from "../assets/ecommerce.png";
 import lms from "../assets/lms.png";
 import portfolie from "../assets/portfolie.png";
+import Angular from "../assets/Angular.png";
 
 export default function Portfolio() {
   const [selectedTech, setSelectedTech] = useState("All");
@@ -150,6 +151,17 @@ export default function Portfolio() {
         frontend: "https://github.com/naveenjpr/myntra-project",
       },
       link: "https://myntra-project-wheat.vercel.app/",
+    },
+    {
+      image: Angular,
+      title: "mini-ecommerce-app-angular",
+      description: "Shopping cart with product management and checkout",
+      technologies: ["Angular", "Tailwind CSS", "Dynamic API"],
+      github: {
+        frontend: "https://github.com/naveenjpr/mini-ecommerce-app-angular",
+        backend: "",
+      },
+      link: "https://mini-ecommerce-app-angular.vercel.app/",
     },
     {
       image: razorpay,
@@ -415,6 +427,7 @@ export default function Portfolio() {
               "Next.js",
               "Node.js",
               "WordPress",
+              "Angular",
               "Tailwind CSS",
             ].map((tech) => (
               <span
@@ -433,7 +446,7 @@ export default function Portfolio() {
             <FaFilter className="text-blue-500" />
             Filter by Technology:
           </div>
-          {allTechnologies.slice(0, 10).map((tech) => (
+          {allTechnologies.slice(0, 15).map((tech) => (
             <button
               key={tech}
               onClick={() => setSelectedTech(tech)}
