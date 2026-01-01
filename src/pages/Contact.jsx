@@ -171,8 +171,8 @@
 //   )
 // }
 
-import axios from "axios"
-import React, { useState } from "react"
+import axios from "axios";
+import React, { useState } from "react";
 import {
   FaEnvelope,
   FaMapMarkerAlt,
@@ -181,44 +181,44 @@ import {
   FaWhatsapp,
   FaLinkedin,
   FaUser,
-  FaComment
-} from "react-icons/fa"
-import { toast, ToastContainer } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+  FaComment,
+} from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     mobile: "",
-    message: ""
-  })
+    message: "",
+  });
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
+    const { name, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const MailSend = async (event) => {
-    event.preventDefault()
-    setIsLoading(true)
+    event.preventDefault();
+    setIsLoading(true);
 
     let dataSave = {
       name: formData.name,
       email: formData.email,
       mobile: formData.mobile,
       message: formData.message,
-    }
+    };
 
     try {
       const result = await axios.post(
-        "https://node-j-my-portfolio-mail-send.onrender.com/api/frontend/users/send-mail",
+        "https://node-j-my-portfolio-mail-send.onrender.com/api/backend/mailSend/send-mail",
         dataSave
-      )
+      );
 
       toast.success(result.data.message, {
         position: "top-right",
@@ -228,17 +228,17 @@ export default function Contact() {
         pauseOnHover: true,
         draggable: true,
         theme: "colored",
-      })
+      });
 
       // Reset form
       setFormData({
         name: "",
         email: "",
         mobile: "",
-        message: ""
-      })
+        message: "",
+      });
     } catch (err) {
-      console.error("Axios Error:", err)
+      console.error("Axios Error:", err);
       toast.error("❌ Failed to send email. Please try again.", {
         position: "top-right",
         autoClose: 3000,
@@ -247,11 +247,11 @@ export default function Contact() {
         pauseOnHover: true,
         draggable: true,
         theme: "colored",
-      })
+      });
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-blue-900 py-12 px-4">
@@ -263,7 +263,8 @@ export default function Contact() {
           Let's Connect
         </h2>
         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Ready to bring your ideas to life? Let's discuss your project and create something amazing together.
+          Ready to bring your ideas to life? Let's discuss your project and
+          create something amazing together.
         </p>
         <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mt-6 rounded-full"></div>
       </div>
@@ -330,7 +331,9 @@ export default function Contact() {
                   maxLength="12"
                   required
                   onInput={(e) => {
-                    e.target.value = e.target.value.replace(/\D/g, "").slice(0, 12)
+                    e.target.value = e.target.value
+                      .replace(/\D/g, "")
+                      .slice(0, 12);
                   }}
                 />
               </div>
@@ -383,8 +386,8 @@ export default function Contact() {
             </h3>
             <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">
               I'm always excited to hear about new projects and opportunities.
-              Whether you need a website, web application, or just want to connect,
-              feel free to reach out!
+              Whether you need a website, web application, or just want to
+              connect, feel free to reach out!
             </p>
 
             {/* Contact Details */}
@@ -395,10 +398,14 @@ export default function Contact() {
                   <FaMapMarkerAlt className="text-white text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-1">Address</h4>
+                  <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
+                    Address
+                  </h4>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                    H.No. 3583 Govind Rao Ji Ka Rasta, 4th Crossing,<br />
-                    In front of Narsingh Bhawan, Chandpole Bazaar,<br />
+                    H.No. 3583 Govind Rao Ji Ka Rasta, 4th Crossing,
+                    <br />
+                    In front of Narsingh Bhawan, Chandpole Bazaar,
+                    <br />
                     Pink City, Jaipur, Rajasthan 302001
                   </p>
                 </div>
@@ -410,7 +417,9 @@ export default function Contact() {
                   <FaEnvelope className="text-white text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-1">Email</h4>
+                  <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
+                    Email
+                  </h4>
                   <a
                     href="mailto:naveensainijpr@gmail.com"
                     className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
@@ -426,7 +435,9 @@ export default function Contact() {
                   <FaPhoneAlt className="text-white text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-1">Phone</h4>
+                  <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
+                    Phone
+                  </h4>
                   <a
                     href="tel:8619916687"
                     className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
@@ -498,5 +509,5 @@ export default function Contact() {
         </p>
       </div>
     </div>
-  )
+  );
 }
