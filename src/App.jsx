@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react"
-import Portfolio from "./pages/Portfolio"
-import Footer from "./Common page/Footer"
-import About from "./pages/About"
-import Contact from "./pages/Contact"
-import { FaSmile, FaArrowDown, FaStar } from "react-icons/fa"
-import Header from "./Common page/Header"
+import React, { useState, useEffect } from "react";
+import Portfolio from "./pages/Portfolio";
+import Footer from "./Common page/Footer";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import { FaSmile, FaArrowDown, FaStar } from "react-icons/fa";
+import Header from "./Common page/Header";
 
 const App = () => {
-  const [activeSection, setActiveSection] = useState("home")
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'portfolio', 'contact'];
-      const current = sections.find(section => {
+      const sections = ["home", "about", "portfolio", "contact"];
+      const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -23,14 +23,14 @@ const App = () => {
       if (current) setActiveSection(current);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -57,7 +57,9 @@ const App = () => {
           {/* Profile Badge */}
           <div className="inline-flex items-center gap-2 bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-full px-6 py-3 mb-8">
             <FaStar className="text-yellow-400 text-sm" />
-            <span className="text-blue-100 text-sm font-medium">Full Stack Developer</span>
+            <span className="text-blue-100 text-sm font-medium">
+              Full Stack Developer
+            </span>
             <FaStar className="text-yellow-400 text-sm" />
           </div>
 
@@ -69,12 +71,18 @@ const App = () => {
           {/* Personal Introduction */}
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 shadow-2xl shadow-blue-500/20">
             <p className="text-2xl md:text-3xl text-white mb-4 flex items-center justify-center gap-3">
-              Hi There, I'm <span className="font-bold text-cyan-300">Naveen Saini</span>
+              Hi There, I'm{" "}
+              <span className="font-bold text-cyan-300">Naveen Saini</span>
               <FaSmile className="text-yellow-400 animate-bounce" />
             </p>
             <p className="text-xl text-blue-100 mb-4">
-              Passionate <span className="text-cyan-300 font-semibold">MERN Stack Developer</span> &
-              <span className="text-cyan-300 font-semibold"> AWS Specialist</span>
+              Passionate{" "}
+              <span className="text-cyan-300 font-semibold">
+                Full Stack Developer ,
+              </span>
+              <span className="ml-2 text-cyan-300 font-semibold">
+                AWS Specialist, Node.js Expert
+              </span>
             </p>
             <p className="text-lg text-blue-200 flex items-center justify-center gap-2">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
@@ -84,7 +92,14 @@ const App = () => {
 
           {/* Tech Stack Preview */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {['React.js', 'Node.js', 'MongoDB', 'AWS', 'Tailwind', 'Express'].map((tech, index) => (
+            {[
+              "React.js",
+              "Node.js",
+              "MongoDB",
+              "AWS",
+              "Tailwind",
+              "Express",
+            ].map((tech, index) => (
               <span
                 key={tech}
                 className="px-4 py-2 bg-blue-600/30 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-100 text-sm font-medium hover:bg-blue-500/40 transition-all duration-300 hover:scale-105"
@@ -98,7 +113,7 @@ const App = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
-              onClick={() => scrollToSection('portfolio')}
+              onClick={() => scrollToSection("portfolio")}
               className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-2xl shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300 flex items-center gap-3"
             >
               View My Work
@@ -106,7 +121,7 @@ const App = () => {
             </button>
 
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection("contact")}
               className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-2xl hover:bg-white/20 transform hover:scale-105 transition-all duration-300"
             >
               Get In Touch
@@ -179,7 +194,7 @@ const App = () => {
         </div>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

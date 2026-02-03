@@ -5,8 +5,8 @@ import Dashboard from "../Admin_Panel/components/Dashboard";
 import Projects from "../Admin_Panel/components/Projects";
 import ProjectForm from "../Admin_Panel/components/ProjectForm";
 import Settings from "../Admin_Panel/components/Settings";
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import axios from "axios";
+import { toast } from "react-toastify";
 
 function Admin() {
   const [currentPage, setCurrentPage] = useState("dashboard");
@@ -16,13 +16,15 @@ function Admin() {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/backend/project/view');
+      const response = await axios.post(
+        "http://localhost:5000/api/backend/project/view",
+      );
       if (response.data.status) {
         setProjects(response.data.data);
       }
     } catch (error) {
       console.error("Error fetching projects:", error);
-      // toast.error("Failed to fetch projects"); 
+      // toast.error("Failed to fetch projects");
     }
   };
 
@@ -43,7 +45,9 @@ function Admin() {
 
   const handleDeleteProject = async (projectId) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/backend/project/delete/${projectId}`);
+      const response = await axios.delete(
+        `http://localhost:5000/api/backend/project/delete/${projectId}`,
+      );
       if (response.data.status) {
         toast.success("Project deleted successfully");
         fetchProjects();

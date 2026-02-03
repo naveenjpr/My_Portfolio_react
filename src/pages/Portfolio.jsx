@@ -37,6 +37,7 @@ import ecommerce from "../assets/ecommerce.png";
 import lms from "../assets/lms.png";
 import portfolie from "../assets/portfolie.png";
 import Angular from "../assets/Angular.png";
+import whatwebuildnext from "../assets/whatwebuildnext.png";
 
 export default function Portfolio() {
   const [selectedTech, setSelectedTech] = useState("All");
@@ -151,6 +152,17 @@ export default function Portfolio() {
         frontend: "https://github.com/naveenjpr/myntra-project",
       },
       link: "https://myntra-project-wheat.vercel.app/",
+    },
+    {
+      image: whatwebuildnext,
+      title: "client portfolio website",
+      description: "portfolio website for What We Build Next",
+      technologies: ["React.js", "Tailwind CSS", "typescript"],
+      github: {
+        frontend: "https://github.com/whatwebuildnext-rgb/whatwebuildnext-",
+        backend: "",
+      },
+      link: "https://www.whatwebuildnext.com/",
     },
     {
       image: Angular,
@@ -396,8 +408,8 @@ export default function Portfolio() {
     "All",
     ...new Set(
       projects.flatMap((project) =>
-        project.technologies.filter((tech) => tech && tech.trim() !== "")
-      )
+        project.technologies.filter((tech) => tech && tech.trim() !== ""),
+      ),
     ),
   ];
 
@@ -406,7 +418,7 @@ export default function Portfolio() {
     selectedTech === "All"
       ? projects
       : projects.filter((project) =>
-          project.technologies.some((tech) => tech === selectedTech)
+          project.technologies.some((tech) => tech === selectedTech),
         );
 
   return (

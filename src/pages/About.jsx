@@ -18,6 +18,8 @@ import {
   FaGithub,
   FaDownload,
   FaCertificate,
+  FaPython,
+  FaDocker,
 } from "react-icons/fa";
 import {
   SiCurseforge,
@@ -27,6 +29,8 @@ import {
   SiMongoose,
   SiRender,
   SiTailwindcss,
+  SiTypescript,
+  SiAngular,
 } from "react-icons/si";
 import { DiJqueryLogo, DiMongodb } from "react-icons/di";
 import { RiNextjsFill, RiVercelLine } from "react-icons/ri";
@@ -79,10 +83,11 @@ export default function About() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${activeTab === tab.id
-                ? "bg-blue-600 text-white shadow-lg transform scale-105"
-                : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                }`}
+              className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                activeTab === tab.id
+                  ? "bg-blue-600 text-white shadow-lg transform scale-105"
+                  : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              }`}
               aria-pressed={activeTab === tab.id}
             >
               <span className="text-lg">{tab.icon}</span>
@@ -324,6 +329,12 @@ function SkillsContent() {
       category: "Frontend",
     },
     {
+      name: "Angular",
+      icon: <SiAngular size={32} />,
+      level: 78,
+      category: "Frontend",
+    },
+    {
       name: "Node.js",
       icon: <FaNodeJs size={32} />,
       level: 82,
@@ -360,6 +371,24 @@ function SkillsContent() {
       level: 80,
       category: "Deployment",
     },
+    {
+      name: "TypeScript",
+      icon: <SiTypescript size={32} />,
+      level: 84,
+      category: "Frontend",
+    },
+    {
+      name: "Python",
+      icon: <FaPython size={32} />,
+      level: 80,
+      category: "Backend",
+    },
+    {
+      name: "Docker",
+      icon: <FaDocker size={32} />,
+      level: 82,
+      category: "DevOps",
+    },
   ];
 
   const categories = [...new Set(skills.map((s) => s.category))];
@@ -380,7 +409,7 @@ function SkillsContent() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     obs.observe(el);
     return () => obs.disconnect();
