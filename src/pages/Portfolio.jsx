@@ -38,6 +38,7 @@ import lms from "../assets/lms.png";
 import portfolie from "../assets/portfolie.png";
 import Angular from "../assets/Angular.png";
 import whatwebuildnext from "../assets/whatwebuildnext.png";
+import blog_app from "../assets/blog-app.png";
 
 export default function Portfolio() {
   const [selectedTech, setSelectedTech] = useState("All");
@@ -174,6 +175,19 @@ export default function Portfolio() {
         backend: "",
       },
       link: "https://mini-ecommerce-app-angular.vercel.app/",
+    },
+    {
+      image: blog_app,
+      title: "Blog App",
+      description: "A simple blog application built with React and Next.js",
+      technologies: ["React", "Next.js", "bootstrap", "typescript"],
+      github: {
+        frontend:
+          "https://github.com/naveenjpr/-3W-Business-Private-Limited/tree/main/frontend/blog_app",
+        backend:
+          "https://github.com/naveenjpr/-3W-Business-Private-Limited/tree/main/backend",
+      },
+      link: "https://3-w-business-private-limited-uezg.vercel.app/",
     },
     {
       image: razorpay,
