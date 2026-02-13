@@ -11,6 +11,7 @@ import {
   FaBriefcase,
   FaEnvelope,
 } from "react-icons/fa";
+import axios from "axios";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,12 +70,37 @@ const Header = () => {
     setActiveSection(sectionId);
   };
 
+  const [resumeData, setResumeData] = useState([]);
+
+  let resumeDataView = () => {
+    axios
+      .post(
+        "https://dynmic-portfolio-my-website.onrender.com/api/backend/Resume/view",
+      )
+      .then((res) => {
+        console.log(res.data.data);
+        setResumeData(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    resumeDataView();
+  }, []);
+
+  const resumeUrl = resumeData?.[0]?.image
+    ? resumeData[0].image.replace("/upload/", "/upload/fl_attachment/")
+    : resume;
+
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        isScrolled
           ? "bg-blue-900/95 dark:bg-blue-950/95 backdrop-blur-xl shadow-2xl shadow-blue-500/20"
           : "bg-gradient-to-b from-blue-900/80 to-transparent"
-        }`}
+      }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
@@ -109,10 +135,11 @@ const Header = () => {
                   <a
                     href={`#${item.id}`}
                     onClick={() => handleNavClick(item.id)}
-                    className={`relative flex items-center gap-2 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300 group ${activeSection === item.id
+                    className={`relative flex items-center gap-2 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300 group ${
+                      activeSection === item.id
                         ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
                         : "text-blue-100 hover:bg-blue-800/50 hover:text-white"
-                      }`}
+                    }`}
                   >
                     {item.icon}
                     {item.label}
@@ -141,8 +168,8 @@ const Header = () => {
 
               {/* Download CV */}
               <a
-                href={resume}
-                download="new2 resume.pdf"
+                href={resumeUrl}
+                download
                 className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 hover:shadow-blue-400/40 transform hover:scale-105 transition-all duration-300 group"
               >
                 <FaDownload className="w-4 h-4 group-hover:animate-bounce" />
@@ -197,22 +224,25 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden  transition-all duration-500 ${isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
-          }`}
+        className={`fixed inset-0 z-40 lg:hidden  transition-all duration-500 ${
+          isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
         aria-hidden={!isMenuOpen}
       >
         {/* Backdrop */}
         <button
           onClick={() => setIsMenuOpen(false)}
-          className={`absolute inset-0 bg-blue-950/80 backdrop-blur-sm transition-opacity duration-500 ${isMenuOpen ? "opacity-100" : "opacity-0"
-            }`}
+          className={`absolute inset-0 bg-blue-950/80 backdrop-blur-sm transition-opacity duration-500 ${
+            isMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
           aria-hidden="true"
         />
 
         {/* Sliding Panel */}
         <aside
-          className={`absolute right-0 top-0 h-full w-80 max-w-full bg-gradient-to-b from-blue-900 to-blue-800 shadow-2xl shadow-blue-500/20 transform transition-transform duration-500 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
-            }`}
+          className={`absolute right-0 top-0 h-full w-80 max-w-full bg-gradient-to-b from-blue-900 to-blue-800 shadow-2xl shadow-blue-500/20 transform transition-transform duration-500 ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         >
           <div className="flex flex-col h-full ">
             {/* Header */}
@@ -250,16 +280,18 @@ const Header = () => {
                     <a
                       href={`#${item.id}`}
                       onClick={() => handleNavClick(item.id)}
-                      className={`flex items-center gap-4 px-4 py-4 rounded-xl text-base font-medium transition-all duration-300 group ${activeSection === item.id
+                      className={`flex items-center gap-4 px-4 py-4 rounded-xl text-base font-medium transition-all duration-300 group ${
+                        activeSection === item.id
                           ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
                           : "text-blue-100 hover:bg-blue-700/50 hover:text-white"
-                        }`}
+                      }`}
                     >
                       <div
-                        className={`p-2 rounded-lg ${activeSection === item.id
+                        className={`p-2 rounded-lg ${
+                          activeSection === item.id
                             ? "bg-blue-500"
                             : "bg-blue-700/50 group-hover:bg-blue-600"
-                          }`}
+                        }`}
                       >
                         {item.icon}
                       </div>
@@ -272,8 +304,8 @@ const Header = () => {
               {/* Mobile Action Buttons */}
               <div className="mt-8 space-y-4">
                 <a
-                  href={resume}
-                  download="new2 resume.pdf"
+                  href={resumeUrl}
+                  download
                   className="flex items-center justify-center gap-3 w-full px-4 py-4 rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-all duration-300"
                 >
                   <FaDownload className="w-4 h-4" />

@@ -35,6 +35,7 @@ import {
 import { DiJqueryLogo, DiMongodb } from "react-icons/di";
 import { RiNextjsFill, RiVercelLine } from "react-icons/ri";
 import { BiBriefcase, BiUser, BiRocket } from "react-icons/bi";
+import axios from "axios";
 
 export default function About() {
   const [activeTab, setActiveTab] = useState("about");
@@ -109,18 +110,41 @@ export default function About() {
 
 /* ---------------- About Content ---------------- */
 function AboutContent({ experiences }) {
+  const [resumeData, setResumeData] = useState([]);
+
+  let resumeDataView = () => {
+    axios
+      .post(
+        "https://dynmic-portfolio-my-website.onrender.com/api/backend/Resume/view",
+      )
+      .then((res) => {
+        console.log(res.data.data);
+        setResumeData(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    resumeDataView();
+  }, []);
+
+  let onlyimage = () => {
+    return resumeData?.[0]?.image || resume; // Fallback to local resume if API doesn't return an image
+  };
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {/* Left Column - Image & Download */}
       <div className="space-y-8">
         {/* Download Card */}
-        <ResumeCard />
+        <ResumeCard resumeData={resumeData} />
 
         {/* Profile Image (circular) */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 flex items-center justify-center">
-          <div className="w-44 h-44 rounded-full overflow-hidden ring-4 ring-white/10 dark:ring-gray-700 shadow-xl transform hover:scale-105 transition">
+          <div className=" overflow-hidden ring-4 ring-white/10 dark:ring-gray-700 shadow-xl transform hover:scale-105 transition">
             <img
-              src={image}
+              src={onlyimage()}
               alt="Naveen Saini portrait"
               className="w-full h-full object-cover"
             />
@@ -236,42 +260,52 @@ function AboutContent({ experiences }) {
 }
 
 /* ---------------- Resume Card ---------------- */
-function ResumeCard() {
+function ResumeCard({ resumeData }) {
+  const resumeUrl = resumeData?.[0]?.image; // API PDF link
+
+  console.log("Resume data in ResumeCard:", resumeUrl);
   return (
     <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 text-center transform hover:scale-105 transition-transform duration-300">
       <div className="w-20 h-20 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
         <FaDownload className="text-blue-600 dark:text-blue-400 text-2xl" />
       </div>
+
       <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
         Download My Resume
       </h3>
+
       <p className="text-gray-600 dark:text-gray-300 mb-4">
         Get my complete professional profile
       </p>
 
-      <div className="flex items-center justify-center gap-3 mt-3">
-        <a
-          href={resume}
-          download="new2 resume.pdf"
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-full font-semibold hover:shadow-lg transition"
-        >
-          <FaDownload />
-          <span>Download CV</span>
-        </a>
+      {resumeUrl ? (
+        <div className="flex items-center justify-center gap-3 mt-3">
+          {/* Download */}
+          <a
+            href={resumeUrl}
+            download
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-full font-semibold hover:shadow-lg transition"
+          >
+            <FaDownload />
+            <span>Download CV</span>
+          </a>
 
-        <a
-          href={resume}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 border border-white/10 text-white px-4 py-2 rounded-full bg-white/5 hover:bg-white/7 transition"
-          aria-label="View resume"
-        >
-          View
-        </a>
-      </div>
+          {/* View */}
+          <a
+            href={resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex text-blue-500 items-center gap-2 border border-white/10 px-4 py-2 rounded-full bg-white/5 hover:bg-white/7 transition"
+          >
+            View
+          </a>
+        </div>
+      ) : (
+        <p className="text-sm text-gray-500 mt-3">Loading resume...</p>
+      )}
 
       <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
-        PDF • 220 KB • Last updated: Aug 2025
+        PDF • Auto Updated from Admin Panel
       </p>
     </div>
   );

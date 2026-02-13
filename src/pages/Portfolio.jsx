@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaGithub,
   FaExternalLinkAlt,
@@ -39,383 +39,397 @@ import portfolie from "../assets/portfolie.png";
 import Angular from "../assets/Angular.png";
 import whatwebuildnext from "../assets/whatwebuildnext.png";
 import blog_app from "../assets/blog-app.png";
+import axios from "axios";
 
 export default function Portfolio() {
   const [selectedTech, setSelectedTech] = useState("All");
 
-  const projects = [
-    {
-      image: dronetv,
-      title: "Dronetv.in",
-      description:
-        "Drone TV offers news, interviews, expert insights and services related to drone technology — covering drone surveying, manufacturing/deployment support, photography/videography, simulator software development, and broader industry commentary",
-      technologies: ["React.js", "Tailwind CSS", "AWS", "typescript"],
-      github: {
-        frontend: "https://github.com/gisipageums-droid/Dronetv",
-        backend: "",
-      },
-      link: "https://www.dronetv.in/",
-    },
-    {
-      image: shubhFashion,
-      title: "Full Ecommerce Website Frontend",
-      description:
-        "This website  is an online shopping platform showcasing trendy products with sections like Home, Shop, Wishlist, Cart, and My Orders. It appears to be an e-commerce site where products are displayed and purchased online.",
-      technologies: ["Next.js", "Tailwind CSS", "Node.js API"],
-      github: {
-        frontend: "https://github.com/Gionee123/gudiya_website",
-        backend: "",
-      },
-      link: "https://gudiya-website.vercel.app/",
-    },
-    {
-      image: shubhFashionadminpanel,
-      title: "E-commerce with Admin Dashboard",
-      description:
-        "It offers backend controls for managing things like products, orders, users, or website data — typically used by administrators rather than shoppers.",
-      technologies: ["React", "Tailwind CSS", "Node.js API"],
-      github: {
-        frontend: "",
-        backend: "https://github.com/Gionee123/Gudiya_admin_panel",
-      },
-      link: "https://gudiya-adminpanel.vercel.app/",
-    },
-    {
-      image: ashapurna,
-      title: "Ashapurna Website",
-      description:
-        "This appears to be a clone version of the Ashapurna Buildcon Ltd. website—likely a front-end replication showcasing projects, property offerings and the developer branding (townships, villas, plots in Jodhpur/Rajasthan).",
-      technologies: ["React", "Tailwind CSS"],
-      github: {
-        frontend: "https://github.com/naveenjpr/ashapurna",
-        backend: "",
-      },
-      link: "https://ashapurna-clone.vercel.app/",
-    },
-    {
-      image: frankandoak,
-      title: "Frank & Oak E-commerce",
-      description:
-        "This appears to be a fashion-ecommerce storefront, showcasing women’s and men’s clothing (tops, shirts, dresses, swimwear, etc.) with features like free shipping, free returns, loyalty “Frank Rewards”, and a “Buy Now, Pay Later” option",
-      technologies: ["Next.js", "Tailwind CSS", "Node.js"],
-      github: {
-        frontend:
-          "https://github.com/naveenjpr/FrankAndOak-nextjs-nodejs/tree/main/frankandoak",
-        backend: "https://github.com/naveenjpr/API-frank-And-Oak",
-      },
-      link: "https://frank-and-ok.vercel.app/",
-    },
-    {
-      image: aiassist,
-      title: "AI Assist",
-      description:
-        "This appears to be a React-based AI assistant web app built using the Google Gemini API (or at least styled as such). The interface likely enables conversational chat with an AI model, possibly allowing text (and maybe other input types) and delivering replies in a chat UI.",
-      technologies: ["React", "Tailwind CSS", "Node.js API", "Gemini AI"],
-      github: {
-        frontend:
-          "https://github.com/Gionee123/ai-assistant-in-with-gemini-react",
-        backend:
-          "https://github.com/Gionee123/AI-Assistant-in-node.js-with-Gemini-node.js",
-      },
-      link: "https://ai-assistant-in-with-gemini-react.vercel.app/",
-    },
-    {
-      image: Hundred,
-      title: "100 Project Series",
-      description:
-        "This appears to be a curated list of 100 projects built with React and Next.js, aimed at developers looking for ideas and challenges. It likely categorises project ideas by skill-level and includes details or links to each.This kind of list is helpful if you (like you are) are working through a 100-projects challenge and want inspiration or structure for your next builds.",
-      technologies: ["React", "Tailwind CSS", "Node.js"],
-      github: {
-        frontend: "https://github.com/naveenjpr/100_react_next_project_list",
-        backend: "https://github.com/naveenjpr/rss-feed-node.js",
-      },
-      link: "https://100-react-next-project-list.vercel.app/",
-    },
-    {
-      image: question,
-      title: "Practice Questions Admin",
-      description:
-        "This appears to be an Admin Dashboard interface for a platform likely named “Practics Question”. It is used by administrators to manage question-sets, users, analytics, or system settings rather than general end-users.",
-      technologies: ["React", "Tailwind CSS", "Node.js API"],
-      github: {
-        frontend: "",
-        backend: "",
-      },
-      link: "https://practics-question-admin.vercel.app/login",
-    },
-    {
-      image: myntra,
-      title: "Myntra Filter Logic",
-      description:
-        "This appears to be a clone or practice version of the Myntra e-commerce website. Likely built for learning or showcasing a project, it mimics a fashion retail storefront with categories, product listings, and possibly cart/wishlist features.",
-      technologies: ["React.js", "Tailwind CSS", "Dynamic API"],
-      github: {
-        frontend: "https://github.com/naveenjpr/myntra-project",
-      },
-      link: "https://myntra-project-wheat.vercel.app/",
-    },
-    {
-      image: whatwebuildnext,
-      title: "client portfolio website",
-      description: "portfolio website for What We Build Next",
-      technologies: ["React.js", "Tailwind CSS", "typescript"],
-      github: {
-        frontend: "https://github.com/whatwebuildnext-rgb/whatwebuildnext-",
-        backend: "",
-      },
-      link: "https://www.whatwebuildnext.com/",
-    },
-    {
-      image: Angular,
-      title: "mini-ecommerce-app-angular",
-      description: "Shopping cart with product management and checkout",
-      technologies: ["Angular", "Tailwind CSS", "Dynamic API"],
-      github: {
-        frontend: "https://github.com/naveenjpr/mini-ecommerce-app-angular",
-        backend: "",
-      },
-      link: "https://mini-ecommerce-app-angular.vercel.app/",
-    },
-    {
-      image: blog_app,
-      title: "Blog App",
-      description: "A simple blog application built with React and Next.js",
-      technologies: ["React", "Next.js", "bootstrap", "typescript"],
-      github: {
-        frontend:
-          "https://github.com/naveenjpr/-3W-Business-Private-Limited/tree/main/frontend/blog_app",
-        backend:
-          "https://github.com/naveenjpr/-3W-Business-Private-Limited/tree/main/backend",
-      },
-      link: "https://3-w-business-private-limited-uezg.vercel.app/",
-    },
-    {
-      image: razorpay,
-      title: "Razorpay Payment Integration",
-      description:
-        "This appears to be a demo or starter project built with Next.js that integrates the Razorpay payment gateway. Users can likely enter an amount or select a product and proceed to make a payment via Razorpay’s checkout flow.",
-      technologies: ["MVC", "Node.js API", "Next.js"],
-      github: {
-        frontend: "https://github.com/Gionee123/next.js-razor-payment-t",
-        backend: "https://github.com/Gionee123/node.js-razor-payment-api",
-      },
-      link: "https://next-js-razor-payment.vercel.app/",
-    },
-    {
-      image: curdoperation,
-      title: "CRUD Operations",
-      description:
-        "This appears to be a demo or tutorial-style web application built with Next.js (likely using its API routes) showcasing full CRUD functionality (Create, Read, Update, Delete) via an online API. Users can interact with a backend to add, view, modify, and remove data entries.",
-      technologies: ["MVC", "Node.js API", "Next.js"],
-      github: {
-        frontend:
-          "https://github.com/Gionee123/curd-operation-next.js-online-api",
-        backend: "https://github.com/Gionee123/node.js-curd-operation",
-      },
-      link: "https://curd-operation-next-js-online-api.vercel.app/",
-    },
-    {
-      image: loginRegister,
-      title: "Authentication System",
-      description:
-        "This looks like a demo or project built with Next.js that offers user authentication flows: login, registration, and a protected profile page. Users can sign up, log in, and view their profile once authenticated",
-      technologies: ["MVC", "Node.js API", "Next.js"],
-      github: {
-        frontend: "https://github.com/Gionee123/next.js-login-register-profile",
-        backend: "https://github.com/Gionee123/node.js-login-register-profile",
-      },
-      link: "https://next-js-login-register-profile.vercel.app/",
-    },
-    {
-      image: mailsend,
-      title: "Email System",
-      description:
-        "This appears to be a demo or project built with Next.js that implements an email-sending feature. It likely offers a form or interface where users can input details (subject, message, recipient) and then send an email via an API route (server side) or integration like Nodemailer / SMTP",
-      technologies: ["MVC", "Node.js API", "Next.js"],
-      github: {
-        frontend: "https://github.com/Gionee123/next.js-send-mail-",
-        backend: "https://github.com/Gionee123/node.js-mail_send-api",
-      },
-      link: "https://next-js-send-mail.vercel.app/",
-    },
-    {
-      image: imageuploadlogic,
-      title: "Image Upload System",
-      description:
-        "This appears to be a demo or project built with Next.js that allows image upload functionality. It likely provides a UI for selecting and uploading images (and possibly previewing them) and uses backend/API routes to handle the upload process.",
-      technologies: ["MVC", "Node.js API", "Next.js"],
-      github: {
-        frontend: "https://github.com/Gionee123/next.js-image-upload",
-        backend: "https://github.com/Gionee123/node.js-image-upload",
-      },
-      link: "https://next-js-image-upload.vercel.app/",
-    },
-    {
-      image: pagination,
-      title: "Pagination System",
-      description:
-        "This appears to be a demo or tutorial project built with Next.js that implements pagination functionality—likely showcasing how to display long lists/items, split them into pages, and navigate between them in a web-app.",
-      technologies: ["MVC", "Node.js API", "Next.js"],
-      github: {
-        frontend: "https://github.com/Gionee123/next.js-pagination",
-        backend: "https://github.com/Gionee123/node.js-pagination",
-      },
-      link: "https://next-js-pagination-gamma.vercel.app/",
-    },
-    {
-      image: searchApi,
-      title: "Search API",
-      description:
-        "This appears to be a project built with Next.js that implements a search API / search-feature. The interface likely lets users enter a query and fetch results dynamically (via API route) demonstrating how to integrate search functionality in a Next.js application.",
-      technologies: ["MVC", "Node.js API", "Next.js"],
-      github: {
-        frontend: "https://github.com/Gionee123/next.js-search-api",
-        backend: "https://github.com/Gionee123/node.js-search-api",
-      },
-      link: "https://flowbite-kappa.vercel.app/",
-    },
-    {
-      image: spheraconstion,
-      title: "Sphere Construction",
-      description:
-        "This appears to be a demonstration or portfolio website built under the name “Sphere Constration” (which may be a typo for “Sphere Construction”). The site likely showcases a construction-oriented company or service, possibly featuring buildings, projects, company info and visual elements typical of construction/architecture themes.",
-      technologies: ["HTML5", "Bootstrap", "CSS", "JavaScript"],
-      github: {
-        frontend: "https://github.com/naveenjpr/sphere_constration",
-        backend: "",
-      },
-      link: "https://sphere-constration.vercel.app/",
-    },
-    {
-      image: blogapp,
-      title: "Blog Application",
-      description:
-        "This appears to be a blog application built with React (or Next.js) deployed on Vercel. It likely allows users to read articles/posts, and might include features like post listing, detail view, perhaps author info or comments.",
-      technologies: ["React", "Firebase", "Context API"],
-      github: {
-        frontend: "https://github.com/naveenjpr/blog-app",
-        backend: "",
-      },
-      link: "https://blog-app-five-chi.vercel.app/",
-    },
-    {
-      image: skydashadmin,
-      title: "Skydash Admin Panel",
-      description:
-        "Comprehensive admin dashboard with multiple management features",
-      technologies: ["React", "React Router", "Tailwind CSS"],
-      github: {
-        frontend: "https://github.com/naveenjpr/skydash-admin-panel",
-        backend: "",
-      },
-      link: "https://skydash-admin-panel.vercel.app/",
-    },
-    {
-      image: multiapp,
-      title: "Multiple Applications",
-      description: "Collection of various mini-applications and utilities",
-      technologies: ["React", "Tailwind", "API Integration"],
-      github: {
-        frontend: "https://github.com/Gionee123/next.js-image-upload",
-        backend: "https://github.com/naveenjpr/SearchMovieForApi/tree/main/src",
-      },
-      link: "https://search-movie-for-api.vercel.app/",
-    },
-    {
-      image: addtocart,
-      title: "E-commerce Cart System",
-      description: "Shopping cart with product management and checkout",
-      technologies: ["React Context", "React Router", "Tailwind CSS"],
-      github: {
-        frontend:
-          "https://github.com/naveenjpr/context-api-dummyApi-update-delete",
-        backend: "",
-      },
-      link: "https://context-api-dummy-api-update-delete.vercel.app/",
-    },
-    {
-      image: onepage,
-      title: "One Page Website",
-      description: "Modern single page website with smooth navigation",
-      technologies: ["React", "Internal Navigation", "Smooth Scroll"],
-      github: {
-        frontend: "https://github.com/naveenjpr/one-page-second-website",
-        backend: "",
-      },
-      link: "https://one-page-second-website.vercel.app/",
-    },
-    {
-      image: dermalife,
-      title: "Derma Life Website",
-      description: "Hair transplant website clone with modern design",
-      technologies: ["Next.js", "Tailwind CSS"],
-      github: {
-        frontend: "https://github.com/naveenjpr/derma-life",
-        backend: "",
-      },
-      link: "https://derma-life.vercel.app/",
-    },
-    {
-      image: apiapply,
-      title: "API Data Display",
-      description: "Multiple sections displaying data from various APIs",
-      technologies: ["React", "React Router", "State Management"],
-      github: {
-        frontend: "",
-        backend: "",
-      },
-      link: "https://react-api-eta-two.vercel.app/",
-    },
-    {
-      image: smartcity,
-      title: "Smart City Mohali",
-      description: "Real estate project website with comprehensive information",
-      technologies: ["HTML5", "CSS", "Google Maps", "YouTube Embed"],
-      github: {
-        frontend: "https://github.com/naveenjpr/smart-city",
-        backend: "",
-      },
-      link: "https://smart-city-red.vercel.app/",
-    },
-    {
-      image: container,
-      title: "Contentholic Website",
-      description: "Company services and information website",
-      technologies: ["HTML5", "CSS", "JavaScript"],
-      github: {
-        frontend: "https://github.com/naveenjpr/contentholic_clone",
-        backend: "",
-      },
-      link: "https://one-page-second-website.vercel.app/",
-    },
-    {
-      image: ecommerce,
-      title: "WordPress E-commerce",
-      description:
-        "This appears to be an e-commerce demo/storefront (hosted on the free platform InfinityFree via the sub-domain “great-site.net”) with categories like “Men’s T Shirts”, “Men’s Jeans”, “Women’s Skirts”, etc.",
-      technologies: ["WordPress", "E-commerce"],
-      github: {},
-      link: "http://naveenwebsitecreate.great-site.net/?i=1",
-    },
-    {
-      image: lms,
-      title: "LMS Project",
-      description:
-        "This looks like an LMS (Learning Management System) project — likely created by you (since your name is Naveen Saini) — deployed on a free hosting subdomain. It’s probably a demo where you can manage courses, users, lessons, etc., as part of your MERN/React/Next.js stack work.",
-      technologies: ["WordPress", "LMS"],
-      github: {},
-      link: "https://naveensainlmsproject.infinityfreeapp.com/?i=1",
-    },
-    {
-      image: portfolie,
-      title: "Portfolio Website",
-      description:
-        "This appears to be a personal portfolio site for “Naveen”, detailing over 2 years of experience in IT as a React.js Developer, showcasing dynamic, responsive and user-friendly web work.",
-      technologies: ["WordPress"],
-      github: {},
-      link: "http://naveen.lovestoblog.com/",
-    },
-  ];
+  const [projects, setprojects] = useState([]);
+
+  useEffect(() => {
+    axios
+      .post(
+        "https://dynmic-portfolio-my-website.onrender.com/api/backend/portfolio/view",
+      )
+      .then((res) => {
+        setprojects(res.data.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  // const projects = [
+  //   {
+  //     image: dronetv,
+  //     title: "Dronetv.in",
+  //     description:
+  //       "Drone TV offers news, interviews, expert insights and services related to drone technology — covering drone surveying, manufacturing/deployment support, photography/videography, simulator software development, and broader industry commentary",
+  //     technologies: ["React.js", "Tailwind CSS", "AWS", "typescript"],
+  //     github: {
+  //       frontend: "https://github.com/gisipageums-droid/Dronetv",
+  //       backend: "",
+  //     },
+  //     link: "https://www.dronetv.in/",
+  //   },
+  //   {
+  //     image: shubhFashion,
+  //     title: "Full Ecommerce Website Frontend",
+  //     description:
+  //       "This website  is an online shopping platform showcasing trendy products with sections like Home, Shop, Wishlist, Cart, and My Orders. It appears to be an e-commerce site where products are displayed and purchased online.",
+  //     technologies: ["Next.js", "Tailwind CSS", "Node.js API"],
+  //     github: {
+  //       frontend: "https://github.com/Gionee123/gudiya_website",
+  //       backend: "",
+  //     },
+  //     link: "https://gudiya-website.vercel.app/",
+  //   },
+  //   {
+  //     image: shubhFashionadminpanel,
+  //     title: "E-commerce with Admin Dashboard",
+  //     description:
+  //       "It offers backend controls for managing things like products, orders, users, or website data — typically used by administrators rather than shoppers.",
+  //     technologies: ["React", "Tailwind CSS", "Node.js API"],
+  //     github: {
+  //       frontend: "",
+  //       backend: "https://github.com/Gionee123/Gudiya_admin_panel",
+  //     },
+  //     link: "https://gudiya-adminpanel.vercel.app/",
+  //   },
+  //   {
+  //     image: ashapurna,
+  //     title: "Ashapurna Website",
+  //     description:
+  //       "This appears to be a clone version of the Ashapurna Buildcon Ltd. website—likely a front-end replication showcasing projects, property offerings and the developer branding (townships, villas, plots in Jodhpur/Rajasthan).",
+  //     technologies: ["React", "Tailwind CSS"],
+  //     github: {
+  //       frontend: "https://github.com/naveenjpr/ashapurna",
+  //       backend: "",
+  //     },
+  //     link: "https://ashapurna-clone.vercel.app/",
+  //   },
+  //   {
+  //     image: frankandoak,
+  //     title: "Frank & Oak E-commerce",
+  //     description:
+  //       "This appears to be a fashion-ecommerce storefront, showcasing women’s and men’s clothing (tops, shirts, dresses, swimwear, etc.) with features like free shipping, free returns, loyalty “Frank Rewards”, and a “Buy Now, Pay Later” option",
+  //     technologies: ["Next.js", "Tailwind CSS", "Node.js"],
+  //     github: {
+  //       frontend:
+  //         "https://github.com/naveenjpr/FrankAndOak-nextjs-nodejs/tree/main/frankandoak",
+  //       backend: "https://github.com/naveenjpr/API-frank-And-Oak",
+  //     },
+  //     link: "https://frank-and-ok.vercel.app/",
+  //   },
+  //   {
+  //     image: aiassist,
+  //     title: "AI Assist",
+  //     description:
+  //       "This appears to be a React-based AI assistant web app built using the Google Gemini API (or at least styled as such). The interface likely enables conversational chat with an AI model, possibly allowing text (and maybe other input types) and delivering replies in a chat UI.",
+  //     technologies: ["React", "Tailwind CSS", "Node.js API", "Gemini AI"],
+  //     github: {
+  //       frontend:
+  //         "https://github.com/Gionee123/ai-assistant-in-with-gemini-react",
+  //       backend:
+  //         "https://github.com/Gionee123/AI-Assistant-in-node.js-with-Gemini-node.js",
+  //     },
+  //     link: "https://ai-assistant-in-with-gemini-react.vercel.app/",
+  //   },
+  //   {
+  //     image: Hundred,
+  //     title: "100 Project Series",
+  //     description:
+  //       "This appears to be a curated list of 100 projects built with React and Next.js, aimed at developers looking for ideas and challenges. It likely categorises project ideas by skill-level and includes details or links to each.This kind of list is helpful if you (like you are) are working through a 100-projects challenge and want inspiration or structure for your next builds.",
+  //     technologies: ["React", "Tailwind CSS", "Node.js"],
+  //     github: {
+  //       frontend: "https://github.com/naveenjpr/100_react_next_project_list",
+  //       backend: "https://github.com/naveenjpr/rss-feed-node.js",
+  //     },
+  //     link: "https://100-react-next-project-list.vercel.app/",
+  //   },
+  //   {
+  //     image: question,
+  //     title: "Practice Questions Admin",
+  //     description:
+  //       "This appears to be an Admin Dashboard interface for a platform likely named “Practics Question”. It is used by administrators to manage question-sets, users, analytics, or system settings rather than general end-users.",
+  //     technologies: ["React", "Tailwind CSS", "Node.js API"],
+  //     github: {
+  //       frontend: "",
+  //       backend: "",
+  //     },
+  //     link: "https://practics-question-admin.vercel.app/login",
+  //   },
+  //   {
+  //     image: myntra,
+  //     title: "Myntra Filter Logic",
+  //     description:
+  //       "This appears to be a clone or practice version of the Myntra e-commerce website. Likely built for learning or showcasing a project, it mimics a fashion retail storefront with categories, product listings, and possibly cart/wishlist features.",
+  //     technologies: ["React.js", "Tailwind CSS", "Dynamic API"],
+  //     github: {
+  //       frontend: "https://github.com/naveenjpr/myntra-project",
+  //     },
+  //     link: "https://myntra-project-wheat.vercel.app/",
+  //   },
+  //   {
+  //     image: whatwebuildnext,
+  //     title: "client portfolio website",
+  //     description: "portfolio website for What We Build Next",
+  //     technologies: ["React.js", "Tailwind CSS", "typescript"],
+  //     github: {
+  //       frontend: "https://github.com/whatwebuildnext-rgb/whatwebuildnext-",
+  //       backend: "",
+  //     },
+  //     link: "https://www.whatwebuildnext.com/",
+  //   },
+  //   {
+  //     image: Angular,
+  //     title: "mini-ecommerce-app-angular",
+  //     description: "Shopping cart with product management and checkout",
+  //     technologies: ["Angular", "Tailwind CSS", "Dynamic API"],
+  //     github: {
+  //       frontend: "https://github.com/naveenjpr/mini-ecommerce-app-angular",
+  //       backend: "",
+  //     },
+  //     link: "https://mini-ecommerce-app-angular.vercel.app/",
+  //   },
+  //   {
+  //     image: blog_app,
+  //     title: "Blog App",
+  //     description: "A simple blog application built with React and Next.js",
+  //     technologies: ["React", "Next.js", "bootstrap", "typescript"],
+  //     github: {
+  //       frontend:
+  //         "https://github.com/naveenjpr/-3W-Business-Private-Limited/tree/main/frontend/blog_app",
+  //       backend:
+  //         "https://github.com/naveenjpr/-3W-Business-Private-Limited/tree/main/backend",
+  //     },
+  //     link: "https://3-w-business-private-limited-uezg.vercel.app/",
+  //   },
+  //   {
+  //     image: razorpay,
+  //     title: "Razorpay Payment Integration",
+  //     description:
+  //       "This appears to be a demo or starter project built with Next.js that integrates the Razorpay payment gateway. Users can likely enter an amount or select a product and proceed to make a payment via Razorpay’s checkout flow.",
+  //     technologies: ["MVC", "Node.js API", "Next.js"],
+  //     github: {
+  //       frontend: "https://github.com/Gionee123/next.js-razor-payment-t",
+  //       backend: "https://github.com/Gionee123/node.js-razor-payment-api",
+  //     },
+  //     link: "https://next-js-razor-payment.vercel.app/",
+  //   },
+  //   {
+  //     image: curdoperation,
+  //     title: "CRUD Operations",
+  //     description:
+  //       "This appears to be a demo or tutorial-style web application built with Next.js (likely using its API routes) showcasing full CRUD functionality (Create, Read, Update, Delete) via an online API. Users can interact with a backend to add, view, modify, and remove data entries.",
+  //     technologies: ["MVC", "Node.js API", "Next.js"],
+  //     github: {
+  //       frontend:
+  //         "https://github.com/Gionee123/curd-operation-next.js-online-api",
+  //       backend: "https://github.com/Gionee123/node.js-curd-operation",
+  //     },
+  //     link: "https://curd-operation-next-js-online-api.vercel.app/",
+  //   },
+  //   {
+  //     image: loginRegister,
+  //     title: "Authentication System",
+  //     description:
+  //       "This looks like a demo or project built with Next.js that offers user authentication flows: login, registration, and a protected profile page. Users can sign up, log in, and view their profile once authenticated",
+  //     technologies: ["MVC", "Node.js API", "Next.js"],
+  //     github: {
+  //       frontend: "https://github.com/Gionee123/next.js-login-register-profile",
+  //       backend: "https://github.com/Gionee123/node.js-login-register-profile",
+  //     },
+  //     link: "https://next-js-login-register-profile.vercel.app/",
+  //   },
+  //   {
+  //     image: mailsend,
+  //     title: "Email System",
+  //     description:
+  //       "This appears to be a demo or project built with Next.js that implements an email-sending feature. It likely offers a form or interface where users can input details (subject, message, recipient) and then send an email via an API route (server side) or integration like Nodemailer / SMTP",
+  //     technologies: ["MVC", "Node.js API", "Next.js"],
+  //     github: {
+  //       frontend: "https://github.com/Gionee123/next.js-send-mail-",
+  //       backend: "https://github.com/Gionee123/node.js-mail_send-api",
+  //     },
+  //     link: "https://next-js-send-mail.vercel.app/",
+  //   },
+  //   {
+  //     image: imageuploadlogic,
+  //     title: "Image Upload System",
+  //     description:
+  //       "This appears to be a demo or project built with Next.js that allows image upload functionality. It likely provides a UI for selecting and uploading images (and possibly previewing them) and uses backend/API routes to handle the upload process.",
+  //     technologies: ["MVC", "Node.js API", "Next.js"],
+  //     github: {
+  //       frontend: "https://github.com/Gionee123/next.js-image-upload",
+  //       backend: "https://github.com/Gionee123/node.js-image-upload",
+  //     },
+  //     link: "https://next-js-image-upload.vercel.app/",
+  //   },
+  //   {
+  //     image: pagination,
+  //     title: "Pagination System",
+  //     description:
+  //       "This appears to be a demo or tutorial project built with Next.js that implements pagination functionality—likely showcasing how to display long lists/items, split them into pages, and navigate between them in a web-app.",
+  //     technologies: ["MVC", "Node.js API", "Next.js"],
+  //     github: {
+  //       frontend: "https://github.com/Gionee123/next.js-pagination",
+  //       backend: "https://github.com/Gionee123/node.js-pagination",
+  //     },
+  //     link: "https://next-js-pagination-gamma.vercel.app/",
+  //   },
+  //   {
+  //     image: searchApi,
+  //     title: "Search API",
+  //     description:
+  //       "This appears to be a project built with Next.js that implements a search API / search-feature. The interface likely lets users enter a query and fetch results dynamically (via API route) demonstrating how to integrate search functionality in a Next.js application.",
+  //     technologies: ["MVC", "Node.js API", "Next.js"],
+  //     github: {
+  //       frontend: "https://github.com/Gionee123/next.js-search-api",
+  //       backend: "https://github.com/Gionee123/node.js-search-api",
+  //     },
+  //     link: "https://flowbite-kappa.vercel.app/",
+  //   },
+  //   {
+  //     image: spheraconstion,
+  //     title: "Sphere Construction",
+  //     description:
+  //       "This appears to be a demonstration or portfolio website built under the name “Sphere Constration” (which may be a typo for “Sphere Construction”). The site likely showcases a construction-oriented company or service, possibly featuring buildings, projects, company info and visual elements typical of construction/architecture themes.",
+  //     technologies: ["HTML5", "Bootstrap", "CSS", "JavaScript"],
+  //     github: {
+  //       frontend: "https://github.com/naveenjpr/sphere_constration",
+  //       backend: "",
+  //     },
+  //     link: "https://sphere-constration.vercel.app/",
+  //   },
+  //   {
+  //     image: blogapp,
+  //     title: "Blog Application",
+  //     description:
+  //       "This appears to be a blog application built with React (or Next.js) deployed on Vercel. It likely allows users to read articles/posts, and might include features like post listing, detail view, perhaps author info or comments.",
+  //     technologies: ["React", "Firebase", "Context API"],
+  //     github: {
+  //       frontend: "https://github.com/naveenjpr/blog-app",
+  //       backend: "",
+  //     },
+  //     link: "https://blog-app-five-chi.vercel.app/",
+  //   },
+  //   {
+  //     image: skydashadmin,
+  //     title: "Skydash Admin Panel",
+  //     description:
+  //       "Comprehensive admin dashboard with multiple management features",
+  //     technologies: ["React", "React Router", "Tailwind CSS"],
+  //     github: {
+  //       frontend: "https://github.com/naveenjpr/skydash-admin-panel",
+  //       backend: "",
+  //     },
+  //     link: "https://skydash-admin-panel.vercel.app/",
+  //   },
+  //   {
+  //     image: multiapp,
+  //     title: "Multiple Applications",
+  //     description: "Collection of various mini-applications and utilities",
+  //     technologies: ["React", "Tailwind", "API Integration"],
+  //     github: {
+  //       frontend: "https://github.com/Gionee123/next.js-image-upload",
+  //       backend: "https://github.com/naveenjpr/SearchMovieForApi/tree/main/src",
+  //     },
+  //     link: "https://search-movie-for-api.vercel.app/",
+  //   },
+  //   {
+  //     image: addtocart,
+  //     title: "E-commerce Cart System",
+  //     description: "Shopping cart with product management and checkout",
+  //     technologies: ["React Context", "React Router", "Tailwind CSS"],
+  //     github: {
+  //       frontend:
+  //         "https://github.com/naveenjpr/context-api-dummyApi-update-delete",
+  //       backend: "",
+  //     },
+  //     link: "https://context-api-dummy-api-update-delete.vercel.app/",
+  //   },
+  //   {
+  //     image: onepage,
+  //     title: "One Page Website",
+  //     description: "Modern single page website with smooth navigation",
+  //     technologies: ["React", "Internal Navigation", "Smooth Scroll"],
+  //     github: {
+  //       frontend: "https://github.com/naveenjpr/one-page-second-website",
+  //       backend: "",
+  //     },
+  //     link: "https://one-page-second-website.vercel.app/",
+  //   },
+  //   {
+  //     image: dermalife,
+  //     title: "Derma Life Website",
+  //     description: "Hair transplant website clone with modern design",
+  //     technologies: ["Next.js", "Tailwind CSS"],
+  //     github: {
+  //       frontend: "https://github.com/naveenjpr/derma-life",
+  //       backend: "",
+  //     },
+  //     link: "https://derma-life.vercel.app/",
+  //   },
+  //   {
+  //     image: apiapply,
+  //     title: "API Data Display",
+  //     description: "Multiple sections displaying data from various APIs",
+  //     technologies: ["React", "React Router", "State Management"],
+  //     github: {
+  //       frontend: "",
+  //       backend: "",
+  //     },
+  //     link: "https://react-api-eta-two.vercel.app/",
+  //   },
+  //   {
+  //     image: smartcity,
+  //     title: "Smart City Mohali",
+  //     description: "Real estate project website with comprehensive information",
+  //     technologies: ["HTML5", "CSS", "Google Maps", "YouTube Embed"],
+  //     github: {
+  //       frontend: "https://github.com/naveenjpr/smart-city",
+  //       backend: "",
+  //     },
+  //     link: "https://smart-city-red.vercel.app/",
+  //   },
+  //   {
+  //     image: container,
+  //     title: "Contentholic Website",
+  //     description: "Company services and information website",
+  //     technologies: ["HTML5", "CSS", "JavaScript"],
+  //     github: {
+  //       frontend: "https://github.com/naveenjpr/contentholic_clone",
+  //       backend: "",
+  //     },
+  //     link: "https://one-page-second-website.vercel.app/",
+  //   },
+  //   {
+  //     image: ecommerce,
+  //     title: "WordPress E-commerce",
+  //     description:
+  //       "This appears to be an e-commerce demo/storefront (hosted on the free platform InfinityFree via the sub-domain “great-site.net”) with categories like “Men’s T Shirts”, “Men’s Jeans”, “Women’s Skirts”, etc.",
+  //     technologies: ["WordPress", "E-commerce"],
+  //     github: {},
+  //     link: "http://naveenwebsitecreate.great-site.net/?i=1",
+  //   },
+  //   {
+  //     image: lms,
+  //     title: "LMS Project",
+  //     description:
+  //       "This looks like an LMS (Learning Management System) project — likely created by you (since your name is Naveen Saini) — deployed on a free hosting subdomain. It’s probably a demo where you can manage courses, users, lessons, etc., as part of your MERN/React/Next.js stack work.",
+  //     technologies: ["WordPress", "LMS"],
+  //     github: {},
+  //     link: "https://naveensainlmsproject.infinityfreeapp.com/?i=1",
+  //   },
+  //   {
+  //     image: portfolie,
+  //     title: "Portfolio Website",
+  //     description:
+  //       "This appears to be a personal portfolio site for “Naveen”, detailing over 2 years of experience in IT as a React.js Developer, showcasing dynamic, responsive and user-friendly web work.",
+  //     technologies: ["WordPress"],
+  //     github: {},
+  //     link: "http://naveen.lovestoblog.com/",
+  //   },
+  // ];
 
   // Extract all unique technologies for filtering
   const allTechnologies = [
