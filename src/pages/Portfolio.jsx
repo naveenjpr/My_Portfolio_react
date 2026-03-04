@@ -483,17 +483,19 @@ export default function Portfolio() {
         {/* Technology Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           <div className="flex items-center gap-2 text-gray-600 font-medium">
-            <FaFilter className="text-blue-500" />
+            <FaFilter className="text-blue-600" />
             Filter by Technology:
           </div>
           {allTechnologies.slice(0, 15).map((tech) => (
             <button
               key={tech}
               onClick={() => setSelectedTech(tech)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              aria-pressed={selectedTech === tech}
+              aria-label={`Filter projects by ${tech}`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300 ${
                 selectedTech === tech
-                  ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transform scale-105"
-                  : "bg-white text-gray-700 shadow-sm hover:shadow-md border border-gray-200 hover:border-blue-300"
+                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg transform scale-105"
+                  : "bg-white text-gray-700 shadow-sm hover:shadow-md border border-gray-200 hover:border-blue-400"
               }`}
             >
               {tech}
@@ -559,7 +561,8 @@ export default function Portfolio() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 text-sm font-medium shadow-sm hover:shadow-md"
+                    aria-label={`View live demo of ${project.title}`}
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-700 to-blue-800 text-white rounded-lg hover:from-blue-800 hover:to-blue-900 transition-all duration-300 text-sm font-medium shadow-sm hover:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-300"
                   >
                     <FaExternalLinkAlt className="text-xs" />
                     Live Demo
@@ -574,7 +577,8 @@ export default function Portfolio() {
                             href={project.github.frontend}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all duration-300 text-sm font-medium"
+                            aria-label={`View frontend code on GitHub for ${project.title}`}
+                            className="flex items-center gap-1 px-3 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-all duration-300 text-sm font-medium focus:outline-none focus:ring-4 focus:ring-gray-400"
                             title="Frontend Code"
                           >
                             <FaCode className="text-sm" />
@@ -586,7 +590,8 @@ export default function Portfolio() {
                             href={project.github.backend}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all duration-300 text-sm font-medium"
+                            aria-label={`View backend code on GitHub for ${project.title}`}
+                            className="flex items-center gap-1 px-3 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-all duration-300 text-sm font-medium focus:outline-none focus:ring-4 focus:ring-gray-400"
                             title="Backend Code"
                           >
                             <FaServer className="text-sm" />

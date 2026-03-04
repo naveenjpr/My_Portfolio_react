@@ -135,10 +135,10 @@ const Header = () => {
                   <a
                     href={`#${item.id}`}
                     onClick={() => handleNavClick(item.id)}
-                    className={`relative flex items-center gap-2 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300 group ${
+                    className={`relative flex items-center gap-2 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-blue-300 ${
                       activeSection === item.id
                         ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-                        : "text-blue-100 hover:bg-blue-800/50 hover:text-white"
+                        : "text-blue-50 hover:bg-blue-700/50 hover:text-white"
                     }`}
                   >
                     {item.icon}
@@ -156,7 +156,7 @@ const Header = () => {
               {/* Dark Mode Toggle */}
               <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
-                className="p-3 rounded-xl bg-blue-800/50 text-blue-100 hover:bg-blue-700 hover:text-white transition-all duration-300 group"
+                className="p-3 rounded-xl bg-blue-800/50 text-blue-100 hover:bg-blue-700 hover:text-white transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-blue-300"
                 aria-label="Toggle dark mode"
               >
                 {isDarkMode ? (
@@ -170,7 +170,8 @@ const Header = () => {
               <a
                 href={resumeUrl}
                 download
-                className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 hover:shadow-blue-400/40 transform hover:scale-105 transition-all duration-300 group"
+                aria-label="Download my resume"
+                className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-700 text-white hover:bg-blue-600 shadow-lg shadow-blue-500/30 hover:shadow-blue-400/40 transform hover:scale-105 transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-600"
               >
                 <FaDownload className="w-4 h-4 group-hover:animate-bounce" />
                 <span className="text-sm font-medium">Resume</span>
@@ -180,7 +181,8 @@ const Header = () => {
               <a
                 href="#contact"
                 onClick={() => handleNavClick("contact")}
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300 hover:from-cyan-400 hover:to-blue-500"
+                aria-label="Scroll to contact section"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300 hover:from-cyan-500 hover:to-blue-600 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-600"
               >
                 Hire Me
               </a>
@@ -192,7 +194,7 @@ const Header = () => {
             {/* Dark Mode Toggle - Mobile */}
             <button
               onClick={() => setIsDarkMode(!isDarkMode)}
-              className="p-3 rounded-xl bg-blue-800/50 text-blue-100 hover:bg-blue-700 hover:text-white transition-all duration-300"
+              className="p-3 rounded-xl bg-blue-800/50 text-blue-100 hover:bg-blue-700 hover:text-white transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300"
               aria-label="Toggle dark mode"
             >
               {isDarkMode ? (
@@ -280,17 +282,17 @@ const Header = () => {
                     <a
                       href={`#${item.id}`}
                       onClick={() => handleNavClick(item.id)}
-                      className={`flex items-center gap-4 px-4 py-4 rounded-xl text-base font-medium transition-all duration-300 group ${
+                      className={`flex items-center gap-4 px-4 py-4 rounded-xl text-base font-medium transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-blue-300 ${
                         activeSection === item.id
                           ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-                          : "text-blue-100 hover:bg-blue-700/50 hover:text-white"
+                          : "text-blue-100 hover:bg-blue-600/50 hover:text-white"
                       }`}
                     >
                       <div
                         className={`p-2 rounded-lg ${
                           activeSection === item.id
                             ? "bg-blue-500"
-                            : "bg-blue-700/50 group-hover:bg-blue-600"
+                            : "bg-blue-600 group-hover:bg-blue-600"
                         }`}
                       >
                         {item.icon}
@@ -306,7 +308,8 @@ const Header = () => {
                 <a
                   href={resumeUrl}
                   download
-                  className="flex items-center justify-center gap-3 w-full px-4 py-4 rounded-xl bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-all duration-300"
+                  aria-label="Download my resume"
+                  className="flex items-center justify-center gap-3 w-full px-4 py-4 rounded-xl bg-blue-700 text-white hover:bg-blue-600 shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300"
                 >
                   <FaDownload className="w-4 h-4" />
                   <span className="font-medium">Download Resume</span>
@@ -315,7 +318,8 @@ const Header = () => {
                 <a
                   href="#contact"
                   onClick={() => handleNavClick("contact")}
-                  className="block w-full text-center px-4 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300"
+                  aria-label="Scroll to contact section"
+                  className="block w-full text-center px-4 py-4 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-cyan-300"
                 >
                   Hire Me
                 </a>

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://my-portfolio-azure-omega-11.vercel.app/sitemap.xml

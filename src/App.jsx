@@ -1,10 +1,23 @@
-import React, { useState, useEffect } from "react";
-import Portfolio from "./pages/Portfolio";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import Footer from "./Common page/Footer";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
 import { FaSmile, FaArrowDown, FaStar } from "react-icons/fa";
 import Header from "./Common page/Header";
+import SEO from "./Common page/SEO";
+
+// Lazy load page components for code splitting
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-gray-900 dark:to-blue-900">
+    <div className="text-center">
+      <div className="w-12 h-12 border-4 border-blue-400 border-t-blue-600 rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-gray-600 dark:text-gray-300">Loading...</p>
+    </div>
+  </div>
+);
 
 const App = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -36,6 +49,19 @@ const App = () => {
 
   return (
     <div className="font-sans bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-gray-900 dark:to-blue-900 min-h-screen">
+      <SEO
+        title="Naveen Saini - Full Stack Developer Portfolio"
+        description="Welcome to the portfolio of Naveen Saini, a passionate Full Stack Developer specializing in React.js, Node.js, MongoDB, AWS, and more. Explore my projects and get in touch!"
+      />
+
+      {/* Skip to Main Content Link */}
+      <a
+        href="#home"
+        className="absolute top-0 left-0 -translate-y-full focus:translate-y-0 bg-blue-600 text-white px-4 py-2 rounded-b-lg transition-transform duration-300"
+      >
+        Skip to main content
+      </a>
+
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50">
         <Header />
@@ -102,7 +128,7 @@ const App = () => {
             ].map((tech, index) => (
               <span
                 key={tech}
-                className="px-4 py-2 bg-blue-600/30 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-100 text-sm font-medium hover:bg-blue-500/40 transition-all duration-300 hover:scale-105"
+                className="px-4 py-2 bg-blue-600/30 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-100 text-sm font-medium hover:bg-blue-500/40 transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {tech}
@@ -114,7 +140,8 @@ const App = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={() => scrollToSection("portfolio")}
-              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-2xl shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300 flex items-center gap-3"
+              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-2xl shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300 flex items-center gap-3 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-600"
+              aria-label="View my work"
             >
               View My Work
               <FaArrowDown className="text-sm" />
@@ -122,7 +149,8 @@ const App = () => {
 
             <button
               onClick={() => scrollToSection("contact")}
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-2xl hover:bg-white/20 transform hover:scale-105 transition-all duration-300"
+              className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-2xl hover:bg-white/20 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/30"
+              aria-label="Get in touch with me"
             >
               Get In Touch
             </button>
@@ -148,7 +176,9 @@ const App = () => {
         <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-cyan-400/10 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <About />
+          <Suspense fallback={<LoadingFallback />}>
+            <About />
+          </Suspense>
         </div>
       </section>
 
@@ -163,7 +193,9 @@ const App = () => {
         <div className="absolute bottom-20 left-10 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <Portfolio />
+          <Suspense fallback={<LoadingFallback />}>
+            <Portfolio />
+          </Suspense>
         </div>
       </section>
 
@@ -178,7 +210,9 @@ const App = () => {
         <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-cyan-400/10 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <Contact />
+          <Suspense fallback={<LoadingFallback />}>
+            <Contact />
+          </Suspense>
         </div>
       </section>
 

@@ -217,7 +217,7 @@ export default function Contact() {
     try {
       const result = await axios.post(
         "https://node-j-my-portfolio-mail-send.onrender.com/api/backend/mailSend/send-mail",
-        dataSave
+        dataSave,
       );
 
       toast.success(result.data.message, {
@@ -360,7 +360,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-8 rounded-2xl font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-3"
+              className="w-full bg-gradient-to-r from-blue-700 to-purple-700 text-white py-4 px-8 rounded-2xl font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-3 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-purple-600"
             >
               {isLoading ? (
                 <>
@@ -460,7 +460,9 @@ export default function Contact() {
                 href="https://wa.me/918619916687"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group"
+                aria-label="Contact me on WhatsApp"
+                title="Contact me on WhatsApp"
+                className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-600"
               >
                 <FaWhatsapp className="text-white text-2xl group-hover:animate-bounce" />
               </a>
@@ -470,7 +472,9 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/naveen-saini-78201a293/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group"
+                aria-label="Visit my LinkedIn profile"
+                title="Visit my LinkedIn profile"
+                className="w-16 h-16 bg-blue-700 rounded-2xl flex items-center justify-center hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-600"
               >
                 <FaLinkedin className="text-white text-2xl group-hover:animate-bounce" />
               </a>
@@ -478,7 +482,9 @@ export default function Contact() {
               {/* Email */}
               <a
                 href="mailto:naveensainijpr@gmail.com"
-                className="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group"
+                aria-label="Send me an email"
+                title="Send me an email"
+                className="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-red-300 dark:focus:ring-red-600"
               >
                 <FaEnvelope className="text-white text-2xl group-hover:animate-bounce" />
               </a>

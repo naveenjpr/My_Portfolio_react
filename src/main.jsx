@@ -4,6 +4,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import Admin from "./pages/Admin.jsx";
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
   {
@@ -13,8 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin />,
-  }
+  },
 ]);
 createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <HelmetProvider>
+    <RouterProvider router={router} />
+  </HelmetProvider>,
 );

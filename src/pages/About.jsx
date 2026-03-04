@@ -84,12 +84,13 @@ export default function About() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+              className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300 ${
                 activeTab === tab.id
                   ? "bg-blue-600 text-white shadow-lg transform scale-105"
                   : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
               }`}
               aria-pressed={activeTab === tab.id}
+              aria-label={`Show ${tab.label}`}
             >
               <span className="text-lg">{tab.icon}</span>
               <span>{tab.label}</span>
@@ -284,7 +285,8 @@ function ResumeCard({ resumeData }) {
           <a
             href={resumeUrl}
             download
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-full font-semibold hover:shadow-lg transition"
+            aria-label="Download my CV"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-700 to-purple-700 text-white px-5 py-2 rounded-full font-semibold hover:shadow-lg transition focus:outline-none focus:ring-4 focus:ring-blue-300"
           >
             <FaDownload />
             <span>Download CV</span>
@@ -295,7 +297,8 @@ function ResumeCard({ resumeData }) {
             href={resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex text-blue-500 items-center gap-2 border border-white/10 px-4 py-2 rounded-full bg-white/5 hover:bg-white/7 transition"
+            aria-label="View my CV"
+            className="inline-flex text-blue-700 items-center gap-2 border border-blue-400 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition focus:outline-none focus:ring-4 focus:ring-blue-300 font-semibold"
           >
             View
           </a>
