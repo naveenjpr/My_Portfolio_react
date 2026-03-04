@@ -1,3 +1,16 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin
+Disallow: /.git
+Disallow: /node_modules
+Crawl-delay: 1
+
+# Specific search engines
+User-agent: Googlebot
+Crawl-delay: 0.5
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+# Sitemap
 Sitemap: https://my-portfolio-azure-omega-11.vercel.app/sitemap.xml
