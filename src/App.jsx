@@ -137,16 +137,19 @@ const App = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-2 justify-center items-center">
             <button
               onClick={() => scrollToSection("portfolio")}
               className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-2xl shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300 flex items-center gap-3 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-600"
               aria-label="View my work"
             >
               View My Work
-              <FaArrowDown className="text-sm" />
             </button>
-
+            <div className=" animate-bounce">
+              <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+                <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+              </div>
+            </div>
             <button
               onClick={() => scrollToSection("contact")}
               className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-2xl hover:bg-white/20 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/30"
@@ -158,11 +161,6 @@ const App = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
-          </div>
-        </div>
       </section>
 
       {/* About Section */}

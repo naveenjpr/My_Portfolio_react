@@ -102,7 +102,7 @@ const Header = () => {
           : "bg-gradient-to-b from-blue-900/80 to-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <a
@@ -165,7 +165,6 @@ const Header = () => {
                   <FaMoon className="w-4 h-4 group-hover:rotate-180 transition-transform" />
                 )}
               </button>
-
               {/* Download CV */}
               <a
                 href={resumeUrl}
@@ -176,7 +175,6 @@ const Header = () => {
                 <FaDownload className="w-4 h-4 group-hover:animate-bounce" />
                 <span className="text-sm font-medium">Resume</span>
               </a>
-
               {/* Hire Me Button */}
               <a
                 href="#contact"
@@ -246,7 +244,7 @@ const Header = () => {
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex flex-col h-full ">
+          <div className="flex flex-col h-full relative">
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-blue-700/50">
               <a
@@ -275,7 +273,7 @@ const Header = () => {
             </div>
 
             {/* Navigation */}
-            <nav className="flex-1 p-6 bg-blue-700">
+            <nav className="flex-1 p-2 bg-blue-700 ">
               <ul className="space-y-3">
                 {navItems.map((item) => (
                   <li key={item.id}>
@@ -309,7 +307,7 @@ const Header = () => {
                   href={resumeUrl}
                   download
                   aria-label="Download my resume"
-                  className="flex items-center justify-center gap-3 w-full px-4 py-4 rounded-xl bg-blue-700 text-white hover:bg-blue-600 shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                  className="flex items-center justify-center gap-3 w-full px-4 py-4 rounded-xl bg-[#ed143d] text-white hover:bg-[#c11232] shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300"
                 >
                   <FaDownload className="w-4 h-4" />
                   <span className="font-medium">Download Resume</span>
@@ -319,7 +317,7 @@ const Header = () => {
                   href="#contact"
                   onClick={() => handleNavClick("contact")}
                   aria-label="Scroll to contact section"
-                  className="block w-full text-center px-4 py-4 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-cyan-300"
+                  className="block w-full text-center px-4 py-4 rounded-xl bg-[#a52a2a] text-white font-semibold shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-cyan-300"
                 >
                   Hire Me
                 </a>
@@ -327,11 +325,11 @@ const Header = () => {
             </nav>
 
             {/* Footer */}
-            <footer className="p-6 border-t border-blue-700/50">
+            {/* <footer className="p-6 border-t border-blue-700/50">
               <p className="text-center text-sm text-blue-300">
                 © {new Date().getFullYear()} Naveen Saini. All rights reserved.
               </p>
-            </footer>
+            </footer> */}
           </div>
         </aside>
       </div>
