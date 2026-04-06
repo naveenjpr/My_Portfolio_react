@@ -962,149 +962,32 @@ function ResumeCard({ resumePdf }) {
 
 /* ---------------- Skills Content (unchanged) ---------------- */
 function SkillsContent() {
-  const skills = [
-    {
-      name: "Wordpress",
-      icon: <FaWordpress size={32} />,
-      level: 90,
-      category: "CMS",
-    },
-    {
-      name: "HTML5",
-      icon: <FaHtml5 size={32} />,
-      level: 95,
-      category: "Frontend",
-    },
-    {
-      name: "CSS3",
-      icon: <FaCss3Alt size={32} />,
-      level: 90,
-      category: "Frontend",
-    },
-    {
-      name: "Bootstrap",
-      icon: <FaBootstrap size={32} />,
-      level: 85,
-      category: "Frontend",
-    },
-    {
-      name: "Tailwind",
-      icon: <SiTailwindcss size={32} />,
-      level: 92,
-      category: "Frontend",
-    },
-    {
-      name: "JavaScript",
-      icon: <FaJs size={32} />,
-      level: 88,
-      category: "Frontend",
-    },
-    {
-      name: "sql",
-      icon: <GrMysql size={32} />,
-      level: 88,
-      category: "Frontend",
-    },
-    {
-      name: "React",
-      icon: <FaReact size={32} />,
-      level: 85,
-      category: "Frontend",
-    },
-    {
-      name: "Next.js",
-      icon: <RiNextjsFill size={32} />,
-      level: 80,
-      category: "Frontend",
-    },
-    {
-      name: "Angular",
-      icon: <SiAngular size={32} />,
-      level: 78,
-      category: "Frontend",
-    },
-    {
-      name: "Node.js",
-      icon: <FaNodeJs size={32} />,
-      level: 82,
-      category: "Backend",
-    },
-    {
-      name: "Express",
-      icon: <SiExpress size={32} />,
-      level: 80,
-      category: "Backend",
-    },
-    {
-      name: "supabase",
-      icon: <SiSupabase size={32} />,
-      level: 80,
-      category: "Backend",
-    },
-    {
-      name: "MongoDB",
-      icon: <DiMongodb size={32} />,
-      level: 78,
-      category: "Database",
-    },
-    {
-      name: "Dynamodb",
-      icon: <DiMysql size={32} />,
-      level: 78,
-      category: "Database",
-    },
-    {
-      name: "MySQL",
-      icon: <DiMysql size={32} />,
-      level: 78,
-      category: "Database",
-    },
-    { name: "AWS", icon: <FaAws size={32} />, level: 75, category: "Cloud" },
-    {
-      name: "Firebase",
-      icon: <SiFirebase size={32} />,
-      level: 70,
-      category: "Backend",
-    },
-    {
-      name: "GitHub",
-      icon: <FaGithub size={32} />,
-      level: 85,
-      category: "Tools",
-    },
-    {
-      name: "Vercel",
-      icon: <RiVercelLine size={32} />,
-      level: 80,
-      category: "Deployment",
-    },
-    {
-      name: "TypeScript",
-      icon: <SiTypescript size={32} />,
-      level: 84,
-      category: "Frontend",
-    },
-    {
-      name: "Python",
-      icon: <FaPython size={32} />,
-      level: 80,
-      category: "Frontend",
-    },
-    {
-      name: "Docker",
-      icon: <FaDocker size={32} />,
-      level: 82,
-      category: "DevOps",
-    },
-  ];
-
-  const categories = [...new Set(skills.map((s) => s.category))];
-  const containerRef = useRef(null);
+  const [skills, setSkills] = useState([]);
   const [visible, setVisible] = useState(false);
+  const containerRef = useRef(null);
 
+  // 🔥 API CALL
+  useEffect(() => {
+    axios
+      .post(
+        "https://dynmic-portfolio-my-website.onrender.com/api/website/skills/view",
+      )
+      .then((res) => {
+        setSkills(res.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  // 🔥 CATEGORY GENERATE (from API)
+  const categories = [...new Set(skills.map((s) => s.parentskills?.Skills))];
+
+  // 🔥 SCROLL ANIMATION
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
+
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -1116,12 +999,14 @@ function SkillsContent() {
       },
       { threshold: 0.15 },
     );
+
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto" ref={containerRef}>
+    <div className="max-w-6xl mx-auto px-4" ref={containerRef}>
+      {/* Heading */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
           Technical Skills
@@ -1131,51 +1016,81 @@ function SkillsContent() {
         </p>
       </div>
 
-      {categories.map((category) => (
-        <div key={category} className="mb-12">
-          <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 border-b-2 border-blue-200 dark:border-blue-800 pb-2">
-            {category}
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {skills
-              .filter((skill) => skill.category === category)
-              .map((skill, index) => (
-                <div
-                  key={index}
-                  className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center group"
-                >
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
-                    {skill.icon}
-                  </div>
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
-                    {skill.name}
-                  </h4>
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+      {/* Categories */}
+      {categories.length > 0
+        ? categories.map((category, i) => (
+            <div key={i} className="mb-12">
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 border-b-2 border-blue-200 dark:border-blue-800 pb-2 capitalize">
+                {category}
+              </h3>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                {skills
+                  .filter((skill) => skill.parentskills?.Skills === category)
+                  .map((skill, index) => (
                     <div
-                      className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000 ease-out"
-                      style={{ width: visible ? `${skill.level}%` : "0%" }}
-                    />
-                  </div>
-                  <span className="text-sm text-gray-600 dark:text-gray-400 mt-2 block">
-                    {skill.level}%
-                  </span>
-                </div>
-              ))}
-          </div>
-        </div>
-      ))}
+                      key={index}
+                      className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
+                    >
+                      {/* Icon */}
+                      <div className="w-16 h-16 mx-auto mb-4">
+                        <img
+                          src={skill.SkillsIcon}
+                          alt={skill.SkillsName}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+
+                      {/* Name */}
+                      <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+                        {skill.SkillsName}
+                      </h4>
+
+                      {/* Progress Bar */}
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div
+                          className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000"
+                          style={{
+                            width: visible ? `${skill.percentage}%` : "0%",
+                          }}
+                        />
+                      </div>
+
+                      {/* Percentage */}
+                      <span className="text-sm text-gray-600 dark:text-gray-400 mt-2 block">
+                        {skill.percentage}%
+                      </span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          ))
+        : "this time api not working please try again later"}
     </div>
   );
 }
 
 /* ---------------- Certificates Content (unchanged) ---------------- */
 function CertificatesContent() {
-  const certificates = [
-    { image: joinletter, title: "Joining Letter" },
-    { image: certificateimage, title: "AWS Certification" },
-    { image: certificateimage2, title: "MERN Stack Certification" },
-    { image: certificateimage3, title: "React Development" },
-  ];
+  const [certificates, setcertificates] = useState([]);
+  useEffect(() => {
+    axios
+      .post(
+        "https://dynmic-portfolio-my-website.onrender.com/api/website/Achievements/view",
+      )
+      .then((res) => {
+        setcertificates(res.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  // const certificates = [
+  //   { image: joinletter, title: "Joining Letter" },
+  //   { image: certificateimage, title: "AWS Certification" },
+  //   { image: certificateimage2, title: "MERN Stack Certification" },
+  //   { image: certificateimage3, title: "React Development" },
+  // ];
 
   const [lightbox, setLightbox] = useState(null);
 
@@ -1206,7 +1121,7 @@ function CertificatesContent() {
           >
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center">
-                {cert.title}
+                {cert.Description}
               </h3>
             </div>
             <button

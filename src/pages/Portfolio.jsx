@@ -49,7 +49,7 @@ export default function Portfolio() {
   useEffect(() => {
     axios
       .post(
-        "https://dynmic-portfolio-my-website.onrender.com/api/backend/portfolio/view",
+        "https://dynmic-portfolio-my-website.onrender.com/api/website/portfolio/view",
       )
       .then((res) => {
         setprojects(res.data.data);
