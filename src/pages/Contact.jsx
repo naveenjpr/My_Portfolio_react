@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaEnvelope,
   FaMapMarkerAlt,
@@ -79,6 +79,22 @@ export default function Contact() {
       setIsLoading(false);
     }
   };
+
+  const [connectme, setconnectme] = useState([]);
+
+  // 🔥 API CALL
+  useEffect(() => {
+    axios
+      .post(
+        "https://dynmic-portfolio-my-website.onrender.com/api/backend/ConnectMe/view",
+      )
+      .then((res) => {
+        setconnectme(res.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-blue-900 py-12 px-4">
@@ -217,119 +233,85 @@ export default function Contact() {
               connect, feel free to reach out!
             </p>
 
-            {/* Contact Details */}
-            <div className="space-y-6">
-              {/* Address */}
-              <div className="flex items-start space-x-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <FaMapMarkerAlt className="text-white text-xl" />
+            {connectme.map((item) => (
+              <div key={item._id} className="space-y-6">
+                {/* Address */}
+                <div className="flex items-start space-x-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
+                  <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <FaMapMarkerAlt className="text-white text-xl" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
+                      Address
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                      {item.Address}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
-                    Address
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                    H.No. 3583 Govind Rao Ji Ka Rasta, 4th Crossing,
-                    <br />
-                    In front of Narsingh Bhawan, Chandpole Bazaar,
-                    <br />
-                    Pink City, Jaipur, Rajasthan 302001
-                  </p>
-                </div>
-              </div>
 
-              {/* Email */}
-              <div className="flex items-start space-x-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
-                <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <FaEnvelope className="text-white text-xl" />
+                {/* Email */}
+                <div className="flex items-start space-x-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
+                  <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <FaEnvelope className="text-white text-xl" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
+                      Email
+                    </h4>
+                    <a
+                      href={`mailto:${item.Email}`}
+                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                    >
+                      {item.Email}
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
-                    Email
-                  </h4>
-                  <a
-                    href="mailto:naveensainijpr@gmail.com"
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                  >
-                    naveensainijpr@gmail.com
-                  </a>
-                </div>
-              </div>
 
-              {/* Phone */}
-              <div className="flex items-start space-x-4 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
-                <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <FaPhoneAlt className="text-white text-xl" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
-                    Phone
-                  </h4>
-                  <a
-                    href="tel:8619916687"
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                  >
-                    +91 8619916687
-                  </a>
+                {/* Phone */}
+                <div className="flex items-start space-x-4 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
+                  <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <FaPhoneAlt className="text-white text-xl" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
+                      Phone
+                    </h4>
+                    <a
+                      href={`tel:${item.Phone}`}
+                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                    >
+                      {item.Phone}
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
 
-          {/* Social Links */}
+          {/* Social Links Section (Optional) */}
           <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center">
-              Let's Connect Socially
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+              Connect Socially
             </h3>
-            <div className="flex justify-center space-x-6">
-              {/* WhatsApp */}
+            <div className="flex space-x-6 justify-center">
               <a
                 href="https://wa.me/918619916687"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Contact me on WhatsApp"
-                title="Contact me on WhatsApp"
-                className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-600"
+                className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center hover:scale-110 transform transition-all duration-300 hover:shadow-xl"
               >
-                <FaWhatsapp className="text-white text-2xl group-hover:animate-bounce" />
+                <FaWhatsapp className="text-white text-2xl" />
               </a>
-
-              {/* LinkedIn */}
               <a
-                href="https://www.linkedin.com/in/naveen-saini-78201a293/"
+                href="https://linkedin.com/in/naveen-saini"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Visit my LinkedIn profile"
-                title="Visit my LinkedIn profile"
-                className="w-16 h-16 bg-blue-700 rounded-2xl flex items-center justify-center hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-600"
+                className="w-14 h-14 bg-blue-700 rounded-full flex items-center justify-center hover:scale-110 transform transition-all duration-300 hover:shadow-xl"
               >
-                <FaLinkedin className="text-white text-2xl group-hover:animate-bounce" />
-              </a>
-
-              {/* Email */}
-              <a
-                href="mailto:naveensainijpr@gmail.com"
-                aria-label="Send me an email"
-                title="Send me an email"
-                className="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-red-300 dark:focus:ring-red-600"
-              >
-                <FaEnvelope className="text-white text-2xl group-hover:animate-bounce" />
+                <FaLinkedin className="text-white text-2xl" />
               </a>
             </div>
-
-            <div className="text-center mt-6">
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Quick responses guaranteed! 🚀
-              </p>
-            </div>
-          </div>
-
-          {/* Response Time Card */}
-          <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl shadow-2xl p-6 text-white text-center">
-            <h4 className="text-xl font-bold mb-2">Quick Response</h4>
-            <p className="text-blue-100">
-              I typically respond within 2-4 hours during business days
-            </p>
           </div>
         </div>
       </div>
