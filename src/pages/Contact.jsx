@@ -290,29 +290,7 @@ export default function Contact() {
           </div>
 
           {/* Social Links Section (Optional) */}
-          <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
-              Connect Socially
-            </h3>
-            <div className="flex space-x-6 justify-center">
-              <a
-                href="https://wa.me/918619916687"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center hover:scale-110 transform transition-all duration-300 hover:shadow-xl"
-              >
-                <FaWhatsapp className="text-white text-2xl" />
-              </a>
-              <a
-                href="https://linkedin.com/in/naveen-saini"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-14 h-14 bg-blue-700 rounded-full flex items-center justify-center hover:scale-110 transform transition-all duration-300 hover:shadow-xl"
-              >
-                <FaLinkedin className="text-white text-2xl" />
-              </a>
-            </div>
-          </div>
+          <Social />
         </div>
       </div>
 
@@ -322,6 +300,57 @@ export default function Contact() {
         <p className="text-gray-500 dark:text-gray-400 mt-6">
           Made with ❤️ by Naveen Saini
         </p>
+      </div>
+    </div>
+  );
+}
+
+function Social() {
+  const [social, setsocial] = useState([]);
+
+  // 🔥 API CALL
+  useEffect(() => {
+    axios
+      .post(
+        "https://dynmic-portfolio-my-website.onrender.com/api/website/Social/view",
+      )
+      .then((res) => {
+        setsocial(res.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  return (
+    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8">
+      <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+        Connect Socially
+      </h3>
+      <div className="flex space-x-6 justify-center">
+        {social.length > 0
+          ? social.map((v, i) => {
+              console.log("socialv", v);
+              return (
+                <a
+                  href="https://wa.me/918619916687"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center hover:scale-110 transform transition-all duration-300 hover:shadow-xl"
+                >
+                  <FaWhatsapp className="text-white text-2xl" />
+                </a>
+              );
+            })
+          : "no data"}
+
+        {/* <a
+          href="https://linkedin.com/in/naveen-saini"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-14 h-14 bg-blue-700 rounded-full flex items-center justify-center hover:scale-110 transform transition-all duration-300 hover:shadow-xl"
+        >
+          <FaLinkedin className="text-white text-2xl" />
+        </a> */}
       </div>
     </div>
   );
