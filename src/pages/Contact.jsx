@@ -80,22 +80,6 @@ export default function Contact() {
     }
   };
 
-  const [connectme, setconnectme] = useState([]);
-
-  // 🔥 API CALL
-  useEffect(() => {
-    axios
-      .post(
-        "https://dynmic-portfolio-my-website.onrender.com/api/backend/ConnectMe/view",
-      )
-      .then((res) => {
-        setconnectme(res.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-blue-900 py-12 px-4">
       <ToastContainer />
@@ -223,72 +207,8 @@ export default function Contact() {
         {/* Contact Information */}
         <div className="space-y-8">
           {/* Get in Touch Card */}
-          <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8">
-            <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
-              Get In Touch
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">
-              I'm always excited to hear about new projects and opportunities.
-              Whether you need a website, web application, or just want to
-              connect, feel free to reach out!
-            </p>
 
-            {connectme.map((item) => (
-              <div key={item._id} className="space-y-6">
-                {/* Address */}
-                <div className="flex items-start space-x-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
-                  <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <FaMapMarkerAlt className="text-white text-xl" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
-                      Address
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                      {item.Address}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Email */}
-                <div className="flex items-start space-x-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
-                  <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <FaEnvelope className="text-white text-xl" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
-                      Email
-                    </h4>
-                    <a
-                      href={`mailto:${item.Email}`}
-                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                    >
-                      {item.Email}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div className="flex items-start space-x-4 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
-                  <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <FaPhoneAlt className="text-white text-xl" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
-                      Phone
-                    </h4>
-                    <a
-                      href={`tel:${item.Phone}`}
-                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                    >
-                      {item.Phone}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
+          <GetInTouch />
           {/* Social Links Section (Optional) */}
           <Social />
         </div>
@@ -301,6 +221,91 @@ export default function Contact() {
           Made with ❤️ by Naveen Saini
         </p>
       </div>
+    </div>
+  );
+}
+
+function GetInTouch() {
+  const [connectme, setconnectme] = useState([]);
+
+  // 🔥 API CALL
+  useEffect(() => {
+    axios
+      .post(
+        "https://dynmic-portfolio-my-website.onrender.com/api/backend/ConnectMe/view",
+      )
+      .then((res) => {
+        setconnectme(res.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  return (
+    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8">
+      <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
+        Get In Touch
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">
+        I'm always excited to hear about new projects and opportunities. Whether
+        you need a website, web application, or just want to connect, feel free
+        to reach out!
+      </p>
+
+      {connectme.map((item) => (
+        <div key={item._id} className="space-y-6">
+          {/* Address */}
+          <div className="flex items-start space-x-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
+            <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+              <FaMapMarkerAlt className="text-white text-xl" />
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
+                Address
+              </h4>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                {item.Address}
+              </p>
+            </div>
+          </div>
+
+          {/* Email */}
+          <div className="flex items-start space-x-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
+            <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+              <FaEnvelope className="text-white text-xl" />
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
+                Email
+              </h4>
+              <a
+                href={`mailto:${item.Email}`}
+                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+              >
+                {item.Email}
+              </a>
+            </div>
+          </div>
+
+          {/* Phone */}
+          <div className="flex items-start space-x-4 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-2xl hover:shadow-lg transition-shadow duration-300">
+            <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+              <FaPhoneAlt className="text-white text-xl" />
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
+                Phone
+              </h4>
+              <a
+                href={`tel:${item.Phone}`}
+                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+              >
+                {item.Phone}
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -332,25 +337,20 @@ function Social() {
               console.log("socialv", v);
               return (
                 <a
-                  href="https://wa.me/918619916687"
+                  href={v.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center hover:scale-110 transform transition-all duration-300 hover:shadow-xl"
+                  className="w-14 h-14  rounded-full flex items-center justify-center hover:scale-110 transform transition-all duration-300 hover:shadow-xl"
                 >
-                  <FaWhatsapp className="text-white text-2xl" />
+                  <img
+                    src={v.social_icon}
+                    alt={v.social_name}
+                    className="text-white text-2xl"
+                  />
                 </a>
               );
             })
           : "no data"}
-
-        {/* <a
-          href="https://linkedin.com/in/naveen-saini"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-14 h-14 bg-blue-700 rounded-full flex items-center justify-center hover:scale-110 transform transition-all duration-300 hover:shadow-xl"
-        >
-          <FaLinkedin className="text-white text-2xl" />
-        </a> */}
       </div>
     </div>
   );
