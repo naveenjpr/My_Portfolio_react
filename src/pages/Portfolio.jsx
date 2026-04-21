@@ -42,15 +42,15 @@ import blog_app from "../assets/blog-app.png";
 import axios from "axios";
 
 export default function Portfolio() {
+  let baseUrl = import.meta.env.VITE_API_URL;
+
   const [selectedTech, setSelectedTech] = useState("All");
 
   const [projects, setprojects] = useState([]);
 
   useEffect(() => {
     axios
-      .post(
-        "https://dynmic-portfolio-my-website.onrender.com/api/website/portfolio/view",
-      )
+      .post(`${baseUrl}/api/website/portfolio/view`)
       .then((res) => {
         setprojects(res.data.data);
       })

@@ -32,6 +32,7 @@ import axios from "axios";
 import { GrMysql } from "react-icons/gr";
 
 export default function About() {
+  let baseUrl = import.meta.env.VITE_API_URL;
   const [activeTab, setActiveTab] = useState("about");
 
   return (
@@ -78,14 +79,14 @@ export default function About() {
 
 /* ---------------- About Content ---------------- */
 function AboutContent() {
+  let baseUrl = import.meta.env.VITE_API_URL;
+
   const [profileImage, setProfileImage] = useState(image); // fallback local image
   const [resumePdf, setResumePdf] = useState(resume); // fallback local PDF
 
   useEffect(() => {
     axios
-      .post(
-        "https://dynmic-portfolio-my-website.onrender.com/api/backend/Resume/view",
-      )
+      .post(`${baseUrl}/api/backend/Resume/view`)
       .then((res) => {
         const data = res.data.data;
         if (data && data.length > 0) {
@@ -195,13 +196,13 @@ function AboutContent() {
 }
 
 function MyExperience() {
+  let baseUrl = import.meta.env.VITE_API_URL;
+
   const [experiences, setexperiences] = useState([]);
 
   useEffect(() => {
     axios
-      .post(
-        "https://dynmic-portfolio-my-website.onrender.com/api/website/Experience/view",
-      )
+      .post(`${baseUrl}/api/website/Experience/view`)
       .then((res) => {
         setexperiences(res.data.data);
       })
@@ -313,6 +314,8 @@ function MyExperience() {
 
 /* ---------------- Resume Card ---------------- */
 function ResumeCard({ resumePdf }) {
+  let baseUrl = import.meta.env.VITE_API_URL;
+
   const [downloading, setDownloading] = useState(false);
 
   const handleDownload = async () => {
@@ -402,6 +405,8 @@ function ResumeCard({ resumePdf }) {
 
 /* ---------------- Skills Content (unchanged) ---------------- */
 function SkillsContent() {
+  let baseUrl = import.meta.env.VITE_API_URL;
+
   const [skills, setSkills] = useState([]);
   const [visible, setVisible] = useState(false);
   const containerRef = useRef(null);
@@ -409,9 +414,7 @@ function SkillsContent() {
   // 🔥 API CALL
   useEffect(() => {
     axios
-      .post(
-        "https://dynmic-portfolio-my-website.onrender.com/api/website/skills/view",
-      )
+      .post(`${baseUrl}/api/website/skills/view`)
       .then((res) => {
         setSkills(res.data.data);
       })
@@ -512,12 +515,12 @@ function SkillsContent() {
 
 /* ---------------- Certificates Content (unchanged) ---------------- */
 function CertificatesContent() {
+  let baseUrl = import.meta.env.VITE_API_URL;
+
   const [certificates, setcertificates] = useState([]);
   useEffect(() => {
     axios
-      .post(
-        "https://dynmic-portfolio-my-website.onrender.com/api/website/Achievements/view",
-      )
+      .post(`${baseUrl}/api/website/Achievements/view`)
       .then((res) => {
         setcertificates(res.data.data);
       })

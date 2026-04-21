@@ -14,6 +14,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
+  let baseUrl = import.meta.env.VITE_API_URL;
+
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     yourName: "",
@@ -43,7 +45,7 @@ export default function Contact() {
 
     try {
       const result = await axios.post(
-        "https://dynmic-portfolio-my-website.onrender.com/api/website/clientMessage/add",
+        `${baseUrl}/api/website/clientMessage/add`,
         dataSave,
       );
 
@@ -226,14 +228,14 @@ export default function Contact() {
 }
 
 function GetInTouch() {
+  let baseUrl = import.meta.env.VITE_API_URL;
+
   const [connectme, setconnectme] = useState([]);
 
   // 🔥 API CALL
   useEffect(() => {
     axios
-      .post(
-        "https://dynmic-portfolio-my-website.onrender.com/api/backend/ConnectMe/view",
-      )
+      .post(`${baseUrl}/api/backend/ConnectMe/view`)
       .then((res) => {
         setconnectme(res.data.data);
       })
@@ -311,14 +313,14 @@ function GetInTouch() {
 }
 
 function Social() {
+  let baseUrl = import.meta.env.VITE_API_URL;
+
   const [social, setsocial] = useState([]);
 
   // 🔥 API CALL
   useEffect(() => {
     axios
-      .post(
-        "https://dynmic-portfolio-my-website.onrender.com/api/website/Social/view",
-      )
+      .post(`${baseUrl}/api/website/Social/view`)
       .then((res) => {
         setsocial(res.data.data);
       })
@@ -334,9 +336,9 @@ function Social() {
       <div className="flex space-x-6 justify-center">
         {social.length > 0
           ? social.map((v, i) => {
-              console.log("socialv", v);
               return (
                 <a
+                  key={i}
                   href={v.url}
                   target="_blank"
                   rel="noopener noreferrer"
