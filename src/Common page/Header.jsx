@@ -14,6 +14,8 @@ import {
 import axios from "axios";
 
 const Header = () => {
+  let baseUrl = import.meta.env.VITE_API_URL;
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -74,9 +76,7 @@ const Header = () => {
 
   let resumeDataView = () => {
     axios
-      .post(
-        "https://dynmic-portfolio-my-website.onrender.com/api/backend/Resume/view",
-      )
+      .post(`${baseUrl}/api/backend/Resume/view`)
       .then((res) => {
         console.log(res.data.data);
         setResumeData(res.data.data);
